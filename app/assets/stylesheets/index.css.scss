@@ -1,0 +1,699 @@
+a
+{
+  cursor:pointer;
+}
+body
+{
+//  background-image:url("../img/artleo.com_8159.jpg");
+}
+.wrapper
+{
+  margin: 0 auto;
+  width:1180px;
+
+}
+header, footer
+{
+    display:block;
+    width:100%;
+}
+.registration
+{
+  float:right;
+  background-image: url("1244494752_final.jpg");
+//  margin-top:100px;
+  display:none;
+//  width:150px;
+}
+.right_menu_button
+{
+  float:right;
+  width:30px;
+//  background-color: blue;
+  color:black;
+  margin-top:10px;
+  height:100px;
+  borders-radius:4px;
+  background-image: url("banner.png");
+}
+.right_menu_button a
+{
+//  background-image: url("../img/banner.png");
+  height: 30px;
+  width:100px;
+}
+.registration input
+{
+  float:left;
+  width:200px;
+  margin-top:10px;
+  margin-bottom:10px;
+  clear:both;
+}
+.header
+{
+  height:130px;
+}
+.authorization
+{
+  float:right;
+}
+#navigation_panel
+{
+  float:left;
+}
+.nav_pan_guest
+{
+  width:200px;
+  height:300px;
+  float:left;
+  margin-top:10px;
+  p{font-size:11px;}
+  div{padding:0px;}
+}
+.main_part
+{
+  float:left;
+//  width:80%;
+  margin-top:10px;
+  ul{li{width:15%;}}
+  .main_part_content
+  {
+    width:100%;
+
+    .content_sliders
+    {
+//      width:550px;
+//      margin-left:150px;
+//      margin-top:30px;
+      background-color: white;
+      .slider_label_1,.slider_label_2, .slider_label_3{
+//        float:left;
+      display:block;}
+        .slider_1, .slider_2, .slider_3
+        {
+          width:450px;
+          float:left;
+          margin-left:20px;
+//          a{width:3px;}
+          a{ margin-left: -2px;
+            width: 3px;}
+        }
+
+    }
+  }
+} .slider_1, .slider_2
+  {
+    width:450px;
+  }
+.slider_1 a, .slider_2 a
+{
+  margin-left: -2px;
+  width: 3px;
+}
+
+.credit_number
+{
+  width:400px;
+}
+.slider_main_title span
+{
+  font-size:18px;
+}
+.slider_full
+{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.credit_number
+{
+  margin-top:50px;
+  margin-left: 100px;
+}
+.amount
+{
+  border:none;
+}
+.credit_time
+{
+  width:400px;
+  margin-left: 100px;
+  margin-top: 50px;
+  input{border:none;}
+}
+.pay
+{
+  border:none;
+}
+.authorization
+{
+  margin-right:80px;
+  a{
+
+      display:block;
+  }
+  input
+  {
+    float:left;
+  }
+}
+.main_part ul li
+{
+  width:inherit;
+  margin-left:10px !important;
+  margin-right:10px !important;
+}
+.main_part .ui-tabs-nav>li>a
+{
+  padding:5px 35px;
+}
+.main_part>div.main_part_slides
+{
+  width:900px;
+  margin-left:25px;
+}
+.i_frame
+{
+  display:none;
+  padding:15px;
+}
+.i_frame
+{
+  position:absolute;
+}
+.i_frame
+{
+  background-color:#DBDBDB;
+//  width:500px;
+  z-index:100000000;
+}
+.success_registr
+{
+  position:absolute;
+}
+.content_sliders
+{
+  background-color: white;
+}
+.i_frame .frame_title
+{
+  margin-bottom:40px;
+  width:100%;
+}
+.i_frame .frame_title span
+{
+  dusplay:block;
+  float:left;
+  font-size:20px;
+}
+.i_frame .frame_title a
+{
+  background-image:url("../img/i_053.png");
+  display:block;
+  float:right;
+  height:20px;
+  width:20px;
+
+}
+.frame_content #test_form_2
+{
+
+}
+
+.frame_content form input[type=text]
+{
+  width:510px;
+//  float:left;
+}
+.frame_content form span
+{
+  width:280px;
+  display:block;
+  float:left;
+}
+.frame_content form .reg_field
+{
+//  padding-top:5px;
+//  padding-bottom:5px;
+//  float:left;
+  width:100%;
+}
+.frame_content form .reg_field textarea
+{
+  width:100%;
+}
+.frame_content form .reg_field.last_child span
+{
+  float:left;
+  width:auto;
+}
+.frame_content form .reg_field.last_child input
+{
+  float:left;
+}
+.frame_content form .passport_title
+{
+  width:100%;
+}
+#navigation_panel .nav_pan_guest div
+{
+  padding:5px;
+  background-image: url("Creative_Wallpaper_Camouflage_017672_.jpg");
+  color:black;
+  font-size:15px;
+}
+.main_frame
+{
+  display:none;
+//  position:absolute;
+//  min-height:10px;
+//  z-index:1000000;
+//  background-image: url("../img/51063727.jpg");
+//  color:black;
+//  font-size:16px;
+  margin-left: 15px;
+  width: 800px;
+}
+
+.main_frame .main_frame_content
+{
+  float:left;
+  width:100%;
+  padding:15px;
+}
+.main_frame .main_frame_title
+{
+  float:left;
+  width:100%;
+  font-size:18px;
+  border-bottom: 3px solid #000000;
+}
+.main_frame .main_frame_title span
+{
+  display:block;
+  float:left;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.main_frame .main_frame_title a
+{
+  float:right;
+  display:block;
+  margin-right:20px;
+  margin-top:10px;
+  height:30px;
+  width:30px;
+  background-image: url("i_053.png");
+}
+#registration_form_voen .slider_full>div
+{
+  float:left;
+  width:450px;
+  margin-left:20px;
+  a
+  {
+    width:3px;
+    margin-left:-2px;
+  }
+
+}
+.user_table div
+{
+  display:inline;
+}
+  #SLIDER
+  {
+    float:left;
+    width:100%;
+    height:50px;
+  }
+.main_slider_news
+{
+  float:left;
+  width:100%;
+}
+#slides
+{
+  width:700px;
+}
+
+.user_table
+{
+  background-color: #1c94c4;
+}
+.user_table .table_head
+{
+  float:left;
+//  width:100%;
+
+}
+.user_table .table_head .head_title
+{
+  border:1px solid black;
+  width:150px;
+  float:left;
+  display:inline-block;
+}
+
+.user_table .tr_user
+{
+  float:left;
+  width:100%;
+}
+.user_table .tr_user .user_row
+{
+//  float:left;
+//  width:150px;
+}
+.slider_news
+{
+  float:left;
+  width:100%;
+}
+.header .logotype_vb
+{
+  float:left;
+//  background-image:url("../img/vb_logo.png");
+//  background-repeat: no-repeat;
+}
+.head_titles
+{
+  width:1260px;
+}
+.head_title
+{
+  float:left;
+  margin-right:90px;
+
+}
+.user_row
+{
+  float:left;
+}
+.heads_titles
+{
+  float:left;
+  width:1260px;
+}
+.data_table
+{
+
+}
+.user_inf
+{
+
+}
+.admin_frame
+{
+  position: absolute;
+  display:none;
+  width:500px;
+  height:200px;
+  background-color: #d0d0d0;
+  z-index: 1000000;
+}
+.user_full_info
+{
+  position: absolute;
+  display:none;
+  width:500px;
+  height:200px;
+  background-color: #d0d0d0;
+  z-index: 1000000;
+}
+#right_menu_button_click
+{
+  display:block;
+}
+
+.credit_time input,
+.credit_number input
+{
+  width:100px;
+}
+.reg_field .reg_field_sex_male
+{
+  float:left;
+}
+.reg_field .reg_field_sex_female
+{
+//  float:left;
+}
+#ui-datepicker-div
+{
+  z-index: 100000000000000000000000;
+}
+.error
+{
+  border:1px solid #FF0000;
+}
+.ok
+{
+  border:1px solid #00FF00;
+}
+.error_msg
+{
+  color:red;
+  margin-left:280px;
+}
+.error_radio
+{
+  color:red;
+  margin-left:280px;
+}
+
+.Passport .reg_field span
+{
+  width:277px;
+  display:block;
+  float:left;
+}
+.Passport .reg_field input
+{
+  float:left;
+  width:300px;
+}
+.voen_passport .reg_field span
+{
+  width:277px;
+  display:block;
+  float:left;
+}
+.voen_passport .reg_field input
+{
+  float:left;
+  width:300px;
+}
+.contact_information .reg_field input
+{
+  float:left;
+  width:300px;
+}
+  .contact_information .reg_field span
+  {
+    width:277px;
+    display:block;
+    float:left;
+  }
+  .three_relatives
+  {
+    float:left;
+  }
+  .first_pointer,
+  .second_pointer,
+  .third_pointer,
+  .fourth_pointer
+  {
+    background-color:grey;
+    float: right;
+    height: 30px;
+    margin-top: -7px;
+    width: 3px;
+    z-index: 1000000;
+  }
+  .first_pointer
+  {
+
+    margin-right: 0%;
+
+  }
+  .second_pointer
+  {
+    margin-right: 39%;
+  }
+  .third_pointer
+  {
+    margin-right: 39%;
+  }
+  .fourth_pointer
+  {
+    margin-right: 19.3%;
+  }
+  .fifth_pointer
+  {
+    margin-right: 31.3%;
+  }
+  .Range_numbers
+  {
+    float:left;
+    width:480px;
+    font-size:10px;
+    font-weight: lighter;
+  }
+  .Range_numbers span
+  {
+    display:block;
+    float:right;
+    margin-top:5px;
+  }
+  .Range_numbers  .third_price
+  {
+    margin-right:27%;
+  }
+  .Range_numbers  .second_price
+  {
+    margin-right: 30%;
+  }
+  .Range_numbers  .first_price
+  {
+    margin-right:11%;
+  }
+  .Range_numbers  .fourth_price
+  {
+    margin-right:-7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Range_numbers_2
+{
+  float:left;
+  width:480px;
+  font-size:10px;
+  font-weight: lighter;
+}
+.Range_numbers_2 span
+{
+  display:block;
+  float:right;
+  margin-top:10px;
+}
+.Range_numbers_2  .third_price
+{
+  margin-right:33%;
+}
+.Range_numbers_2  .second_price
+{
+  margin-right: 35%;
+}
+.Range_numbers_2  .first_price
+{
+  margin-right:17%;
+}
+.Range_numbers_2  .fourth_price
+{
+  margin-right:1%;
+}
+
+
+
+.Range_numbers_3
+{
+  float:left;
+  width:480px;
+  font-size:10px;
+  font-weight: lighter;
+}
+.Range_numbers_3 span
+{
+  display:block;
+  float:right;
+  margin-top:10px;
+}
+.Range_numbers_3  .third_price
+{
+  margin-right:30%;
+}
+.Range_numbers_3  .second_price
+{
+  margin-right: 31%;
+}
+.Range_numbers_3  .first_price
+{
+  margin-right:12%;
+}
+.Range_numbers_3  .fourth_price
+{
+  margin-right:-1%;
+}
+.month_pay
+{
+  width:510px;
+}
+.row_disabled
+{
+  opacity:0.5;
+}
+.user_inf
+{
+  float:left;
+  width:1500px;
+}
+  .user_inf div
+  {
+    margin-right:46px;
+  }
+  .user_row.date
+  {
+    margin-right:150px;
+  }
+.user_row.summ
+{
+  margin-right:120px;
+}
+.first_loan
+{
+  font-size:20px;
+}
+.first_loan span
+{
+  margin-left:20px;
+  margin-right:20px;
+}
+.main_part_slides
+{
+//  opacity:0.3;
+}
+#registration
+{
+  background-image: url("../img/container.png");
+  background-size: 100% 100%;
+  overflow:hidden;
+  height:465px;
+  width:500px;
+  margin-left:30px;
+  padding:20px;
+
+
+}
+.valid
+{
+  border: 1px solid #1FFF00;
+}
+  #registration #second_step, #third_step, #fourth_step, #fifth_step, #special_kursant, #special_contract, #special_officer
+  {
+    display:none;
+  }
