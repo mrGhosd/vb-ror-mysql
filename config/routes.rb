@@ -1,6 +1,14 @@
 VoenbankRorPostgres::Application.routes.draw do
   root "index#index"
   get "static_pages/:page_id", controller: "static_pages", action: "page", as: "static_page"
+  post "/login", controller: "index", action: "login"
+  post "/index", controller: "index", action: "index"
+  get "/private_office/:id", controller: "index", action: "private_office", as: "private_office"
+  get "/logout", controller: "index", action: "logout"
+  # get "/signup", controller: "index", action: "new"
+  # post "/sessions", controller: "index", action: "create_session"
+  # match "/signout", to: "index#destroy_session", via: "delete"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

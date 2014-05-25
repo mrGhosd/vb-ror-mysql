@@ -1,0 +1,5 @@
+.authorization
+  = form_tag("/login", method: "post") do
+    = text_field_tag :login, "", placeholder: "Логин", class: "auth_login"
+    = password_field_tag :password, "", placeholder: "Пароль", class: "auth_pass"
+    = submit_tag("Войти", class: "submit_login")

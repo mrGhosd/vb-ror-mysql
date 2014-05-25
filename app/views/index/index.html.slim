@@ -1,1 +1,3 @@
-/= render template: "/shared/main_head"
+
+- if @current_user
+ p = "Добро пожаловать, #{@current_user.name}"
