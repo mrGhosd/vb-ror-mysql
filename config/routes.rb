@@ -5,6 +5,7 @@ VoenbankRorPostgres::Application.routes.draw do
   post "/index", controller: "index", action: "index"
   get "/private_office/:id", controller: "index", action: "private_office", as: "private_office"
   get "/logout", controller: "index", action: "logout"
+  resource :stocks
   # get "/signup", controller: "index", action: "new"
   # post "/sessions", controller: "index", action: "create_session"
   # match "/signout", to: "index#destroy_session", via: "delete"

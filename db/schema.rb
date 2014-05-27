@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524123336) do
+ActiveRecord::Schema.define(version: 20140525201008) do
 
   create_table "contact_information", id: false, force: true do |t|
     t.integer "user_id",                              null: false
@@ -67,14 +67,6 @@ ActiveRecord::Schema.define(version: 20140524123336) do
   create_table "nationality", id: false, force: true do |t|
     t.integer "nationality_id", null: false
     t.text    "value",          null: false
-  end
-
-  create_table "news", id: false, force: true do |t|
-    t.integer "news_id",                null: false
-    t.string  "news_title", limit: 200, null: false
-    t.date    "news_date",              null: false
-    t.time    "news_time",              null: false
-    t.text    "news_text",              null: false
   end
 
   create_table "passport", id: false, force: true do |t|
@@ -160,6 +152,17 @@ ActiveRecord::Schema.define(version: 20140524123336) do
   create_table "sport_mastery", id: false, force: true do |t|
     t.integer "sport_mastery_id", null: false
     t.text    "value",            null: false
+  end
+
+  create_table "stocks", force: true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "types_of_post", id: false, force: true do |t|

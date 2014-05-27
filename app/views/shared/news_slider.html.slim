@@ -1,0 +1,4 @@
+- news_slider = Stock.all
+.news_slider
+ - news_slider.each do |news|
+   = image_tag(news.image.url(:normal))  if news.image.file?
