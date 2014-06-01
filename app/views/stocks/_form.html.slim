@@ -1,0 +1,15 @@
+= form_for :stock, html: {class: 'form-horizontal'} do |f|
+  .control-group
+    = f.label "Заголовок", class: "control-label"
+    .controls
+      = f.text_field :stock_title
+  .control-group
+    = f.label "Текст новости", class: "control-label"
+    .controls
+      = f.text_area :stock_text, rows: 5
+  .control-group
+    = f.label "Изображение", class: "control-label"
+    .controls
+      = f.file_field :image
+  .control-group
+    = f.submit "Отправить"

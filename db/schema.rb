@@ -155,8 +155,8 @@ ActiveRecord::Schema.define(version: 20140525201008) do
   end
 
   create_table "stocks", force: true do |t|
-    t.string   "title"
-    t.text     "text"
+    t.string   "stock_title"
+    t.text     "stock_text"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

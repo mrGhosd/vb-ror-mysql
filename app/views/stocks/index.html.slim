@@ -1,0 +1,21 @@
+table.table.table-bordered
+  tr
+    th = "Номер новости"
+    th = "Заголовок"
+    th = "Текст"
+    th = "Изображение"
+  - @stock.each do |st|
+    tr
+      td
+        = st.id
+      td
+        = st.stock_title
+      td
+        = st.stock_text
+      td
+        - if st.image.present?
+          = image_tag st.image(:small)
+        - else
+          i="Изображения не существует"
+      td
+        = link_to "Редактировать", stock_edit_stocks_path(st.id), class: "btn btn-primary"
