@@ -11,7 +11,7 @@ class StocksController < ApplicationController
   end
 
   def new
-    # @stock = Stock.new
+    @stock = Stock.new
   end
 
   def show
@@ -30,6 +30,19 @@ class StocksController < ApplicationController
 
   def edit
     @stock = Stock.find(params[:id])
+  end
+
+  def destroy
+    @stock = Stock.find(params[:id])
+    @stock.destroy!
+    render json: {success: true}
+  end
+
+  def stock_switch
+    @stock = Stock.find(params[:id])
+    @stock.update_attributes(enabled: !@stock.enabled)
+    result = @stock.enabled ? {success: true} : {success: false}
+    render json: result
   end
 
   private

@@ -9,6 +9,7 @@ html
     .wrapper
       = render template: "shared/main_head"
       = render template: "shared/news_slider"
-      = render template: "shared/navigation/main"
-      .content_part
-        = yield
+      .main_part
+        = render template: "shared/navigation/main"
+        .content_part
+          = yield

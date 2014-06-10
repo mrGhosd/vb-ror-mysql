@@ -1,12 +1,12 @@
-table.table.table-bordered
+table.table.table-bordered.stocks_info
   tr
     th = "Номер новости"
     th = "Заголовок"
     th = "Текст"
     th = "Изображение"
   - @stock.each do |st|
-    tr
-      td
+    tr stock_id='#{st.id}' class="stock_#{st.id}"
+      td.stock_id
         = st.id
       td
         = st.stock_title
@@ -19,3 +19,8 @@ table.table.table-bordered
           i="Изображения не существует"
       td
         = link_to "Редактировать", stock_edit_stocks_path(st.id), class: "btn btn-primary"
+      td
+        = link_to "Удалить", "", class: "btn btn-danger stock-destroy", remote: true
+      td
+        - status, class_val = st.enabled ? "Не отображать" : "Отображать", st.enabled ? "btn-success" : "btn-warning"
+        =link_to status, "",  class: "btn stock-show #{class_val}", remote: true

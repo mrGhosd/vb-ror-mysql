@@ -47,6 +47,12 @@ header, footer
 {
   width:71px;
 }
+.news_slider
+{
+  height:300px;
+  width:900px;
+  overflow: hidden;
+}
 .header .logotype_vb
 {
   float:left;
@@ -72,7 +78,15 @@ header, footer
   p{font-size:11px;}
   div{padding:0px;}
 }
+.main_part
+{
+  background-color: #ffffff;
+  float:left;
+  padding:10px;
+
+}
 .content_part
 {
   display: inline-block;
+  width:790px;
 }

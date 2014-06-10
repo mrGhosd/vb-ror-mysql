@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525201008) do
+ActiveRecord::Schema.define(version: 20140610165137) do
 
   create_table "contact_information", id: false, force: true do |t|
     t.integer "user_id",                              null: false
@@ -163,6 +163,7 @@ ActiveRecord::Schema.define(version: 20140525201008) do
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "enabled",            default: false
   end
 
   create_table "types_of_post", id: false, force: true do |t|

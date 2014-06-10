@@ -10,5 +10,9 @@ VoenbankRorPostgres::Application.routes.draw do
     get '/', controller: 'stocks', action: 'index'
     get '/:id/edit', controller: 'stocks', action: 'edit', as: "stock_edit"
     post '/:id/edit', controller: 'stocks', action: 'update', as: 'update_stock_edit'
+    post '/:id/destroy', controller: 'stocks', action: 'destroy', as: 'delete'
+    get "/new", controller: 'stocks', action: 'new'
+    post "/new", controller: 'stocks', action: 'create'
+    post '/:id/stock_switch', controller: 'stocks', action: 'stock_switch'
     end
   end

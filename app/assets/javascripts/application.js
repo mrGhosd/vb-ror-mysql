@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require test
+//= require stocks
 //= require_tree .
 $(document).ready(function(){
 //NAVIGATION_MENU
