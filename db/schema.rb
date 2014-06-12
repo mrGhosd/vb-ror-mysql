@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 20140610165137) do
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "enabled",            default: false
+    t.boolean  "enabled",            default: true
   end
 
   create_table "types_of_post", id: false, force: true do |t|

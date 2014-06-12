@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require stocks
+//= require slider
 //= require_tree .
 $(document).ready(function(){
 //NAVIGATION_MENU

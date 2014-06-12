@@ -1,4 +1,6 @@
 - news_slider = Stock.where(enabled: true)
-.news_slider
- - news_slider.each do |news|
-   = image_tag(news.image.url(:normal))  if news.image.file?
+.news_slider.slider
+  ul
+   - news_slider.each do |news|
+    li
+      = image_tag(news.image.url(:normal))  if news.image.file?
