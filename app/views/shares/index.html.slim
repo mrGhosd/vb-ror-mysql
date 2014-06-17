@@ -1,0 +1,10 @@
+.partners_page.share_page
+  .static_page_title
+    h2="Акции"
+  - @share.each do |share|
+    .share_item
+      .share_question
+        span.arrow.down
+        p = share.share_title
+        .share_answer
+          = share.share_text

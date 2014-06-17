@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617192323) do
+ActiveRecord::Schema.define(version: 20140617203423) do
 
   create_table "contact_information", id: false, force: true do |t|
     t.integer "user_id",                              null: false
@@ -171,6 +171,14 @@ ActiveRecord::Schema.define(version: 20140617192323) do
     t.text    "unit_address", null: false
     t.integer "duty_phone",   null: false
     t.integer "rank_id",      null: false
+  end
+
+  create_table "shares", force: true do |t|
+    t.string   "share_title"
+    t.text     "share_text"
+    t.boolean  "enabled",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "specialization", id: false, force: true do |t|

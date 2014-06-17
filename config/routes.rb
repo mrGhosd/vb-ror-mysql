@@ -45,4 +45,16 @@ VoenbankRorPostgres::Application.routes.draw do
     get '/admin_show', controller: 'faqs', action: 'admin_show'
     post '/:id/destroy', controller: 'faqs', action: 'destroy'
   end
+
+  resource :shares do
+    get "/new", controller: 'shares', action: 'new'
+    post "/new", controller: 'shares', action: 'create'
+    get '/', controller: 'shares', action: 'index'
+    get '/index_admin', controller: 'shares', action: 'index_admin'
+    get '/:id', controller: 'shares', action: 'show', as: "detail"
+    get '/:id/edit', controller: 'shares', action: 'edit', as: "edit"
+    post '/:id/edit', controller: 'shares', action: 'update', as: 'update_edit'
+    post '/:id/destroy', controller: 'shares', action: 'destroy', as: 'delete'
+    post '/:id/share_switch', controller: 'shares', action: 'share_switch'
+  end
 end

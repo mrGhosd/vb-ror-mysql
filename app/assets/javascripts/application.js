@@ -18,6 +18,7 @@
 //= require feedback
 //= require partners
 //= require faq
+//= require share
 //= require_tree .
 $(document).ready(function(){
 //NAVIGATION_MENU
