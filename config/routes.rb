@@ -35,4 +35,14 @@ VoenbankRorPostgres::Application.routes.draw do
     post '/:id/destroy', controller: 'partners', action: 'destroy', as: 'delete'
     post '/:id/partner_switch', controller: 'partners', action: 'partner_switch'
   end
+
+  resource :faqs do
+    get "/new", controller: 'faqs', action: 'new'
+    post "/new", controller: 'faqs', action: 'create'
+    get '/', controller: 'faqs', action: 'index'
+    get '/:id/edit', controller: 'faqs', action: 'edit', as: "edit"
+    post '/:id/edit', controller: 'faqs', action: 'update', as: 'update'
+    get '/admin_show', controller: 'faqs', action: 'admin_show'
+    post '/:id/destroy', controller: 'faqs', action: 'destroy'
+  end
 end

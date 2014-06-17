@@ -1,0 +1,38 @@
+.faq_page
+{
+  .faq_item {
+    margin-bottom: 26px;
+    .faq_question {
+      font-size: 16px;
+      color: #456d26;
+      cursor: pointer;
+
+      p
+      {
+        text-decoration: underline;
+      }
+
+      span.arrow {
+        displaY: block;
+        float: left;
+        height: 20px;
+        width: 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      span.arrow.down {
+        background-image: url("faq_arrow_down.png");
+      }
+      span.arrow.up {
+        background-image: url("faq_arrow_up.png");
+      }
+    }
+    .faq_question.open {
+      color: #000000;
+    }
+    .faq_answer {
+      display: none;
+      padding-left: 30px;
+    }
+  }
+}

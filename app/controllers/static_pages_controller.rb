@@ -8,6 +8,8 @@ class StaticPagesController < ApplicationController
         redirect_to feedbacks_path
       when "partners"
         redirect_to partners_path
+      when "faq"
+        redirect_to faqs_path
       else
         render "/static_pages/#{params[:page_id]}"
     end

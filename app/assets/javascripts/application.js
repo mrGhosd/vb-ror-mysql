@@ -17,6 +17,7 @@
 //= require slider
 //= require feedback
 //= require partners
+//= require faq
 //= require_tree .
 $(document).ready(function(){
 //NAVIGATION_MENU
