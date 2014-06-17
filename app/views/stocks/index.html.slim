@@ -14,7 +14,7 @@ table.table.table-bordered.stocks_info
         = st.stock_text
       td
         - if st.image.present?
-          = image_tag st.image(:small)
+          = image_tag st.image.url(:small)
         - else
           i="Изображения не существует"
       td

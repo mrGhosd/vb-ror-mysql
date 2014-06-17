@@ -15,17 +15,19 @@
 //= require turbolinks
 //= require stocks
 //= require slider
+//= require feedback
+//= require partners
 //= require_tree .
 $(document).ready(function(){
 //NAVIGATION_MENU
 
-$(".navigation_menu .menu_item .item_title")
-    .mouseenter(function()
-    {
-        $(this).next(".item_description").slideDown('slow');
-    })
-    .mouseleave(function()
-    {
-        $(this).next(".item_description").slideUp('slow');
-    });
+//$(".navigation_menu .menu_item .item_title")
+//    .mouseenter(function()
+//    {
+//        $(this).next(".item_description").slideDown('slow');
+//    })
+//    .mouseleave(function()
+//    {
+//        $(this).next(".item_description").slideUp('slow');
+//    });
 });

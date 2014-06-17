@@ -5,13 +5,19 @@
                 events: ["Акции", "Описание страницы акций"],
                 faq:    ["FAQ", "Страница частозадаваемых вопросов"],
                 contacts: ["Контакты", "Способы связаться с нашей компанией"],
+                feedback: ["Обратная связь", "Страница обратной связи, где вы можете оставить свой отзыв, пожелание или предложение, связанное с улучшение работы системы"],
                 partners:["Партнеры", "Описание страницы партнеров"],
                 about_us: ["О нашей компании", "Описание нашей компании"],
               }
 .navigation_menu
   - left_menu.each do |menu|
+    - if menu[0] == "loan"
+      - path = root_path
+    - else
+      - path = static_page_path(menu[0])
     .menu_item
       .item_title
-        = link_to "#{menu[1][0]}", static_page_path(menu[0])
+        = link_to "#{menu[1][0]}", path
+        span.left_menu_arrow
       .item_description
         = menu[1][1]

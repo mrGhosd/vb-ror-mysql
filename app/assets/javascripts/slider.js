@@ -40,7 +40,6 @@ $(document).ready(function()
         }
     });
 
-    sliderShow();
 });
 function sliderJS (obj, sl) // slider function
 {

@@ -1,20 +1,45 @@
 .navigation_menu .item_description
 {
   display:none;
+  height:120px;
+  padding:5px;
+  color:#ffffff;
 }
 .navigation_menu
 {
-  width:150px;
   display:inline-block;
   float:left;
+  width:197px;
+  background-image: url("left_navigation_menu_wrapper.png");
+  background-size: 100% 100%;
 }
 .navigation_menu .menu_item
 {
-  width:150px;
 }
 .item_title
 {
   height:30px;
+  padding-top:10px;
+  padding-left:20px;
   text-align: left;
   vertical-align: middle;
+  background-image: url("nav_menu_item.png");
+  background-size: 100% 100%;
+}
+.item_title a
+{
+  color:#ffffff;
+  font-size:16px;
+
+
+}
+.left_menu_arrow
+{
+  display:block;
+  float:right;
+  height:12px;
+  width:8px;
+  background-image: url("left_navigation_menu_arrow.png");
+  margin-right:21px;
+  margin-top:4px;
 }

@@ -1,0 +1,9 @@
+.partners_page
+  .static_page_title
+    h2="Наш партнер - #{@partner.partner_title}"
+  .partner_profile
+    .partner_profile_image
+      = image_tag @partner.image(:normal)
+    .partner_description
+      = @partner.partner_description
+= link_to "Редактировать", edit_partners_path, class: 'btn btn-success'

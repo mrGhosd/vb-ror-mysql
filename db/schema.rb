@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610165137) do
+ActiveRecord::Schema.define(version: 20140617164332) do
 
   create_table "contact_information", id: false, force: true do |t|
     t.integer "user_id",                              null: false
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 20140610165137) do
     t.text    "value",        null: false
   end
 
+  create_table "feedbacks", force: true do |t|
+    t.string   "feedback_author"
+    t.text     "feedback_text"
+    t.integer  "feedback_for",     default: 0
+    t.integer  "feedback_against", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "loan", id: false, force: true do |t|
     t.integer "loan_id",    null: false
     t.integer "user_id",    null: false
@@ -67,6 +76,19 @@ ActiveRecord::Schema.define(version: 20140610165137) do
   create_table "nationality", id: false, force: true do |t|
     t.integer "nationality_id", null: false
     t.text    "value",          null: false
+  end
+
+  create_table "partners", force: true do |t|
+    t.string   "partner_title"
+    t.text     "partner_description"
+    t.string   "partner_url"
+    t.boolean  "enabled",             default: true
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "passport", id: false, force: true do |t|
