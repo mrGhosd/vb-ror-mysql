@@ -2,7 +2,7 @@ class StocksController < ApplicationController
 
   def index
     @stock = Stock.all
-    render json: @stock.to_json(only: [:stock_title, :stock_text, :created_at], methods: [:image_url])
+    # render json: @stock.to_json(only: [:stock_title, :stock_text, :created_at], methods: [:image_url])
   end
 
   def create

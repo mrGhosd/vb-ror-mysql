@@ -3,22 +3,11 @@
  */
 $(document).ready(function()
 {
-    $(".faq_question").click(function()
+    $('.faq_question').click(function()
     {
         var title = $(this).children(".arrow");
         var answer = $(this).children(".faq_answer");
-        if($(this).hasClass("open"))
-        {
-            answer.hide();
-            title.removeClass("up").addClass("down");
-            $(this).removeClass("open");
-        }
-        else
-        {
-            answer.show();
-            title.removeClass("down").addClass("up");
-            $(this).addClass("open");
-        }
+        $(this).find(answer).toggle();
     });
 
     $(".faq_destroy").click(function()
@@ -35,3 +24,5 @@ $(document).ready(function()
         });
     });
 });
+
+

@@ -1,7 +1,7 @@
 /**
  * Created by vsokoltsov on 17.06.14.
  */
-$(document).ready(function(){
+var partner_main = function(){
     $(".partner-destroy").click(function()
     {
         var partner_row = $(this).parents("tr");
@@ -53,7 +53,7 @@ $(document).ready(function(){
             obj.fadeIn(200);
         }
     });
-});
+};
 
 function admin_panel(tar, obj)
 {
@@ -72,3 +72,5 @@ function admin_panel(tar, obj)
        }
     });
 }
+
+$(document).on('page:load', partner_main());

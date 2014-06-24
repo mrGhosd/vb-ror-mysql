@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require stocks
@@ -20,16 +21,16 @@
 //= require faq
 //= require share
 //= require_tree .
-$(document).ready(function(){
-//NAVIGATION_MENU
-
-//$(".navigation_menu .menu_item .item_title")
-//    .mouseenter(function()
-//    {
-//        $(this).next(".item_description").slideDown('slow');
-//    })
-//    .mouseleave(function()
-//    {
-//        $(this).next(".item_description").slideUp('slow');
-//    });
-});
+//$(document).ready(function(){
+////NAVIGATION_MENU
+//
+////$(".navigation_menu .menu_item .item_title")
+////    .mouseenter(function()
+////    {
+////        $(this).next(".item_description").slideDown('slow');
+////    })
+////    .mouseleave(function()
+////    {
+////        $(this).next(".item_description").slideUp('slow');
+////    });
+//});

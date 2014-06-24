@@ -63,3 +63,4 @@ $(document).on("click", ".slider .nav span", function() // slider click navigate
     sliderJS(obj, sl); // слайдим
     return false;
 });
+x1
