@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617203423) do
+ActiveRecord::Schema.define(version: 20140626201655) do
+
+  create_table "callbacks", force: true do |t|
+    t.string   "call_surname"
+    t.string   "call_name"
+    t.string   "call_second_name"
+    t.string   "call_email"
+    t.string   "call_phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contact_information", id: false, force: true do |t|
     t.integer "user_id",                              null: false
@@ -22,6 +32,15 @@ ActiveRecord::Schema.define(version: 20140617203423) do
     t.string  "contact_person_name",       limit: 50, null: false
     t.string  "contact_person_secondname", limit: 50, null: false
     t.integer "contact_person_phone",                 null: false
+  end
+
+  create_table "contact_messages", force: true do |t|
+    t.string   "user_name"
+    t.string   "user_email"
+    t.string   "user_phone"
+    t.text     "user_message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contribution_account", id: false, force: true do |t|
@@ -189,6 +208,14 @@ ActiveRecord::Schema.define(version: 20140617203423) do
   create_table "sport_mastery", id: false, force: true do |t|
     t.integer "sport_mastery_id", null: false
     t.text    "value",            null: false
+  end
+
+  create_table "static_pages", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "stocks", force: true do |t|

@@ -12,13 +12,33 @@ class StaticPagesController < ApplicationController
         redirect_to faqs_path
       when "shares"
         redirect_to shares_path
+      when "why_we"
+        why_we
+      when "about_us"
+        about_company
+      when "service"
+        service
+      when "contacts"
+        redirect_to new_contact_messages_path
       else
         render "/static_pages/#{params[:page_id]}"
     end
   end
 
-  def feedback
-    @name = "Hello, world!"
+  def why_we
+    @page = Static_page.find(1)
+    render "/static_pages/why_we"
   end
+
+  def about_company
+    @page = Static_page.find(2)
+    render "/static_pages/about_us"
+  end
+
+  def service
+    @page = Static_page.find(3)
+    render "/static_pages/service"
+  end
+
 
 end

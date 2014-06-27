@@ -7,7 +7,18 @@ $(document).ready(function()
     {
         var title = $(this).children(".arrow");
         var answer = $(this).children(".faq_answer");
-        $(this).find(answer).toggle();
+        if($(this).hasClass('active'))
+        {
+            answer.hide();
+            title.removeClass('up').addClass('down');
+            $(this).removeClass('active');
+        }
+        else
+        {
+            answer.show();
+            title.removeClass('down').addClass('up');
+            $(this).addClass('active');
+        }
     });
 
     $(".faq_destroy").click(function()

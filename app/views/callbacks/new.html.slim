@@ -1,0 +1,15 @@
+.callback_form
+  .callback_title
+    p = "Обратная связь"
+    span.callback_arrow.down.arrow-no-bottom-border
+  .callback_main
+    .callback_form_title
+      p = "Вы можете заказать обратный звонок. Специалист свяжется с вами в течении 1 часа."
+    .callback_main_feild
+      = form_for @callback  do |f|
+        = f.text_field :call_surname, placeholder: 'Фамилия'
+        = f.text_field :call_name,  placeholder: 'Имя'
+        = f.text_field :call_second_name, placeholder: 'Отчество'
+        = f.text_field :call_email, placeholder: 'Email'
+        = f.text_field :call_phone, placeholder: 'Телефон'
+        = f.submit('Отправить', class: 'btn callback_submit')

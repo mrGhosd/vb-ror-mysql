@@ -1,0 +1,11 @@
+.callback_form
+  .callback_title
+    p = "Обратный звонок"
+  .callback_main
+    = form_tag('/callbacks/new', method: 'post', html: { class: "callback_form" })
+      = text_field_tag :surname, nil,  placeholder: 'Фамилия'
+      = text_field_tag :name, nil, placeholder: 'Имя'
+      = text_field_tag :second_name, nil, placeholder: 'Отчество'
+      = text_field_tag :phone, nil, placeholder: 'Телефон'
+      = text_field_tag :email, nil, placeholder: 'email'
+      = submit_tag ' Заказать звонок'

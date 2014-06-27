@@ -92,3 +92,39 @@ body {
 	margin-top:12px;
 }
 
+.about_us_page
+{
+  .main_idea
+  {
+    font-size:24px;
+    font-weight: bold;
+    border-top: 3px dashed #000000;
+    border-bottom: 3px dashed #000000;
+    padding: 20px 30px 20px 50px;
+  }
+  p
+  {
+    margin-bottom: 23px;
+  }
+}
+
+
+.footer
+{
+  font-size:13px;
+  .left_part
+  {
+    width:249px;
+    float:left;
+  }
+  .right_part
+  {
+    width:109px;
+    float:right;
+  }
+}
+#map
+{
+  height:400px;
+  width:800px;
+}

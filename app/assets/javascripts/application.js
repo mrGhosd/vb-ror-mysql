@@ -20,17 +20,24 @@
 //= require partners
 //= require faq
 //= require share
+//= require callback
+//= require underscore
+//= require gmaps/google
+//= require loan
+
+
 //= require_tree .
-//$(document).ready(function(){
-////NAVIGATION_MENU
-//
-////$(".navigation_menu .menu_item .item_title")
-////    .mouseenter(function()
-////    {
-////        $(this).next(".item_description").slideDown('slow');
-////    })
-////    .mouseleave(function()
-////    {
-////        $(this).next(".item_description").slideUp('slow');
-////    });
-//});
+
+var handler = Gmaps.build('google');
+handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+    if(navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(displayOnMap);
+});
+
+function displayOnMap(position){
+    var marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    });
+    handler.map.centerOn(marker);
+}

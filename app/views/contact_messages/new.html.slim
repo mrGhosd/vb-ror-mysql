@@ -1,0 +1,32 @@
+.partners_page.contact_messages
+  .static_page_title
+    h2 = "Контакты"
+  .main_information
+    .main_contacts
+      h3 = "Общие контакты"
+      p
+        strong = "Телефон горячей линии:"
+        span = "8 (888) 888-88-88"
+      p
+        strong = "Email компании:"
+        span = "info@site.ru"
+    .special_contacts
+      h3 = "Контакты по определенным вопросам"
+      p
+        strong = "Телефон для связи с ответственным по корпоративным клиентам:"
+        span = "8 (888) 888-88-88"
+      p
+        strong = "Телефон для связи с ответственным по корпоративному обслуживанию:"
+        span = "8 (888) 888-88-88"
+    .addresses
+      h3 = "Адреса"
+      p
+        strong = "Юридический адрес:"
+        span = "117997, г. Москва, ул. Вавилова, д.19"
+      p
+        strong = "Физический адрес:"
+        span = "117997, г. Москва, ул. Вавилова, д.19"
+    .map
+      h3 = "Карта"
+  = render template: 'callbacks/new'
+  = render 'form'

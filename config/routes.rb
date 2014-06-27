@@ -8,6 +8,10 @@ VoenbankRorPostgres::Application.routes.draw do
   get "/feedback", controller: "static_pages", action: "feedback", as: "feedback"
 
   get "/logout", controller: "index", action: "logout"
+
+
+
+
   resource :stocks do
     get '/:id', controller: 'stocks', action: 'show'
     get '/', controller: 'stocks', action: 'index'
@@ -57,4 +61,17 @@ VoenbankRorPostgres::Application.routes.draw do
     post '/:id/destroy', controller: 'shares', action: 'destroy', as: 'delete'
     post '/:id/share_switch', controller: 'shares', action: 'share_switch'
   end
+
+  resource :contact_messages do
+    get '/', controller: 'contact_messages', action: 'index'
+    # get "/new", controller: 'contact_messages', action: 'new'
+    post "/new", controller: 'contact_messages', action: 'create'
+    post '/:id/destroy', controller: 'contact_messages', action: 'destroy', as: 'delete'
+  end
+
+  resource :callbacks do
+    # get "/new", controller: 'callbacks', action: 'new'
+    # post "/new", controller: 'callbacks', action: 'create'
+  end
+  # post "callbacks/new", controller: 'callbacks', action: 'create'
 end
