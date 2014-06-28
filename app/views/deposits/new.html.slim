@@ -1,0 +1,45 @@
+.static_page.deposit_page
+  .static_page_title
+    h2="Калькулятор вклада"
+  .deposit_calc_wrapper
+    .calc_deposit
+      .slider_deposit_amount
+        .deposit_amount
+          span="Мне надо приумножить:"
+          = text_field_tag nil, nil, class: 'deposit_amount_value'
+        .slider_wrapper
+          span.left_slider_arrow
+          span.right_slider_arrow
+          #slider_deposit_amount
+        .amount_range
+          .range_1 = "100 тыс."
+          .range_2 = "500 тыс."
+          .range_3 = "1 м."
+          .range_4 = "1.5 м."
+          .range_5 = "2 м."
+          .range_6 = "2.5"
+          .range_7 = "3 м."
+
+        .slider_divider
+      .slider_deposit_time
+        .deposit_time
+          span = "За время:"
+          = text_field_tag nil, nil, class: 'deposit_time_value'
+        .slider_wrapper
+          span.left_slider_arrow
+          span.right_slider_arrow
+          #slider_deposit_time
+        .time_range
+          .range_1 = "1"
+          .range_2 = "2"
+          .range_3 = "3"
+        .slider_divider
+      .percents_chose
+        .slider_percent
+          .main_percent_slider
+            p = "Проценты:"
+            p.left_side.active = "Добавлять проценты ко вкладу"
+            p.right_side = "Забирать проценты по итогу расчетного периода"
+            #percents_slider
+      = button_tag 'Получить денежное довольствие', class: 'deposit_confirm'
+

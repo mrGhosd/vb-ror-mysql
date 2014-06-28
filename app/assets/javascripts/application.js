@@ -36,7 +36,7 @@
 //= require jquery.ui.spinner
 //= require jquery.ui.tabs
 //= require jquery.ui.tooltip
-
+//= require deposit
 
 
 //= require_tree .

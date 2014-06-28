@@ -1,0 +1,227 @@
+.deposit_page
+{
+  .deposit_calc_wrapper
+  {
+    width:671px;
+    height:573px;
+    background-image: url('loan_bg_sliders.png');
+    background-size: 100% 100%;
+    padding-bottom:31px;
+
+    .calc_deposit
+    {
+//      padding-top:31px;
+      float:left;
+    }
+  }
+
+  .slider_deposit_amount,
+  .slider_deposit_time {
+    margin-top: 31px;
+    width: 371px;
+    margin-left: 31px;
+  }
+
+  .deposit_amount,
+  .deposit_time
+  {
+    height: 40px;
+    margin-bottom: 22px;
+  }
+
+  .deposit_amount_value,
+  .deposit_time_value {
+    height: 30px;
+    width: 149px;
+    float: right;
+    font-size: 24px;
+  }
+
+  #slider_deposit_amount,
+  #slider_deposit_time {
+    width: 344px;
+    height: 9px;
+    margin-left: 11px;
+    background-color: #c8c8c8;
+    background-image: none;
+
+    .ui-slider-range.ui-widget-header {
+      background-color: #464646;
+      background-image: none;
+    }
+    a.ui-slider-handle {
+      background-image: url('slider_toggle_button.png');
+      border-radius: 13px;
+      top: -6px;
+      cursor:pointer;
+    }
+  }
+  .slider_deposit_amount {
+
+    .deposit_amount {
+      span {
+        font-size: 18px;
+        margin-left: 10px;
+        margin-top: 5px;
+        display: block;
+        float: left;
+      }
+
+    }
+    #slider_amount {
+
+    }
+
+  }
+
+  .slider_deposit_time {
+    .deposit_time {
+      span {
+        font-size: 18px;
+        margin-left: 16px;
+        margin-top: 5px;
+        display: block;
+        float: left;
+      }
+
+    }
+
+  }
+
+
+  .slider_wrapper {
+    margin-bottom:17px;
+    span {
+      display: block;
+      height: 11px;
+      width: 6px;
+      background-repeat: no-repeat;
+    }
+    .left_slider_arrow {
+      background-image: url('slider_left_arrow.png');
+      float: left;
+    }
+    .right_slider_arrow {
+      background-image: url('slider_right_arrow.png');
+      float: right;
+    }
+  }
+
+  .slider_divider {
+    background-image: url('slider_divider.png');
+    height: 2px;
+    width: 441px;
+  }
+
+
+  .amount_range
+  {
+    margin-bottom:31px;
+    div
+    {
+      display:inline-block;
+      font-size:10px;
+      margin-right:33px;
+    }
+    .range_7
+    {
+      margin-right:0px;
+    }
+
+  }
+  .time_range
+  {
+    margin-bottom:31px;
+    div
+    {
+      display:inline-block;
+      font-size:10px;
+      margin-right:172px;
+    }
+    .range_3
+    {
+      margin-right:0px;
+    }
+  }
+
+  .deposit_confirm
+  {
+    display:block;
+    color:#ffffff;
+    font-size:23px;
+    height:61px;
+    width:410px;
+    background-image: url('feedback_button.png');
+    background-size: 100% 100%;
+    border-radius:9px;
+    border:none;
+    margin-left:40px;
+
+  }
+  .deposit_confirm:hover
+  {
+    background-image: url('green_button_hover.png');
+    background-size: 100% 100%;
+  }
+  .deposit_confirm:active
+  {
+    background-image: url('green_button_click.png');
+  }
+  .percents_chose
+  {
+    margin-bottom:31px;
+  }
+  .slider_percent {
+    .main_percent_slider {
+
+      height:120px;
+      width:300px;
+      margin-left:82px;
+      p
+      {
+        text-align:center;
+        color:#525252;
+        font-size:20px;
+      }
+
+      .left_side
+      {
+        width:90px;
+        float:left;
+        color: #979797;
+      }
+      .right_side
+      {
+        width:80px;
+        float:right;
+        color: #979797;
+        text-align: left;
+      }
+      .active
+      {
+        color: #000000;
+      }
+      #percents_slider
+      {
+       width:79px;
+        height:16px;
+        float:left;
+        margin-top:25px;
+        margin-left:25px;
+        background-color: #c8c8c8;
+        background-image: none;
+
+        .ui-slider-range.ui-widget-header {
+          background-color: #464646;
+          background-image: none;
+        }
+        a.ui-slider-handle {
+          background-image: url('percent_slider_button.png');
+          border-radius: 13px;
+          top: -4px;
+          cursor:pointer;
+        }
+      }
+    }
+  }
+}
