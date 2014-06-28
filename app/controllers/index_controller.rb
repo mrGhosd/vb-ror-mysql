@@ -7,6 +7,10 @@ class IndexController < ApplicationController
 
   end
 
+  def new
+    ::Callback.new
+  end
+
   def private_office
 
   end

@@ -70,8 +70,8 @@ VoenbankRorPostgres::Application.routes.draw do
   end
 
   resource :callbacks do
-    # get "/new", controller: 'callbacks', action: 'new'
-    # post "/new", controller: 'callbacks', action: 'create'
+    get "/new", controller: 'callbacks', action: 'new'
+    post "/new", controller: 'callbacks', action: 'create'
   end
   # post "callbacks/new", controller: 'callbacks', action: 'create'
 end
