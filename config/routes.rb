@@ -73,5 +73,7 @@ VoenbankRorPostgres::Application.routes.draw do
     get "/new", controller: 'callbacks', action: 'new'
     post "/new", controller: 'callbacks', action: 'create'
   end
+
+  resource :deposits
   # post "callbacks/new", controller: 'callbacks', action: 'create'
 end

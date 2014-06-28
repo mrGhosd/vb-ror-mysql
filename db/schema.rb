@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626201655) do
+ActiveRecord::Schema.define(version: 20140628151841) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -52,13 +52,15 @@ ActiveRecord::Schema.define(version: 20140626201655) do
     t.boolean "removed/brought", null: false
   end
 
-  create_table "deposit", id: false, force: true do |t|
-    t.integer "deposit_id",           null: false
-    t.integer "user_id",              null: false
-    t.integer "deposiе_current_summ", null: false
-    t.integer "percent_id",           null: false
-    t.date    "begin_date",           null: false
-    t.boolean "response",             null: false
+  create_table "deposits", id: false, force: true do |t|
+    t.integer  "deposit_id",           null: false
+    t.integer  "user_id",              null: false
+    t.integer  "deposiе_current_summ", null: false
+    t.integer  "percent_id",           null: false
+    t.date     "begin_date",           null: false
+    t.boolean  "response",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "education", id: false, force: true do |t|
@@ -82,7 +84,13 @@ ActiveRecord::Schema.define(version: 20140626201655) do
     t.datetime "updated_at"
   end
 
-  create_table "loan", id: false, force: true do |t|
+  create_table "loan_repayment", id: false, force: true do |t|
+    t.integer "loan_id",      null: false
+    t.integer "granted_summ", null: false
+    t.date    "date_change",  null: false
+  end
+
+  create_table "loans", id: false, force: true do |t|
     t.integer "loan_id",    null: false
     t.integer "user_id",    null: false
     t.integer "loan_summ",  null: false
@@ -91,12 +99,6 @@ ActiveRecord::Schema.define(version: 20140626201655) do
     t.integer "percent_id", null: false
     t.boolean "status",     null: false
     t.boolean "response",   null: false
-  end
-
-  create_table "loan_repayment", id: false, force: true do |t|
-    t.integer "loan_id",      null: false
-    t.integer "granted_summ", null: false
-    t.date    "date_change",  null: false
   end
 
   create_table "nationality", id: false, force: true do |t|
