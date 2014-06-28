@@ -1,0 +1,19 @@
+= form_for :partner, html: {class: 'form-horizontal'} do |f|
+  .control-group
+    = f.label "Название партнера"
+    .controls
+      = f.text_field :partner_title
+  .control-group
+    = f.label "Описание партнера"
+    .controls
+      = f.text_area :partner_description, rows: 5
+  .control-group
+    = f.label "Ссылка на страницу партнера"
+    .controls
+      = f.text_field :partner_url
+  .control-group
+    = f.label "Изображение"
+    .controls
+      = f.file_field :image
+  .control-group
+    = f.submit "Отправить"

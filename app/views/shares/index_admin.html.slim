@@ -1,0 +1,20 @@
+table.table.table-bordered.stocks_info
+  tr
+    th = "Номер акции"
+    th = "Заголовок"
+    th = "Текст"
+  - @share.each do |share|
+    tr share_id='#{share.id}' class="share_#{share.id}"
+      td.stock_id
+        = share.id
+      td
+        = share.share_title
+      td
+        = share.share_text
+      td
+        = link_to "Редактировать", edit_shares_path(share.id), class: "btn btn-primary"
+      td
+        = link_to "Удалить", "", class: "btn btn-danger share_destroy", remote: true
+      td
+        - status, class_val = share.enabled ? "Не отображать" : "Отображать", share.enabled ? "btn-success" : "btn-warning"
+        =link_to status, "",  class: "btn share-show #{class_val}", remote: true

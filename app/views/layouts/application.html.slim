@@ -11,5 +11,7 @@ html
       = render template: "shared/news_slider"
       .main_part
         = render template: "shared/navigation/main"
+        .divide_line
         .content_part
           = yield
+      = render partial: 'shared/footer'

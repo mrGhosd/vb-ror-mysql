@@ -1,0 +1,15 @@
+.contact_messages_form
+  = form_for :contact_message do |f|
+    .form_field
+      = f.label 'Имя'
+      = f.text_field :user_name
+    .form_field.second
+      = f.label 'Email'
+      = f.text_field :user_email
+    .form_field
+      = f.label 'Телефон'
+      = f.text_field :user_phone
+    .form_field.textarea
+      = f.label 'Ваше сообщение'
+      = f.text_area :user_message
+      = f.submit 'Отправить', class: 'contact_message_submit'

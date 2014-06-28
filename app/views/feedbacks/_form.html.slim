@@ -1,0 +1,11 @@
+= form_tag('/feedbacks/new', method:'post', html: {class: 'form-horizontal'})
+  .control-group
+    = label_tag "Имя:"
+    .control-group
+      = text_field_tag :feedback_author
+  .control-group
+    = label_tag "Отзыв:"
+    .control-group
+      = text_area_tag :feedback_text
+  .control-group
+    = submit_tag "Оставить отзыв", class: "feedback_button"

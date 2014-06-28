@@ -40,7 +40,6 @@ $(document).ready(function()
         }
     });
 
-    sliderShow();
 });
 function sliderJS (obj, sl) // slider function
 {
@@ -64,3 +63,4 @@ $(document).on("click", ".slider .nav span", function() // slider click navigate
     sliderJS(obj, sl); // слайдим
     return false;
 });
+x1

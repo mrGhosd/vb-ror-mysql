@@ -6,7 +6,6 @@ a
 html, body
 {
   background-image:url("vb_pattrn_0061.jpg");
-  background-size: 100% 100%;
 }
 .wrapper
 {
@@ -81,12 +80,33 @@ header, footer
 .main_part
 {
   background-color: #ffffff;
-  float:left;
   padding:10px;
-
+  min-height:700px;
+  padding-top: 31px;
 }
 .content_part
 {
   display: inline-block;
-  width:790px;
+  width:680px;
+}
+.divide_line
+{
+  height:618px;
+  width:1px;
+  background-color: #000000;
+  float:left;
+  margin-left:25px;
+  margin-right:25px;
+}
+
+.static_page_title
+{
+  background-image: url("static_page_title_wrapper.png");
+  background-size: 100% 100%;
+  margin-bottom:30px;
+}
+
+.static_page_title h2
+{
+  font-size: 24px;
 }

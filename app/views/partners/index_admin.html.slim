@@ -1,0 +1,31 @@
+.partners_page
+  table.table.table-bordered.stocks_info
+    tr
+      th = "Номер партнера"
+      th = "Название"
+      th = "Описание"
+      th = "Ссылка на ресурс"
+      th = "Изображение"
+    - @partners.each do |partner|
+      tr partner_id='#{partner.id}' class="partner_#{partner.id} main"
+        td.stock_id
+          = partner.id
+        td
+          = partner.partner_title
+        td
+          = partner.partner_description.first(25)<<"..."
+        td
+          = partner.partner_url
+        td
+          - if partner.image.present?
+            = image_tag partner.image.url(:small)
+          - else
+            i="Изображения не существует"
+      tr partner_id='#{partner.id}' class="partner_#{partner.id} hidden"
+        td
+          = link_to "Редактировать", edit_partners_path(partner.id), class: "btn btn-primary"
+        td
+          = link_to "Удалить", "", class: "btn btn-danger partner-destroy", remote: true
+        td
+          - status, class_val = partner.enabled ? "Не отображать" : "Отображать", partner.enabled ? "btn-success" : "btn-warning"
+          =link_to status, "",  class: "btn partner-show #{class_val}", remote: true

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610165137) do
+ActiveRecord::Schema.define(version: 20140626201655) do
+
+  create_table "callbacks", force: true do |t|
+    t.string   "call_surname"
+    t.string   "call_name"
+    t.string   "call_second_name"
+    t.string   "call_email"
+    t.string   "call_phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contact_information", id: false, force: true do |t|
     t.integer "user_id",                              null: false
@@ -22,6 +32,15 @@ ActiveRecord::Schema.define(version: 20140610165137) do
     t.string  "contact_person_name",       limit: 50, null: false
     t.string  "contact_person_secondname", limit: 50, null: false
     t.integer "contact_person_phone",                 null: false
+  end
+
+  create_table "contact_messages", force: true do |t|
+    t.string   "user_name"
+    t.string   "user_email"
+    t.string   "user_phone"
+    t.text     "user_message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contribution_account", id: false, force: true do |t|
@@ -47,6 +66,22 @@ ActiveRecord::Schema.define(version: 20140610165137) do
     t.text    "value",        null: false
   end
 
+  create_table "faqs", force: true do |t|
+    t.text     "question"
+    t.text     "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.string   "feedback_author"
+    t.text     "feedback_text"
+    t.integer  "feedback_for",     default: 0
+    t.integer  "feedback_against", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "loan", id: false, force: true do |t|
     t.integer "loan_id",    null: false
     t.integer "user_id",    null: false
@@ -67,6 +102,19 @@ ActiveRecord::Schema.define(version: 20140610165137) do
   create_table "nationality", id: false, force: true do |t|
     t.integer "nationality_id", null: false
     t.text    "value",          null: false
+  end
+
+  create_table "partners", force: true do |t|
+    t.string   "partner_title"
+    t.text     "partner_description"
+    t.string   "partner_url"
+    t.boolean  "enabled",             default: true
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "passport", id: false, force: true do |t|
@@ -144,6 +192,14 @@ ActiveRecord::Schema.define(version: 20140610165137) do
     t.integer "rank_id",      null: false
   end
 
+  create_table "shares", force: true do |t|
+    t.string   "share_title"
+    t.text     "share_text"
+    t.boolean  "enabled",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "specialization", id: false, force: true do |t|
     t.integer "specialization_id", null: false
     t.text    "value",             null: false
@@ -152,6 +208,14 @@ ActiveRecord::Schema.define(version: 20140610165137) do
   create_table "sport_mastery", id: false, force: true do |t|
     t.integer "sport_mastery_id", null: false
     t.text    "value",            null: false
+  end
+
+  create_table "static_pages", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "stocks", force: true do |t|

@@ -1,0 +1,10 @@
+.static_page.faq_page
+  .static_page_title
+    h2="FAQ"
+  - @faq.each do |faq|
+    .faq_item
+      .faq_question
+        span.arrow.down
+        p = faq.question
+        .faq_answer
+          = faq.answer
