@@ -1,227 +1,384 @@
-.deposit_page
-{
-  .deposit_calc_wrapper
-  {
-    width:671px;
-    height:573px;
+.deposit_page {
+  .deposit_calc_wrapper {
+    width: 671px;
+    height: 573px;
     background-image: url('loan_bg_sliders.png');
     background-size: 100% 100%;
-    padding-bottom:31px;
+    padding-bottom: 31px;
 
-    .calc_deposit
-    {
-//      padding-top:31px;
-      float:left;
-    }
-  }
-
-  .slider_deposit_amount,
-  .slider_deposit_time {
-    margin-top: 31px;
-    width: 371px;
-    margin-left: 31px;
-  }
-
-  .deposit_amount,
-  .deposit_time
-  {
-    height: 40px;
-    margin-bottom: 22px;
-  }
-
-  .deposit_amount_value,
-  .deposit_time_value {
-    height: 30px;
-    width: 149px;
-    float: right;
-    font-size: 24px;
-  }
-
-  #slider_deposit_amount,
-  #slider_deposit_time {
-    width: 344px;
-    height: 9px;
-    margin-left: 11px;
-    background-color: #c8c8c8;
-    background-image: none;
-
-    .ui-slider-range.ui-widget-header {
-      background-color: #464646;
-      background-image: none;
-    }
-    a.ui-slider-handle {
-      background-image: url('slider_toggle_button.png');
-      border-radius: 13px;
-      top: -6px;
-      cursor:pointer;
-    }
-  }
-  .slider_deposit_amount {
-
-    .deposit_amount {
-      span {
-        font-size: 18px;
-        margin-left: 10px;
-        margin-top: 5px;
-        display: block;
-        float: left;
-      }
-
-    }
-    #slider_amount {
-
-    }
-
-  }
-
-  .slider_deposit_time {
-    .deposit_time {
-      span {
-        font-size: 18px;
-        margin-left: 16px;
-        margin-top: 5px;
-        display: block;
-        float: left;
-      }
-
-    }
-
-  }
-
-
-  .slider_wrapper {
-    margin-bottom:17px;
-    span {
-      display: block;
-      height: 11px;
-      width: 6px;
-      background-repeat: no-repeat;
-    }
-    .left_slider_arrow {
-      background-image: url('slider_left_arrow.png');
+    .calc_deposit {
+      //      padding-top:31px;
       float: left;
     }
-    .right_slider_arrow {
-      background-image: url('slider_right_arrow.png');
+
+    .slider_deposit_amount,
+    .slider_deposit_time {
+      margin-top: 31px;
+      width: 371px;
+      margin-left: 31px;
+    }
+
+    .deposit_amount,
+    .deposit_time {
+      height: 40px;
+      margin-bottom: 22px;
+    }
+
+    .deposit_amount_value,
+    .deposit_time_value {
+      height: 30px;
+      width: 149px;
       float: right;
-    }
-  }
-
-  .slider_divider {
-    background-image: url('slider_divider.png');
-    height: 2px;
-    width: 441px;
-  }
-
-
-  .amount_range
-  {
-    margin-bottom:31px;
-    div
-    {
-      display:inline-block;
-      font-size:10px;
-      margin-right:33px;
-    }
-    .range_7
-    {
-      margin-right:0px;
+      font-size: 24px;
     }
 
-  }
-  .time_range
-  {
-    margin-bottom:31px;
-    div
-    {
-      display:inline-block;
-      font-size:10px;
-      margin-right:172px;
-    }
-    .range_3
-    {
-      margin-right:0px;
-    }
-  }
+    #slider_deposit_amount,
+    #slider_deposit_time {
+      width: 344px;
+      height: 9px;
+      margin-left: 11px;
+      background-color: #c8c8c8;
+      background-image: none;
 
-  .deposit_confirm
-  {
-    display:block;
-    color:#ffffff;
-    font-size:23px;
-    height:61px;
-    width:410px;
-    background-image: url('feedback_button.png');
-    background-size: 100% 100%;
-    border-radius:9px;
-    border:none;
-    margin-left:40px;
-
-  }
-  .deposit_confirm:hover
-  {
-    background-image: url('green_button_hover.png');
-    background-size: 100% 100%;
-  }
-  .deposit_confirm:active
-  {
-    background-image: url('green_button_click.png');
-  }
-  .percents_chose
-  {
-    margin-bottom:31px;
-  }
-  .slider_percent {
-    .main_percent_slider {
-
-      height:120px;
-      width:300px;
-      margin-left:82px;
-      p
-      {
-        text-align:center;
-        color:#525252;
-        font-size:20px;
-      }
-
-      .left_side
-      {
-        width:90px;
-        float:left;
-        color: #979797;
-      }
-      .right_side
-      {
-        width:80px;
-        float:right;
-        color: #979797;
-        text-align: left;
-      }
-      .active
-      {
-        color: #000000;
-      }
-      #percents_slider
-      {
-       width:79px;
-        height:16px;
-        float:left;
-        margin-top:25px;
-        margin-left:25px;
-        background-color: #c8c8c8;
+      .ui-slider-range.ui-widget-header {
+        background-color: #464646;
         background-image: none;
+      }
+      a.ui-slider-handle {
+        background-image: url('slider_toggle_button.png');
+        border-radius: 13px;
+        top: -6px;
+        cursor: pointer;
+      }
+    }
 
-        .ui-slider-range.ui-widget-header {
-          background-color: #464646;
-          background-image: none;
+      .slider_deposit_amount {
+
+        .deposit_amount {
+          span {
+            font-size: 18px;
+            margin-left: 10px;
+            margin-top: 5px;
+            display: block;
+            float: left;
+          }
+
         }
-        a.ui-slider-handle {
-          background-image: url('percent_slider_button.png');
-          border-radius: 13px;
-          top: -4px;
-          cursor:pointer;
+        #slider_amount {
+
+        }
+
+      }
+
+      .slider_deposit_time {
+        .deposit_time {
+          span {
+            font-size: 18px;
+            margin-left: 16px;
+            margin-top: 5px;
+            display: block;
+            float: left;
+          }
+
+        }
+
+      }
+
+      .slider_wrapper {
+        margin-bottom: 17px;
+        span {
+          display: block;
+          height: 11px;
+          width: 6px;
+          background-repeat: no-repeat;
+        }
+        .left_slider_arrow {
+          background-image: url('slider_left_arrow.png');
+          float: left;
+        }
+        .right_slider_arrow {
+          background-image: url('slider_right_arrow.png');
+          float: right;
+        }
+      }
+
+      .slider_divider {
+        background-image: url('slider_divider.png');
+        height: 2px;
+        width: 371px;
+      }
+
+      .amount_range {
+        margin-bottom: 31px;
+        div {
+          display: inline-block;
+          font-size: 10px;
+          margin-right: 33px;
+        }
+        .range_7 {
+          margin-right: 0px;
+        }
+
+      }
+      .time_range {
+        margin-bottom: 31px;
+        div {
+          display: inline-block;
+          font-size: 10px;
+          margin-right: 172px;
+        }
+        .range_3 {
+          margin-right: 0px;
+        }
+      }
+
+      .deposit_confirm {
+        display: block;
+        color: #ffffff;
+        font-size: 23px;
+        height: 61px;
+        width: 410px;
+        background-image: url('feedback_button.png');
+        background-size: 100% 100%;
+        border-radius: 9px;
+        border: none;
+        margin-left: 21px;
+
+      }
+      .deposit_confirm:hover {
+        background-image: url('green_button_hover.png');
+        background-size: 100% 100%;
+      }
+      .deposit_confirm:active {
+        background-image: url('green_button_click.png');
+      }
+      .percents_chose {
+        margin-bottom: 31px;
+      }
+      .slider_percent {
+        .main_percent_slider {
+
+          height: 120px;
+          width: 300px;
+          margin-left: 82px;
+          p {
+            text-align: center;
+            color: #525252;
+            font-size: 20px;
+          }
+
+          .left_side {
+            width: 90px;
+            float: left;
+            color: #979797;
+          }
+          .right_side {
+            width: 80px;
+            float: right;
+            color: #979797;
+            text-align: left;
+          }
+          .active {
+            color: #000000;
+          }
+          #percents_slider {
+            width: 79px;
+            height: 16px;
+            float: left;
+            margin-top: 25px;
+            margin-left: 25px;
+            background-color: #c8c8c8;
+            background-image: none;
+
+            .ui-slider-range.ui-widget-header {
+              background-color: #464646;
+              background-image: none;
+            }
+            a.ui-slider-handle {
+              background-image: url('percent_slider_button.png');
+              border-radius: 13px;
+              top: -4px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .deposit_diagram {
+        float: right;
+        margin-top: 31px;
+
+        .deposit_information
+        {
+          .main_title
+          {
+            font-size:20px;
+            margin-bottom:15px;
+          }
+          p.current_summ
+          {
+            font-size:38px;
+            text-align: center;
+            color:#464646;
+            margin-bottom:15px;
+          }
+          .pay_list
+          {
+            li
+            {
+              list-style: disc;
+              list-style-position: inside;
+              .user_deposit,
+              .added_percents
+              {
+                margin-left:15px;
+              }
+            }
+          }
+        }
+        .deposit_diagram_wrapper
+        {
+          width: 201px;
+          height: 280px;
+          background-image: url('deposit_diagram_wrapper.png');
+          background-repeat: no-repeat;
+          margin-right:15px;
+          position: relative;
+          margin-bottom:40px;
+
+          .deposit_left_diagram,
+          .deposit_right_diagram
+          {
+            position:absolute;
+            bottom:0px;
+
+            .deposit_diagram_top
+            {
+              background-image: url("left_diagram_top.png");
+              height:24px;
+              width:48px;
+              left:1px;
+              position:relative;
+              top:34px;
+            }
+            .deposit_diagram_middle
+            {
+              position:relative;
+              top:22px;
+              left:1px;
+              .deposit_diagram_middle_top
+              {
+                background-image: url("left_diagram_middle_top.png");
+                height:13px;
+                width:48px;
+              }
+              .deposit_diagram_middle_middle
+              {
+                background-image: url('left_diagram_middle_middle.png');
+                height: 80px;
+                width: 48px;
+                z-index: 100;
+              }
+              .deposit_diagram_middle_bottom
+              {
+                background-image: url("left_diagram_middle_bottom.png");
+                height: 11px;
+                width: 48px;
+                z-index: 100;
+
+              }
+            }
+            .deposit_diagram_bottom
+            {
+                background-image: url('left_diagram_bottom.png');
+                height: 24px;
+                width: 50px;
+            }
+          }
+
+          .deposit_left_diagram
+          {
+            float: left;
+            left:20px;
+            .deposit_info_user
+            {
+              position:relative;
+              top:28px;
+            }
+          }
+          .deposit_right_diagram
+          {
+            float:right;
+            right:-10px;
+
+            .deposit_info_user
+            {
+              position:relative;
+              top:58px;
+              right: 15px;
+              width:80px;
+              p
+              {
+                text-align: center;
+              }
+            }
+
+            .deposit_profit_diagram_top
+            {
+              width:48px;
+              height:24px;
+              background-image: url('deposit_profit_diagram_top_top.png');
+              position:relative;
+              z-index: 100;
+              left:1px;
+              top: 69px;
+            }
+
+            .deposit_profit_diagram_middle
+            {
+              .deposit_diagram_middle_top
+              {
+                width:48px;
+                height:14px;
+                background-image: url('deposit_profit_diagram_top.png');
+                position: relative;
+                top: 57px;
+                z-index: 100;
+                left: 1px;
+              }
+              .deposit_diagram_middle_middle
+              {
+                width:48px;
+                background-image: url('deposit_profit_diagram_middle.png');
+                height:40px;
+                position:relative;
+                top:57px;
+                left:1px;
+                z-index:100;
+              }
+              .deposit_diagram_middle_bottom
+              {
+                width:48px;
+                height:20px;
+                background-image: url('deposit_profit_diagram_bottom.png');
+                background-repeat: no-repeat;
+                position:relative;
+                top: 57px;
+                z-index: 100;
+                left: 1px;
+              }
+            }
+          }
         }
       }
     }
+    .vertical_divider_line {
+      height: 511px;
+      width: 1px;
+      background-image: url('deposit_vertical_divider.png');
+      background-repeat: no-repeat;
+      float: left;
+      margin-left: 10px;
+      margin-top:31px;
+    }
   }
-}
+

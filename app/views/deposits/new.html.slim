@@ -42,4 +42,47 @@
             p.right_side = "Забирать проценты по итогу расчетного периода"
             #percents_slider
       = button_tag 'Получить денежное довольствие', class: 'deposit_confirm'
+    .vertical_divider_line
+    .deposit_diagram
+      .deposit_diagram_wrapper
+        .deposit_left_diagram
+          .deposit_info_user
+            p = "Вложил"
+            p.user_amount
+          .deposit_diagram_top
+          .deposit_diagram_middle
+            .deposit_diagram_middle_top
+            .deposit_diagram_middle_middle
+            .deposit_diagram_middle_bottom
+          .deposit_diagram_bottom
+        .deposit_right_diagram
+          .deposit_info_user
+            p = "Забрал"
+            p.user_full_summ
+          .deposit_profit_diagram_top
+          .deposit_profit_diagram_middle
+            .deposit_diagram_middle_top
+            .deposit_diagram_middle_middle
+            .deposit_diagram_middle_bottom
+          .deposit_diagram_top
+          .deposit_diagram_middle
+            .deposit_diagram_middle_top
+            .deposit_diagram_middle_middle
+            .deposit_diagram_middle_bottom
+          .deposit_diagram_bottom
+      .deposit_information
+        .main_title
+          span = "За "
+          span.month_count
+          span=" месяцев я получу "
+        p.current_summ
+        .optional_info
+          p = "Из них"
+          ul.pay_list
+            li
+              p="Мой вклад:"
+              p.user_deposit
+            li
+              p="Начисленные проценты:"
+              p.added_percents
 
