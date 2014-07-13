@@ -6,11 +6,8 @@ class DepositsController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.new(user_params)
-    @deposit = @user.deposits.build(params['user']['deposits_attributes'])
     @user.save
-    @deposit.save
     redirect_to root_path
   end
 
@@ -26,7 +23,7 @@ class DepositsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:surname, :name, :secondname, :contact_phone, deposits_attrbutes: [:id, :user_id, :deposit_current_summ, :percent_id])
+    params.require(:user).permit(:surname, :name, :secondname, :contact_phone, deposits_attributes: [:id, :user_id, :deposit_current_summ, :percent_id])
   end
 
 end
