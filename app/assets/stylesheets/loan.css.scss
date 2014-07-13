@@ -99,10 +99,12 @@
       background-color: #464646;
       background-image: none;
     }
-    a.ui-slider-handle {
+    span.ui-slider-handle {
       background-image: url('slider_toggle_button.png');
       border-radius: 13px;
       top: -6px;
+      height:20px;
+      width: 20px;
       cursor:pointer;
     }
   }

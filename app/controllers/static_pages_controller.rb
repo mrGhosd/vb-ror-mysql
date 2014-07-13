@@ -21,7 +21,7 @@ class StaticPagesController < ApplicationController
       when "contacts"
         redirect_to new_contact_messages_path
       when "deposit"
-        redirect_to new_deposits_path
+        redirect_to new_users_deposits_path
       else
         render "/static_pages/#{params[:page_id]}"
     end

@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3504855667">
+  <component name="DataSourceManagerImpl" format="xml" hash="1243304573">
     <data-source source="LOCAL" name="Rails voenbank-ror-postgres: development" uuid="d98b9238-d55d-4ed1-b5c3-6ba42bb5c0b6">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/vb_site</jdbc-url>
       <user-name>root</user-name>
       <user-password>dfebdfc6dfdedfcbdfc3dfd8dff5df9cdf93</user-password>
+      <schema-pattern>vb_site.*</schema-pattern>
+      <default-schemas>vb_site.*</default-schemas>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails voenbank-ror-postgres: test" uuid="37c315af-fa2d-4718-a044-a39dc3df235d">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/vb_site_test</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfebdfc6dfdedfcbdfc3dfd8dff5df9cdf93</user-password>
+      <schema-pattern>vb_site.* vb_site_test.*</schema-pattern>
+      <default-schemas>vb_site.* vb_site_test.*</default-schemas>
       <libraries />
     </data-source>
   </component>

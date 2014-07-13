@@ -73,7 +73,17 @@ VoenbankRorPostgres::Application.routes.draw do
     get "/new", controller: 'callbacks', action: 'new'
     post "/new", controller: 'callbacks', action: 'create'
   end
+  resource :users do
+    resource :deposits do
+      get 'deposit_request', on: :collection
+    end
+  end
 
-  resource :deposits
+  resource :percents do
+    get '/', controller: 'percents', action: 'index'
+    # get "/new", controller: 'percents', action: 'new'
+    # post "/new", controller: 'percents', action: 'create'
+  end
+
   # post "callbacks/new", controller: 'callbacks', action: 'create'
 end

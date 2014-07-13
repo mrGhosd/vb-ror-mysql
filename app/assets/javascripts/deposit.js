@@ -119,6 +119,28 @@ $(document).ready(function()
         }
         calculate_full_summ();
     });
+
+    $(".deposit_confirm").click(function()
+    {
+        var amount = getAmount();
+        var time = getTime();
+        var percent = getPercent();
+
+        if (amount != " " && time != " " && percent != " ")
+        {
+            $.ajax({
+                 url: '/users/deposits/deposit_request',
+                 data: {amount: amount, time: time, percent: percent},
+                 success: function(html)
+                 {
+//                     $(".calc_deposit").hide();
+                     $(".calc_deposit").html(html);
+                 }
+                });
+        }
+    });
+
+
 });
 
 
@@ -162,6 +184,8 @@ function calculate_full_summ()
     var percents = (amount * percent/100) * time;
 
     var result_sum = amount + ((amount * percent/100) * time);
+    $(".deposit_amount_value").val(amount + " р.");
+    $(".deposit_time_value").val(time + " м.");
     $(".deposit_information .current_summ").text(parseInt(result_sum, 10) + " р.");
     $(".deposit_information .user_deposit").text(amount + " р.");
     $(".deposit_information .added_percents").text(percents + " р.");
@@ -185,10 +209,10 @@ function deposit_main_diagram_change()
     var time_diff = slider_current_value / time_current_value;
 
 
-    $(".deposit_diagram_middle .deposit_diagram_middle_middle").animate({ "height": current_height + (exp * 3)}, 'slow');
+    $(".deposit_diagram_middle .deposit_diagram_middle_middle").animate({ "height": current_height + (exp * 3)}, 'fast');
     $(".deposit_diagram_top").animate({"top": + current_top_value + (exp/4)});
     $(".deposit_profit_diagram_middle .deposit_diagram_middle_middle")
-        .animate({ "height": profit_diagram_height + (exp * 1.5)}, 'slow');
+        .animate({ "height": profit_diagram_height + (exp * 1.5)}, 'fast');
     $(".deposit_profit_diagram_top").animate({"top": + profit_diagram_top_margin + (exp/4)});
 
 

@@ -15,5 +15,6 @@
 /log/*.log
 /tmp
 /.idea
-.idea/workspace.xm
+.idea/workspace.xml
 .DS_Store
+.envrc

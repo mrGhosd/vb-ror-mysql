@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628151841) do
+ActiveRecord::Schema.define(version: 20140712151701) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -52,10 +52,9 @@ ActiveRecord::Schema.define(version: 20140628151841) do
     t.boolean "removed/brought", null: false
   end
 
-  create_table "deposits", id: false, force: true do |t|
-    t.integer  "deposit_id",           null: false
+  create_table "deposits", force: true do |t|
     t.integer  "user_id",              null: false
-    t.integer  "deposiе_current_summ", null: false
+    t.integer  "deposit_current_summ", null: false
     t.integer  "percent_id",           null: false
     t.date     "begin_date",           null: false
     t.boolean  "response",             null: false
@@ -91,7 +90,7 @@ ActiveRecord::Schema.define(version: 20140628151841) do
   end
 
   create_table "loans", id: false, force: true do |t|
-    t.integer "loan_id",    null: false
+    t.integer "id",         null: false
     t.integer "user_id",    null: false
     t.integer "loan_summ",  null: false
     t.date    "begin_date", null: false
@@ -131,16 +130,15 @@ ActiveRecord::Schema.define(version: 20140628151841) do
     t.integer "old_pasport_number",    null: false
   end
 
-  create_table "percent", id: false, force: true do |t|
-    t.integer "percent_id",    null: false
-    t.integer "percent_value", null: false
-    t.date    "begin_date",    null: false
-    t.date    "end_date",      null: false
-    t.integer "max_summ",      null: false
-    t.integer "min_summ",      null: false
-    t.integer "max_time",      null: false
-    t.integer "min_time",      null: false
-    t.boolean "loan/deposit",  null: false
+  create_table "percents", force: true do |t|
+    t.float   "value",           null: false
+    t.date    "begin_date",      null: false
+    t.date    "end_date",        null: false
+    t.integer "max_summ",        null: false
+    t.integer "min_summ",        null: false
+    t.integer "max_time",        null: false
+    t.integer "min_time",        null: false
+    t.boolean "loan_or_deposit", null: false
   end
 
   create_table "relationship", id: false, force: true do |t|
@@ -265,6 +263,7 @@ ActiveRecord::Schema.define(version: 20140628151841) do
     t.string  "login",          limit: 50, null: false
     t.string  "password",       limit: 50, null: false
     t.integer "session"
+    t.string  "contact_phone"
   end
 
   create_table "voen_pasport", id: false, force: true do |t|

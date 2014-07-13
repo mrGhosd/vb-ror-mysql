@@ -1,0 +1,7 @@
+good_deposit:
+  id: 1
+  user_id: 1
+  deposit_current_summ: "1000000"
+  percent_id: 3
+  begin_date: 2014-07-12
+  response: true

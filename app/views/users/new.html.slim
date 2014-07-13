@@ -1,0 +1,15 @@
+.deposit_request
+  = form_for :user do |f|
+    .deposit_form_item
+      = f.label "Фамилия:"
+      = f.text_field :surname
+    .deposit_form_item
+      = f.label "Имя:"
+      = f.text_field  :name
+    .deposit_form_item
+      = f.label "Юрьевич:"
+      = f.text_field  :secondname
+    .deposit_form_item
+      = f.label "Контактный телефон:"
+      = f.text_field :contact_phone
+    = f.submit 'Отправить данные'

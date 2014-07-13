@@ -1,0 +1,19 @@
+.deposit_request
+  = form_for @user, url: '/users/deposits' do |f|
+      .deposit_form_item
+        = f.label "Фамилия:"
+        = f.text_field :surname
+      .deposit_form_item
+        = f.label "Имя:"
+        = f.text_field  :name
+      .deposit_form_item
+        = f.label "Отчество:"
+        = f.text_field  :secondname
+      .deposit_form_item
+        = f.label "Контактный телефон:"
+        = f.text_field :contact_phone
+      = f.fields_for :deposits do |deposit|
+        = deposit.hidden_field :deposit_current_summ, value: current_amount
+        = deposit.hidden_field :percent_id, value: percent
+      = f.submit 'Отправить данные'
+

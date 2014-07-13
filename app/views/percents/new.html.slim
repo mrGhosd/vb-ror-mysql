@@ -1,0 +1,25 @@
+.static_page
+  .static_page_title
+    h2="Задать новое значение процентам"
+  .percent_form
+    = form_for :percent, url: percents_path do |f|
+      = f.label 'Значение процента'
+      = f.text_field :value
+      = f.label 'Дата начала'
+      = f.text_field :begin_date
+      = f.label 'Дата окончания'
+      = f.text_field :end_date
+      = f.label 'Максимальная сумма'
+      = f.text_field :max_summ
+      = f.label 'Минимальная сумма'
+      = f.text_field :min_summ
+      = f.label 'Минимальное время'
+      = f.text_field :min_time
+      = f.label 'Максимальное время'
+      = f.text_field :max_time
+      .deposit_or_loan_choose
+        = f.label 'Займ'
+        = f.radio_button(:loan_or_deposit, 0)
+        = f.label 'Вклад'
+        = f.radio_button(:loan_or_deposit, 1)
+      = f.submit 'Отправить', class: 'btn btn-success'
