@@ -15,5 +15,5 @@
       = f.fields_for :deposits do |deposit|
         = deposit.hidden_field :deposit_current_summ, value: current_amount
         = deposit.hidden_field :percent_id, value: percent
-      = f.submit 'Отправить данные'
+      = f.submit 'Оставить заявку', class: 'deposit_form_submit'
 

@@ -1,0 +1,40 @@
+.main_content
+  .slider_amount
+    .amount
+      span="Сумма займа:"
+      = text_field_tag nil, nil, class: 'amount_value'
+    .slider_wrapper
+      span.left_slider_arrow
+      span.right_slider_arrow
+      #slider_amount
+    .amount_range
+      .range_1 = "15 000 р."
+      .range_2 = "35 000 р."
+      .range_3 = "50 000 р."
+      .range_4 = "75 000 р."
+      .range_5 = "90 000 р."
+    .slider_divider
+  .slider_time
+    .time
+      span = "Срок займа:"
+      = text_field_tag nil, nil, class: 'time_value'
+    .slider_wrapper
+      span.left_slider_arrow
+      span.right_slider_arrow
+      #slider_time
+    .time_range
+      .range_1 = "3"
+      .range_2 = "6"
+      .range_3 = "12"
+      .range_4 = "15"
+    .slider_divider
+  .slider_everymonth_pay
+    .pay
+      span = "Ежемесячный платеж:"
+      = text_field_tag nil, nil, class: 'pay_value'
+    .slider_wrapper
+      span.left_slider_arrow
+      span.right_slider_arrow
+      #slider_everymonth_pay
+    .pay_range
+  = button_tag 'Получить денежное довольствие', class: 'loan_confirm'

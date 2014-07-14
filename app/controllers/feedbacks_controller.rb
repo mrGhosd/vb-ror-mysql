@@ -13,13 +13,6 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.limit(4).order(created_at: :desc)
   end
 
-  def update
-
-  end
-
-  def edit
-
-  end
 
   private
   def feedback_params

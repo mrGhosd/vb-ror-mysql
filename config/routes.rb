@@ -1,5 +1,5 @@
 VoenbankRorPostgres::Application.routes.draw do
-  root "index#index"
+  root "loans#new"
   get "static_pages/:page_id", controller: "static_pages", action: "page", as: "static_page"
   post "/login", controller: "index", action: "login"
   post "/index", controller: "index", action: "index"
@@ -77,6 +77,7 @@ VoenbankRorPostgres::Application.routes.draw do
     resource :deposits do
       get 'deposit_request', on: :collection
     end
+    resources :loans
   end
 
   resource :percents do
@@ -86,4 +87,8 @@ VoenbankRorPostgres::Application.routes.draw do
   end
 
   # post "callbacks/new", controller: 'callbacks', action: 'create'
+
+  namespace :api do
+    resources :users
+  end
 end
