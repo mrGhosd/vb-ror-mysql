@@ -74,10 +74,15 @@ VoenbankRorPostgres::Application.routes.draw do
     post "/new", controller: 'callbacks', action: 'create'
   end
   resource :users do
+
     resource :deposits do
       get 'deposit_request', on: :collection
     end
-    resources :loans
+
+    resources :loans do
+      get 'loan_request', on: :collection
+      post 'short_registration', on: :collection
+    end
   end
 
   resource :percents do
@@ -89,6 +94,8 @@ VoenbankRorPostgres::Application.routes.draw do
   # post "callbacks/new", controller: 'callbacks', action: 'create'
 
   namespace :api do
-    resources :users
+    resources :users do
+      post 'login', on: :collection
+    end
   end
 end

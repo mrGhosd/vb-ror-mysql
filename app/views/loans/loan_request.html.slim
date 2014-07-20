@@ -1,0 +1,114 @@
+= javascript_include_tag 'registration.js'
+.registration_page
+  .btn-group
+    = link_to "Шаг 1", "#", remote: true, class: 'btn active'
+    = link_to "Шаг 2", "#", remote: true, class: 'btn'
+    = link_to "Шаг 3", "#", remote: true, class: 'btn'
+    = link_to "Шаг 4", "#", remote: true, class: 'btn'
+    = link_to "Шаг 5", "#", remote: true, class: 'btn'
+
+  .static_page
+    .static_page_title
+      h2="Шаг 1"
+  = form_for @user, url: '/users/loans' do |f|
+    .main_info.short_reg.step_1
+      .loan_form_item
+        = f.label 'Фамилия'
+        = f.text_field :surname
+      .loan_form_item
+        = f.label 'Имя'
+        = f.text_field :name
+      .loan_form_item
+        = f.label 'Отчество'
+        = f.text_field :secondname
+      = f.fields_for :loans do |l|
+        .loan_form_item
+          = l.label 'Сумма займа'
+          = l.text_field :loan_sum_view, value: params[:amount], disabled: true
+          = l.hidden_field :loan_sum, value: params[:amount]
+        .loan_form_item
+          = l.label 'Срок займа'
+          = l.text_field :loan_time, value: params[:time], disabled: true
+          .real_time_data
+            = l.hidden_field :begin_date, value: Time.zone.now
+            = l.hidden_field :end_date, value: Time.zone.now + params[:time].to_i.months
+      = f.fields_for :contact_information do |cf|
+        .loan_form_item
+          = cf.label 'E-mail'
+          = cf.text_field :email
+      .loan_form_item
+        = f.label 'Номер телефона'
+        = f.text_field :contact_phone
+      .short_reg_control.reg_form_controll
+        = f.submit 'Отправить текущие данные', class: 'send_data_now', name: 'short_registration'
+        = link_to 'Продолжить', "#", class:'btn next step_2', remote: true
+    .passport_form.regForm.step_2
+      = f.fields_for :passport do |p|
+        .loan_form_item
+          = p.label 'Серия паспорта:'
+          = p.text_field :pasport_seria
+        .loan_form_item
+          = p.label 'Номер паспорта:'
+          = p.text_field :pasport_number
+        .loan_form_item
+          = p.label 'Дата выдачи:'
+          = p.text_field :pasport_when
+        .loan_form_item
+          = p.label 'Кем выдан:'
+          = p.text_field :pasport_where
+        .loan_form_item
+          = p.label 'Номер паспорта:'
+          = p.text_field :pasport_number
+        .loan_form_item
+          = p.label 'Код подразделения:'
+          = p.text_field :pasport_code
+        .loan_form_item
+          = p.label 'Постоянная регистрация(прописка):'
+          = p.text_field :definite_registration
+        .loan_form_item
+          = p.label 'Серия старого паспорта'
+          = p.text_field :old_pasport_seria
+        .loan_form_item
+          = p.label 'Номер старого паспорта:'
+          = p.text_field :old_pasport_number
+        .reg_form_controll
+          = link_to "Назад", "#", remote:true, class: 'btn back step_1'
+          = link_to "Вперед", "#", remote:true, class: 'btn next step_3'
+          = f.submit 'Отправить данные!'
+    .voen_passport_form.step_3
+      = f.fields_for :voen_pasport do |vp|
+        .loan_form_item
+          = vp.label 'Серия:'
+          = vp.text_field :voen_seria
+        .loan_form_item
+          = vp.label 'Номер:'
+          = vp.text_field :voen_number
+        .loan_form_item
+          = vp.label 'Кем выдан:'
+          = vp.text_field :voen_where
+        .loan_form_item
+          = vp.label 'Когда:'
+          = vp.text_field :voen_when
+        .loan_form_item
+          = vp.label 'Национальность:'
+          = vp.text_field :nationality_id
+        .loan_form_item
+          = vp.label 'Образование:'
+          = vp.text_field :education_id
+        .loan_form_item
+          = vp.label 'Семейное положение:'
+          = vp.text_field :relashionship_id
+        .loan_form_item
+          = vp.label 'Гражданская специалость:'
+          = vp.text_field :specialization_id
+        .loan_form_item
+          = vp.label 'Спортивные разряды:'
+          = vp.text_field :sport_mastery_id
+        .reg_form_controll
+          = link_to 'Назад', "#", remote:true, class: 'btn back step_2'
+          = link_to 'Впереде', "#", remote:true, class: 'btn next step_4'
+          = f.submit 'Отправить данные!'
+
+    .voen_pasport_form
+    .contact_information_form
+

@@ -23,15 +23,16 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.datetime "updated_at"
   end
 
-  create_table "contact_information", id: false, force: true do |t|
+  create_table "contact_informations", force: true do |t|
     t.integer "user_id",                              null: false
-    t.text    "actual_adress",                        null: false
-    t.integer "phone_adress",                         null: false
-    t.integer "mobile_phone",                         null: false
-    t.string  "contact_person_surname",    limit: 50, null: false
-    t.string  "contact_person_name",       limit: 50, null: false
-    t.string  "contact_person_secondname", limit: 50, null: false
-    t.integer "contact_person_phone",                 null: false
+    t.text    "actual_adress"
+    t.integer "phone_adress"
+    t.integer "mobile_phone"
+    t.string  "contact_person_surname",    limit: 50
+    t.string  "contact_person_name",       limit: 50
+    t.string  "contact_person_secondname", limit: 50
+    t.integer "contact_person_phone"
+    t.string  "email",                                null: false
   end
 
   create_table "contact_messages", force: true do |t|
@@ -53,11 +54,11 @@ ActiveRecord::Schema.define(version: 20140712151701) do
   end
 
   create_table "deposits", force: true do |t|
-    t.integer  "user_id",              null: false
-    t.integer  "deposit_current_summ", null: false
-    t.integer  "percent_id",           null: false
-    t.date     "begin_date",           null: false
-    t.boolean  "response",             null: false
+    t.integer  "user_id",                          null: false
+    t.string   "deposit_current_summ", limit: 256, null: false
+    t.integer  "percent_id",                       null: false
+    t.date     "begin_date"
+    t.boolean  "response"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -89,15 +90,14 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.date    "date_change",  null: false
   end
 
-  create_table "loans", id: false, force: true do |t|
-    t.integer "id",         null: false
-    t.integer "user_id",    null: false
-    t.integer "loan_summ",  null: false
-    t.date    "begin_date", null: false
-    t.date    "end_date",   null: false
-    t.integer "percent_id", null: false
-    t.boolean "status",     null: false
-    t.boolean "response",   null: false
+  create_table "loans", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "loan_sum",   null: false
+    t.datetime "begin_date", null: false
+    t.datetime "end_date",   null: false
+    t.integer  "percent_id"
+    t.boolean  "status"
+    t.boolean  "response"
   end
 
   create_table "nationality", id: false, force: true do |t|
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.datetime "updated_at"
   end
 
-  create_table "passport", id: false, force: true do |t|
+  create_table "passports", force: true do |t|
     t.integer "user_id",               null: false
     t.integer "pasport_seria",         null: false
     t.integer "pasport_number",        null: false
@@ -126,8 +126,8 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.text    "pasport_where",         null: false
     t.integer "pasport_code",          null: false
     t.text    "definite_registration", null: false
-    t.integer "old_pasport_seria",     null: false
-    t.integer "old_pasport_number",    null: false
+    t.integer "old_pasport_seria"
+    t.integer "old_pasport_number"
   end
 
   create_table "percents", force: true do |t|
@@ -256,17 +256,17 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.string  "surname",        limit: 50, null: false
     t.string  "name",           limit: 50, null: false
     t.string  "secondname",     limit: 50, null: false
-    t.integer "role_id",                   null: false
-    t.boolean "sex",                       null: false
-    t.date    "date_of_birth",             null: false
-    t.text    "place_of_birth",            null: false
-    t.string  "login",          limit: 50, null: false
-    t.string  "password",       limit: 50, null: false
+    t.integer "role_id"
+    t.boolean "sex"
+    t.date    "date_of_birth"
+    t.text    "place_of_birth"
+    t.string  "login",          limit: 50
+    t.string  "password",       limit: 50
     t.integer "session"
     t.string  "contact_phone"
   end
 
-  create_table "voen_pasport", id: false, force: true do |t|
+  create_table "voen_pasports", force: true do |t|
     t.integer "user_id",           null: false
     t.integer "voen_seria",        null: false
     t.integer "voen_number",       null: false

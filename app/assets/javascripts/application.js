@@ -22,11 +22,10 @@
 //= require faq
 //= require share
 //= require callback
-//= require underscore
 //= require gmaps/google
 //= require loan
 //= require deposit
-
+//= require registration
 
 //= require_tree .
 

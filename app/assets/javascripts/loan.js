@@ -7,6 +7,10 @@ $(document).ready(function()
         $('.user-role a').removeClass('active');
         $(this).toggleClass('active')
     });
+    console.log($(".short_reg_control.reg_form_controll"));
+    $(".short_reg_control.reg_form_controll").on('click', function(){
+        console.log($(this));
+    });
 
 
 
@@ -33,13 +37,14 @@ $(document).ready(function()
             max: 15,
             value: 3,
             step: 1,
-            slide: function( event, ui ) {
+            slide: function(event, ui) {
                 $( ".time_value" ).val(ui.value + " м." );
-                change_loan_value()
+                change_loan_value();
             },
-            change: function()
+            stop: function()
             {
                 change_loan_value();
+
             }
         });
     $("#slider_everymonth_pay").slider(
@@ -53,9 +58,31 @@ $(document).ready(function()
                 $( "span.pay_value" ).val(ui.value + " р." );
             }
         });
+    $(".loan_confirm").click(function()
+    {
+        var amount = getLoanAmount();
+        var time = getLoanTime();
+        var role = $(".user-role a.active").attr("role");
+
+        if (amount != " " && time != " " && role != " ")
+        {
+            $.ajax({
+                url: '/users/loans/loan_request',
+                data: {amount: amount, time: time, role: role},
+                success: function(html)
+                {
+                    $(".content_part").slideUp().html(html).slideDown();
+                }
+            });
+        }
+    });
+
+
 
     setDefaultValues();
+
 });
+
 function getLoanAmount()
 {
     var amount = $("#slider_amount").slider("value");
@@ -67,28 +94,45 @@ function getLoanTime()
     var time = $("#slider_time").slider("value");
     return time;
 }
-
+function changeSliderTimeValue()
+{
+    var time = $("#slider_time").slider("value");
+    var param;
+    if (time >3 && time <= 6)
+    {
+        param = 3;
+    }
+    if (time >6 && time <= 12)
+    {
+        param = 6;
+    }
+    if (time >12 && time < 15)
+    {
+        param = 12;
+    }
+    if (time == 15)
+    {
+        param = 15;
+    }
+    $( ".time_value" ).val(param + " м." );
+}
 function change_loan_value()
 {
     var amount;
-    var time = getLoanTime();
-    switch(time)
+    var time = $( ".time_value" ).val();
+    var arr_time = time.split(' ');
+    var time = arr_time[0];
+    if(time >= 3 && time < 6)
+    {amount = 33000;}
+    else if(time >= 6 && time < 12)
+    {amount = 59000;}
+    else if(time >= 12 && time < 15)
+    {amount = 72000;}
+    else if(time == 15)
     {
-        case 3:
-            amount = 33000;
-            break;
-        case 6:
-            amount = 59000;
-            break;
-        case 12:
-            amount = 72000;
-            break;
-        case 15:
-            amount = 88000;
-            break;
+        amount = 88000;
     }
     $("#slider_amount").slider("value", amount);
-    $( ".amount_value" ).val(amount + " р." );
     calc_everymonth_pay();
 
 }
