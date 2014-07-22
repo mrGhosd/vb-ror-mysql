@@ -36,7 +36,9 @@ class LoansController < ApplicationController
   def user_reg_params
     params.require(:user).permit(:surname, :name, :secondname, :contact_phone,
                                  loans_attributes: [:id, :user_id, :loan_sum, :begin_date, :end_date],
-                                 contact_information_attributes: [:id, :user_id, :email],
+                                 contact_information_attributes: [:id, :user_id, :email, :actual_adress, :phone_adress,
+                                                                  :contact_person_surname, :contact_person_name,
+                                                                  :contact_person_secondname, :contact_person_phone],
                                  passport_attributes: [:id, :user_id, :pasport_seria, :pasport_number, :pasport_when,
                                                        :pasport_where, :pasport_code, :definite_registration,
                                                        :old_pasport_seria, :old_pasport_number],

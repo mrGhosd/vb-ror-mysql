@@ -1,11 +1,11 @@
 = javascript_include_tag 'registration.js'
 .registration_page
-  .btn-group
-    = link_to "Шаг 1", "#", remote: true, class: 'btn active'
-    = link_to "Шаг 2", "#", remote: true, class: 'btn'
-    = link_to "Шаг 3", "#", remote: true, class: 'btn'
-    = link_to "Шаг 4", "#", remote: true, class: 'btn'
-    = link_to "Шаг 5", "#", remote: true, class: 'btn'
+  .btn-group.registration_navigation
+    = link_to "Шаг 1", "#", remote: true, class: 'btn step_1 active'
+    = link_to "Шаг 2", "#", remote: true, class: 'btn step_2'
+    = link_to "Шаг 3", "#", remote: true, class: 'btn step_3'
+    = link_to "Шаг 4", "#", remote: true, class: 'btn step_4'
+    = link_to "Шаг 5", "#", remote: true, class: 'btn step_5'
 
   .static_page
     .static_page_title
@@ -108,6 +108,28 @@
           = link_to 'Назад', "#", remote:true, class: 'btn back step_2'
           = link_to 'Впереде', "#", remote:true, class: 'btn next step_4'
           = f.submit 'Отправить данные!'
+    .contact_information_form.step_4
+      = f.fields_for :contact_information do |cf|
+        .loan_form_item
+          = cf.label 'Адрес фактического проживания:'
+          = cf.text_field :actual_adress
+        .loan_form_item
+          = cf.label 'Номер телефона по адресу прописки: '
+          = cf.text_field :phone_adress
+        .loan_form_item
+          = cf.label 'Информация о контактном лице:'
+          = cf.text_field :contact_person_surname, placeholder: 'Фамилия'
+          = cf.text_field :contact_person_name, placeholder: 'Имя'
+          = cf.text_field :contact_person_secondname, placeholder: 'Юрьевич'
+          = cf.text_field :contact_person_phone, placeholder: 'Телефон'
+        .reg_form_controll
+          = link_to 'Назад', "#", remote:true, class: 'btn back step_3'
+          = link_to 'Впереде', "#", remote:true, class: 'btn next step_5'
+          = f.submit 'Отправить данные!'
+
+
+
+
 
     .voen_pasport_form
     .contact_information_form
