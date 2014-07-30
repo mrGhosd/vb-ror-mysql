@@ -12,6 +12,7 @@
       h2="Шаг 1"
   = form_for @user, url: '/users/loans' do |f|
     .main_info.short_reg.step_1
+      = f.hidden_field :role_id, value: User.get_role_id(params[:role])
       .loan_form_item
         = f.label 'Фамилия'
         = f.text_field :surname
@@ -21,6 +22,19 @@
       .loan_form_item
         = f.label 'Отчество'
         = f.text_field :secondname
+      .loan_form_item
+        = f.label 'Пол:'
+        .radio_buttons_element
+          = f.label 'Мужской'
+          = f.radio_button :sex, true
+          = f.label 'Женский'
+          = f.radio_button :sex, false
+      .loan_form_item
+        = f.label 'Дата рождения'
+        = f.text_field :date_of_birth
+      .loan_form_item
+        = f.label 'Место рождения'
+        = f.text_field :place_of_birth
       = f.fields_for :loans do |l|
         .loan_form_item
           = l.label 'Сумма займа'
@@ -126,11 +140,88 @@
           = link_to 'Назад', "#", remote:true, class: 'btn back step_3'
           = link_to 'Впереде', "#", remote:true, class: 'btn next step_5'
           = f.submit 'Отправить данные!'
-
-
-
-
-
-    .voen_pasport_form
-    .contact_information_form
-
+    .role_information_form.step_5
+      - if params[:role] == 'Курсант'
+        = f.fields_for :role_kursant do |kursant|
+          .loan_form_item
+            = kursant.label 'Название высшего учебного заведения:'
+            = kursant.text_field :univercity_name
+          .loan_form_item
+            = kursant.label 'Факультет:'
+            = kursant.text_field :faculty
+          .loan_form_item
+            = kursant.label 'Курс:'
+            = kursant.text_field :course
+          .loan_form_item
+            = kursant.label 'Дата выпуска:'
+            = kursant.text_field :graduate_date
+          .loan_form_item
+            = kursant.label 'Должность на курсе:'
+            = kursant.text_field :course_post
+          .loan_form_item
+            = kursant.label 'Являетесь ли вы отличником учебы?'
+            .radio_buttons_element
+              = kursant.label 'Да'
+              = kursant.radio_button :excelent_student, true
+              = kursant.label 'Нет'
+              = kursant.radio_button :excelent_student, false
+          .loan_form_item
+            = kursant.label 'Имеются ли у вас задолженности по учебной программе?'
+            .radio_buttons_element
+              = kursant.label 'Да'
+              = kursant.radio_button :debt, true
+              = kursant.label 'Нет'
+              = kursant.radio_button :debt, false
+          .loan_form_item
+            = kursant.label 'Заключен контракт с ВС РФ?'
+            .radio_buttons_element
+              = kursant.label 'Да'
+              = kursant.radio_button :contract, true
+              = kursant.label 'Нет'
+              = kursant.radio_button :contract, false
+          .loan_form_item
+            = kursant.label 'Телефон дежурного:'
+            = kursant.text_field :duty_phone
+          .loan_form_item
+            = kursant.label 'Телефон учебного отдела:'
+            = kursant.text_field :education_phone
+          .reg_form_controll
+            = f.submit "Отправить данные!"
+      - if params[:role] == 'Контракт'
+        = f.fields_for :role_contract do |contract|
+          .loan_form_item
+            = contract.label 'Звание:'
+            = contract.text_field :rank_id
+          .loan_form_item
+            = contract.label 'Должность:'
+            = contract.text_field :post_id
+          .loan_form_item
+            = contract.label 'Военная часть:'
+            = contract.text_field :military_unit
+          .loan_form_item
+            = contract.label 'Адрес военной части:'
+            = contract.text_field :unit_address
+          .loan_form_item
+            = contract.label 'Телефон дежурного:'
+            = contract.text_field :duty_phone
+          .reg_form_controll
+            = f.submit "Отправить данные!"
+      - if params[:role] == 'Офицер'
+        = f.fields_for :role_officer do |officer|
+          .loan_form_item
+            = officer.label 'Должность:'
+            = officer.text_field :post_id
+          .loan_form_item
+            = officer.label 'Звание:'
+            = officer.text_field :rank_id
+          .loan_form_item
+            = officer.label 'Телефон военной части:'
+            = officer.text_field :unit_number
+          .loan_form_item
+            = officer.label 'Адрес военной части:'
+            = officer.text_field :unit_address
+          .loan_form_item
+            = officer.label 'Телефон дежурного:'
+            = officer.text_field :duty_phone
+            .reg_form_controll
+              = f.submit "Отправить данные!"

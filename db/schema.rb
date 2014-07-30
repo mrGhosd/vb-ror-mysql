@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712151701) do
+ActiveRecord::Schema.define(version: 20140727195325) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -27,11 +27,10 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.integer "user_id",                              null: false
     t.text    "actual_adress"
     t.integer "phone_adress"
-    t.integer "mobile_phone"
     t.string  "contact_person_surname",    limit: 50
     t.string  "contact_person_name",       limit: 50
     t.string  "contact_person_secondname", limit: 50
-    t.integer "contact_person_phone"
+    t.integer "contact_person_phone",      limit: 8
     t.string  "email",                                null: false
   end
 
@@ -160,7 +159,7 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.integer "phone",                         null: false
   end
 
-  create_table "role_contract", id: false, force: true do |t|
+  create_table "role_contracts", id: false, force: true do |t|
     t.integer "user_id",       null: false
     t.integer "rank_id",       null: false
     t.integer "post_id",       null: false
@@ -169,7 +168,7 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.integer "duty_phone",    null: false
   end
 
-  create_table "role_kursant", id: false, force: true do |t|
+  create_table "role_kursants", id: false, force: true do |t|
     t.integer "user_id",                      null: false
     t.string  "univercity_name",  limit: 100, null: false
     t.string  "faculty",          limit: 50,  null: false
@@ -183,13 +182,19 @@ ActiveRecord::Schema.define(version: 20140712151701) do
     t.integer "education_phone",              null: false
   end
 
-  create_table "role_officer", id: false, force: true do |t|
+  create_table "role_officers", id: false, force: true do |t|
     t.integer "user_id",      null: false
     t.integer "post_id",      null: false
     t.integer "unit_number",  null: false
     t.text    "unit_address", null: false
     t.integer "duty_phone",   null: false
     t.integer "rank_id",      null: false
+  end
+
+  create_table "roles", force: true do |t|
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shares", force: true do |t|
