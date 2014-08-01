@@ -20,8 +20,29 @@ function changeFocusPage(object)
 
 }
 
+function specialQuestion(val)
+{
+    console.log(val);
+    var save_block;
+    switch(parseInt(val, 10))
+    {
+        case 1:
+            save_block = ".form_kursant";
+            break;
+        case 2:
+            save_block = ".form_contract";
+            break;
+        case 3:
+            save_block = ".form_officer";
+            break;
+    }
+    console.log($(save_block));
+    $(save_block).addClass('active_form');
+}
+
 $(document).ready(function()
 {
+    specialQuestion($('.step_1 .hidden_role').val());
     $(".reg_form_controll a").click(function(){
         changeFocusPage($(this));
     });

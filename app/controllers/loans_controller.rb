@@ -6,6 +6,9 @@ class LoansController < ApplicationController
     @info = @user.build_contact_information
     @pasport = @user.build_passport
     @voen_pass = @user.build_voen_pasport
+    @role_kursant = @user.role_kursant
+    @role_contract = @user.role_contract
+    @role_officer = @user.role_officer
   end
 
   def create
@@ -25,7 +28,7 @@ class LoansController < ApplicationController
   end
 
   def loan_request
-    self.new
+    new
     # role_form
     render 'loans/loan_request', layout: false
   end
@@ -50,9 +53,16 @@ class LoansController < ApplicationController
                                  voen_pasport_attributes: [:id, :user_id, :voen_seria, :voen_number, :voen_where,
                                                            :voen_when, :nationality_id, :education_id,
                                                            :relashionship_id, :specialization_id, :sport_mastery_id],
-                                 role_kursant_attributes: [],
-                                 role_contract_attributes: [],
-                                 role_officer_attributes: []
+
+                                 role_kursant_attributes: [:id, :user_id, :univercity_name, :faculty, :course,
+                                                           :graduate_date, :course_post, :excelent_student, :debt,
+                                                          :contract, :duty_phone, :education_phone],
+
+                                 role_contract_attributes: [:id, :user_id, :rank_id, :post_id, :military_unit,
+                                                            :unit_address, :duty_phone],
+
+                                 role_officer_attributes: [:id, :user_id, :post_id, :unit_number, :unit_address,
+                                                          :duty_phone, :rank_id],
                                  )
 
   end

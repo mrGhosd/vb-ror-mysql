@@ -12,7 +12,7 @@
       h2="Шаг 1"
   = form_for @user, url: '/users/loans' do |f|
     .main_info.short_reg.step_1
-      = f.hidden_field :role_id, value: User.get_role_id(params[:role])
+      = f.hidden_field :role_id, value: User.get_role_id(params[:role]), class: 'hidden_role'
       .loan_form_item
         = f.label 'Фамилия'
         = f.text_field :surname
@@ -141,7 +141,7 @@
           = link_to 'Впереде', "#", remote:true, class: 'btn next step_5'
           = f.submit 'Отправить данные!'
     .role_information_form.step_5
-      - if params[:role] == 'Курсант'
+      .form_kursant.special_form
         = f.fields_for :role_kursant do |kursant|
           .loan_form_item
             = kursant.label 'Название высшего учебного заведения:'
@@ -185,9 +185,7 @@
           .loan_form_item
             = kursant.label 'Телефон учебного отдела:'
             = kursant.text_field :education_phone
-          .reg_form_controll
-            = f.submit "Отправить данные!"
-      - if params[:role] == 'Контракт'
+      .form_contract.special_form
         = f.fields_for :role_contract do |contract|
           .loan_form_item
             = contract.label 'Звание:'
@@ -205,8 +203,7 @@
             = contract.label 'Телефон дежурного:'
             = contract.text_field :duty_phone
           .reg_form_controll
-            = f.submit "Отправить данные!"
-      - if params[:role] == 'Офицер'
+      .form_officer.special_form
         = f.fields_for :role_officer do |officer|
           .loan_form_item
             = officer.label 'Должность:'
@@ -224,4 +221,4 @@
             = officer.label 'Телефон дежурного:'
             = officer.text_field :duty_phone
             .reg_form_controll
-              = f.submit "Отправить данные!"
+      = f.submit "Отправить данные!"
