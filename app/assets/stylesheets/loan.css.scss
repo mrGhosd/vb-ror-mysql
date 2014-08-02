@@ -37,6 +37,11 @@
     width: 491px;
     background-image: url('loan_bg_sliders.png');
     background-repeat: no-repeat;
+    &.hidden_calculator
+    {
+      background-image: url("loan_background_current.png") !important;
+      background-size: 100% 100%;
+    }
 
     .loan_confirm
     {

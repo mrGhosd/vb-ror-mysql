@@ -26,6 +26,7 @@
 //= require loan
 //= require deposit
 //= require registration
+//= require authorization
 
 //= require_tree .
 

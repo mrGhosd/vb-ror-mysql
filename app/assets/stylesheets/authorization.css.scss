@@ -1,0 +1,33 @@
+.authorization
+{
+  float:right;
+  margin-top:13px;
+  input
+  {
+    height:32px;
+  }
+  input.auth_pass
+  {
+    margin-left:10px;
+  }
+  input.auth_login,
+  input.auth_pass
+  {
+    width:108px;
+    height:20px !important;
+    border: 1px solid #cccccc;
+    margin-bottom: 0px;
+  }
+  input[type="submit"]
+  {
+    background-image: url("feedback_button.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width:71px;
+    color:#ffffff;
+    border:none;
+    border-radius: 4px;
+    margin-left:10px;
+  }
+
+}

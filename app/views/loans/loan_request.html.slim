@@ -9,7 +9,7 @@
 
   .static_page
     .static_page_title
-      h2="Шаг 1"
+      h2.step_title="Шаг 1"
   = form_for @user, url: '/users/loans' do |f|
     .main_info.short_reg.step_1
       = f.hidden_field :role_id, value: User.get_role_id(params[:role]), class: 'hidden_role'
@@ -25,10 +25,12 @@
       .loan_form_item
         = f.label 'Пол:'
         .radio_buttons_element
-          = f.label 'Мужской'
-          = f.radio_button :sex, true
-          = f.label 'Женский'
-          = f.radio_button :sex, false
+          .radio_field
+            = f.label 'Мужской'
+            = f.radio_button :sex, true
+          .radio_field
+            = f.label 'Женский'
+            = f.radio_button :sex, false
       .loan_form_item
         = f.label 'Дата рождения'
         = f.text_field :date_of_birth
@@ -55,7 +57,7 @@
         = f.text_field :contact_phone
       .short_reg_control.reg_form_controll
         = f.submit 'Отправить текущие данные', class: 'send_data_now', name: 'short_registration'
-        = link_to 'Продолжить', "#", class:'btn next step_2', remote: true
+        = link_to 'Продолжить &rarr;'.html_safe, "#", class:'next step_2', remote: true
     .passport_form.regForm.step_2
       = f.fields_for :passport do |p|
         .loan_form_item
@@ -86,9 +88,8 @@
           = p.label 'Номер старого паспорта:'
           = p.text_field :old_pasport_number
         .reg_form_controll
-          = link_to "Назад", "#", remote:true, class: 'btn back step_1'
-          = link_to "Вперед", "#", remote:true, class: 'btn next step_3'
-          = f.submit 'Отправить данные!'
+          = link_to "&larr; Вернуться".html_safe, "#", remote:true, class: 'back step_1'
+          = link_to 'Продолжить &rarr;'.html_safe, "#", remote:true, class: 'next step_3'
     .voen_passport_form.step_3
       = f.fields_for :voen_pasport do |vp|
         .loan_form_item
@@ -119,9 +120,8 @@
           = vp.label 'Спортивные разряды:'
           = vp.text_field :sport_mastery_id
         .reg_form_controll
-          = link_to 'Назад', "#", remote:true, class: 'btn back step_2'
-          = link_to 'Впереде', "#", remote:true, class: 'btn next step_4'
-          = f.submit 'Отправить данные!'
+          = link_to "&larr; Вернуться".html_safe, "#", remote:true, class: 'back step_2'
+          = link_to 'Продолжить &rarr;'.html_safe, "#", remote:true, class: 'next step_4'
     .contact_information_form.step_4
       = f.fields_for :contact_information do |cf|
         .loan_form_item
@@ -134,12 +134,11 @@
           = cf.label 'Информация о контактном лице:'
           = cf.text_field :contact_person_surname, placeholder: 'Фамилия'
           = cf.text_field :contact_person_name, placeholder: 'Имя'
-          = cf.text_field :contact_person_secondname, placeholder: 'Юрьевич'
+          = cf.text_field :contact_person_secondname, placeholder: 'Отчество'
           = cf.text_field :contact_person_phone, placeholder: 'Телефон'
         .reg_form_controll
-          = link_to 'Назад', "#", remote:true, class: 'btn back step_3'
-          = link_to 'Впереде', "#", remote:true, class: 'btn next step_5'
-          = f.submit 'Отправить данные!'
+          = link_to "&larr; Вернуться".html_safe, "#", remote:true, class: 'back step_3'
+          = link_to 'Продолжить &rarr;'.html_safe, "#", remote:true, class: 'next step_5'
     .role_information_form.step_5
       .form_kursant.special_form
         = f.fields_for :role_kursant do |kursant|
@@ -161,24 +160,30 @@
           .loan_form_item
             = kursant.label 'Являетесь ли вы отличником учебы?'
             .radio_buttons_element
-              = kursant.label 'Да'
-              = kursant.radio_button :excelent_student, true
-              = kursant.label 'Нет'
-              = kursant.radio_button :excelent_student, false
+              .radio_field
+                = kursant.label 'Да'
+                = kursant.radio_button :excelent_student, true
+              .radio_field
+                = kursant.label 'Нет'
+                = kursant.radio_button :excelent_student, false
           .loan_form_item
             = kursant.label 'Имеются ли у вас задолженности по учебной программе?'
             .radio_buttons_element
-              = kursant.label 'Да'
-              = kursant.radio_button :debt, true
-              = kursant.label 'Нет'
-              = kursant.radio_button :debt, false
+              .radio_field
+                = kursant.label 'Да'
+                = kursant.radio_button :debt, true
+              .radio_field
+                = kursant.label 'Нет'
+                = kursant.radio_button :debt, false
           .loan_form_item
             = kursant.label 'Заключен контракт с ВС РФ?'
             .radio_buttons_element
-              = kursant.label 'Да'
-              = kursant.radio_button :contract, true
-              = kursant.label 'Нет'
-              = kursant.radio_button :contract, false
+              .radio_field
+                = kursant.label 'Да'
+                = kursant.radio_button :contract, true
+              .radio_field
+                = kursant.label 'Нет'
+                = kursant.radio_button :contract, false
           .loan_form_item
             = kursant.label 'Телефон дежурного:'
             = kursant.text_field :duty_phone
@@ -202,7 +207,6 @@
           .loan_form_item
             = contract.label 'Телефон дежурного:'
             = contract.text_field :duty_phone
-          .reg_form_controll
       .form_officer.special_form
         = f.fields_for :role_officer do |officer|
           .loan_form_item
@@ -221,4 +225,6 @@
             = officer.label 'Телефон дежурного:'
             = officer.text_field :duty_phone
             .reg_form_controll
+          .reg_form_controll
+            = link_to "&larr; Вернуться".html_safe, remote:true, class: 'back step_4'
       = f.submit "Отправить данные!"

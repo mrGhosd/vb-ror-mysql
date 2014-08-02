@@ -1,1 +1,4 @@
-= render partial: "form"
+- if @current_user
+  = render 'loan_slider_hidden'
+- else
+  = render partial: "form"

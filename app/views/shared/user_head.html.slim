@@ -1,6 +1,7 @@
 .user_info
   .greetings
-    = @current_user.surname
-    = @current_user.name
-  .logout
-    = link_to "Выйти", logout_path
+    p= "Здравствуйте, #{@current_user.surname} #{@current_user.name}"
+
+  .user_actions
+    = link_to "Личный кабинет", "#", remote: true, class: 'btn'
+    = link_to "Выйти", logout_path(logout: true),  class: 'btn'

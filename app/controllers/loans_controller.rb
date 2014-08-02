@@ -6,9 +6,9 @@ class LoansController < ApplicationController
     @info = @user.build_contact_information
     @pasport = @user.build_passport
     @voen_pass = @user.build_voen_pasport
-    @role_kursant = @user.role_kursant
-    @role_contract = @user.role_contract
-    @role_officer = @user.role_officer
+    @role_kursant = @user.build_role_kursant
+    @role_contract = @user.build_role_contract
+    @role_officer = @user.build_role_officer
   end
 
   def create
@@ -21,10 +21,6 @@ class LoansController < ApplicationController
     end
     @user.save
     redirect_to root_path
-  end
-
-  def role_form
-   "role_attributes: [:id, :user_id]"
   end
 
   def loan_request

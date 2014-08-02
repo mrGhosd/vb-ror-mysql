@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  # belongs_to :role
   has_many :loans
   has_many :deposits
   has_one :passport
@@ -13,7 +12,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :passport
   accepts_nested_attributes_for :voen_pasport
   accepts_nested_attributes_for :contact_information
-  #
+
   accepts_nested_attributes_for :role_kursant
   accepts_nested_attributes_for :role_officer
   accepts_nested_attributes_for :role_contract
@@ -28,6 +27,16 @@ class User < ActiveRecord::Base
 
   def self.get_role_id(role)
     Role.find_by_value(role).id
+  end
+
+  def self.login(login, password)
+    # session[:current_user] = "1"
+    # cookies[:currenr_user] = {value: true, expires: 1.week.from_now}
+    current_user = User.find_by login: login, password: password
+  end
+
+  def logout(session)
+
   end
 
 end

@@ -10,3 +10,101 @@
 {
   display: block !important;
 }
+.registration_navigation
+{
+  a
+  {
+    padding:7px 48px 6px 51px;
+    color: #000000;
+    &.active
+    {
+      background-image: url("feedback_button.png");
+      background-size: 100% 100%;
+      color: #ffffff;
+    }
+    &:hover
+    {
+      background-position: center center;
+    }
+  }
+}
+#new_user
+{
+    label
+    {
+      margin-bottom:12px;
+    }
+    input[type="text"]
+    {
+      width:662px;
+    }
+  .loan_form_item
+  {
+   margin-bottom: 5px;
+  }
+  .radio_buttons_element
+  {
+    width:662px;
+    height:50px;
+  }
+  .radio_field
+  {
+    float:left;
+    margin-right:15px;
+    label
+    {
+      float:left;
+      margin-bottom: 0px;
+      margin-top:3px;
+    }
+    input
+    {
+      margin-left:10px;
+    }
+  }
+  .reg_form_controll
+  {
+    margin-top:32px;
+    margin-bottom:100px;
+  }
+  a
+  {
+    padding:13px 19px 13px 19px;
+    color: white;
+    border-radius: 4px;
+    background-size: 100% 100%;
+    text-decoration: none;
+    &.next
+    {
+      background-image: url("form_next_button.png");
+      float:right;
+      &:hover
+      {
+        background-image: url("green_button_hover.png");
+      }
+
+    }
+    &.back
+    {
+      float:left;
+      background-image: url("form_back_button.png");
+      border: 1px solid #bbbbbb;
+      color: #000000;
+      &:hover
+      {
+        background-image: url("form_back_button_hover.png");
+      }
+    }
+  }
+  input[type="submit"]
+  {
+    background-image: url('feedback_button.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding:16px 40px 13px 42px;
+    border: none;
+    border-radius:6px;
+    color: #ffffff;
+  }
+
+}

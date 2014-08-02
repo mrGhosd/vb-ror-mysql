@@ -1,13 +1,12 @@
 VoenbankRorPostgres::Application.routes.draw do
   root "loans#new"
   get "static_pages/:page_id", controller: "static_pages", action: "page", as: "static_page"
-  post "/login", controller: "index", action: "login"
-  post "/index", controller: "index", action: "index"
+  post "/login", controller: "application", action: "login"
   get "/private_office/:id", controller: "index", action: "private_office", as: "private_office"
 
   get "/feedback", controller: "static_pages", action: "feedback", as: "feedback"
 
-  get "/logout", controller: "index", action: "logout"
+  get "/logout", controller: "application", action: "logout"
 
 
 
