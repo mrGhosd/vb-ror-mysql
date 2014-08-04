@@ -3,7 +3,7 @@ class Loan < ActiveRecord::Base
   has_many :percent
   validates_presence_of :loan_sum, :begin_date, :end_date
 
-  scope :unpayed_loans, -> { where(status: nil).last }
+  scope :unpayed_loans, -> { where(status: false || nil).last }
 
   def date_in_months
     (end_date.year * 12 + end_date.month) - (begin_date.year * 12 + begin_date.month)

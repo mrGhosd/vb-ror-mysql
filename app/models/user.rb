@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :role_officer
   accepts_nested_attributes_for :role_contract
 
-  has_attached_file :image,
+  has_attached_file :avatar,
                     :use_timestamp => false,
                     :styles => {normal: "300x200>", small: "200x120>", iphone: "120x120"}
-  validates_attachment_content_type :image,
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 
   def avatar_url

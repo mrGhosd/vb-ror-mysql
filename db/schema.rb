@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802122817) do
+ActiveRecord::Schema.define(version: 20140804174303) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -258,17 +258,21 @@ ActiveRecord::Schema.define(version: 20140802122817) do
   end
 
   create_table "users", primary_key: "user_id", force: true do |t|
-    t.string  "surname",        limit: 50, null: false
-    t.string  "name",           limit: 50, null: false
-    t.string  "secondname",     limit: 50, null: false
-    t.integer "role_id"
-    t.boolean "sex"
-    t.date    "date_of_birth"
-    t.text    "place_of_birth"
-    t.string  "login",          limit: 50
-    t.string  "password",       limit: 50
-    t.integer "session"
-    t.string  "contact_phone"
+    t.string   "surname",             limit: 50, null: false
+    t.string   "name",                limit: 50, null: false
+    t.string   "secondname",          limit: 50, null: false
+    t.integer  "role_id"
+    t.boolean  "sex"
+    t.date     "date_of_birth"
+    t.text     "place_of_birth"
+    t.string   "login",               limit: 50
+    t.string   "password",            limit: 50
+    t.integer  "session"
+    t.string   "contact_phone"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "voen_pasports", force: true do |t|

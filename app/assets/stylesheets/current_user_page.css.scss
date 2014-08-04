@@ -9,6 +9,37 @@
         font-size:13px;
       }
     }
+    #personal_data,
+    #contact_information,
+    #special_question
+    {
+
+      .left_column
+      {
+        display: inline-block;
+//        float: left;
+      }
+      .right_column
+      {
+        display: inline-block;
+        float: right;
+      }
+    }
+    #contact_information
+    {
+      height:260px;
+    }
+    #special_question
+    {
+      .radio_field
+      {
+        display: inline-block;
+        label
+        {
+          float: left;
+        }
+      }
+    }
   }
 }
 .loan_information
