@@ -41,10 +41,15 @@ class ApplicationController < ActionController::Base
     if params[:logout]
       session.delete(:current_user)
       cookies.delete(:current_user)
-      @current_user.session = nil
-      @current_user.save
+      # @current_user.session = nil
+      # @current_user.save
       redirect_to root_path
     end
+  end
+
+  def user_cabinet
+    @user = User.find(@current_user.id)
+    render 'shared/user_cabinet'
   end
 
 end

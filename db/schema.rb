@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727195325) do
+ActiveRecord::Schema.define(version: 20140802122817) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -90,12 +90,12 @@ ActiveRecord::Schema.define(version: 20140727195325) do
   end
 
   create_table "loans", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.string   "loan_sum",   null: false
-    t.datetime "begin_date", null: false
-    t.datetime "end_date",   null: false
+    t.integer  "user_id",                    null: false
+    t.string   "loan_sum",                   null: false
+    t.datetime "begin_date",                 null: false
+    t.datetime "end_date",                   null: false
     t.integer  "percent_id"
-    t.boolean  "status"
+    t.boolean  "status",     default: false
     t.boolean  "response"
   end
 
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 20140727195325) do
     t.integer "phone",                         null: false
   end
 
-  create_table "role_contracts", id: false, force: true do |t|
+  create_table "role_contracts", force: true do |t|
     t.integer "user_id",       null: false
     t.integer "rank_id",       null: false
     t.integer "post_id",       null: false
@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20140727195325) do
     t.integer "duty_phone",    null: false
   end
 
-  create_table "role_kursants", id: false, force: true do |t|
+  create_table "role_kursants", force: true do |t|
     t.integer "user_id",                      null: false
     t.string  "univercity_name",  limit: 100, null: false
     t.string  "faculty",          limit: 50,  null: false
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20140727195325) do
     t.integer "education_phone",              null: false
   end
 
-  create_table "role_officers", id: false, force: true do |t|
+  create_table "role_officers", force: true do |t|
     t.integer "user_id",      null: false
     t.integer "post_id",      null: false
     t.integer "unit_number",  null: false

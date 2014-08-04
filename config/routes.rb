@@ -7,6 +7,7 @@ VoenbankRorPostgres::Application.routes.draw do
   get "/feedback", controller: "static_pages", action: "feedback", as: "feedback"
 
   get "/logout", controller: "application", action: "logout"
+  get '/user_cabinet', controller: 'application', action: 'user_cabinet'
 
 
 

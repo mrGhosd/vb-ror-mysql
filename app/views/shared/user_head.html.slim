@@ -3,5 +3,5 @@
     p= "Здравствуйте, #{@current_user.surname} #{@current_user.name}"
 
   .user_actions
-    = link_to "Личный кабинет", "#", remote: true, class: 'btn'
+    = link_to "Личный кабинет", "#", remote: true, class: 'btn user_cabinet'
     = link_to "Выйти", logout_path(logout: true),  class: 'btn'

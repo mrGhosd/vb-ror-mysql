@@ -27,7 +27,7 @@
 //= require deposit
 //= require registration
 //= require authorization
-
+//= require current_user
 //= require_tree .
 
 

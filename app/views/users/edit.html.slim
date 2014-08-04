@@ -1,0 +1,45 @@
+= form_for @user, url: 'users/update' do |f|
+  #cabinet_tabs
+    ul
+      li
+        = link_to "Личная информация", "#personal_data"
+      li
+        = link_to "Паспортные данные", "#pasport"
+      li
+        = link_to "Военный билет", "#voen_pasport"
+      li
+        = link_to "Контактная информация", "#contact_information"
+      li
+        = link_to "Специальные вопросы", "#special_question"
+    #personal_data
+      .personal_data_cell
+        = f.label 'Роль'
+        = f.text_field :role_id
+      .personal_data_cell
+        = f.label 'Фамилия:'
+        = f.text_field :surname
+      .personal_data_cell
+        = f.label 'Имя:'
+        = f.text_field :name
+      .personal_data_cell
+        = f.label 'Отчество:'
+        = f.text_field :secondname
+      .personal_data_cell
+        = f.label 'Пол:'
+        = f.text_field :sex
+      .personal_data_cell
+        = f.label 'Дата рождения'
+        = f.text_field :date_of_birth
+      .personal_data_cell
+        = f.label 'Место рождения'
+        = f.text_field :place_of_birth
+
+
+    #pasport
+      = f.fields_for :passport do |p|
+        = p.label 'Серия'
+        = p.text_field :pasport_seria
+    #voen_pasport
+    #contact_information
+    #special_question
+

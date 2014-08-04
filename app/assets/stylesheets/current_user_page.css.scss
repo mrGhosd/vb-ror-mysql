@@ -1,0 +1,120 @@
+.user_cabinet
+{
+  #cabinet_tabs
+  {
+    ul
+    {
+      li
+      {
+        font-size:13px;
+      }
+    }
+  }
+}
+.loan_information
+{
+  width:490px;
+  height:506px;
+  float: left;
+  background-image: url("loan_bg_sliders.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  .loan_info_item
+  {
+//    padding: 35px 102px 24px 40px;
+    .info_cell {
+      padding: 35px 52px 24px 40px;
+      span, p {
+        color: #444444;
+        font-size: 24px;
+        display: block;
+
+        &.info_item_title {
+          float: left;
+          &.small
+          {
+            font-size:12px;
+            width:210px;
+          }
+        }
+        &.info_item_value {
+          float: right;
+        }
+      }
+      .specific_payment_info
+      {
+        height:60px;
+        .loan_info_item
+        {
+          margin-top:18px;
+          .info_cell
+          {
+//            padding-left: 0px;
+//            padding-top: 18px;
+            padding: 18px 22px 24px 0px;
+          }
+        }
+      }
+    }
+    .divide_line
+    {
+      background-image: url("slider_divider.png");
+      height: 1px;
+      width: 441px;
+      margin-top:14px;
+    }
+  }
+  .payment_slider
+  {
+    float:left;
+    margin-top: 21px;
+    margin-left:37px;
+    .payment_slider_title
+    {
+      height:50px;
+      .graph_title
+      {
+        font-size: 24px;
+        color: #444444;
+        display:block;
+        float:left;
+        margin-top:11px;
+      }
+      #current_day
+      {
+        height:31px;
+        width:150px;
+        float: right;
+        font-size: 24px;
+        color: #444444;
+      }
+    }
+    .current_user_slider_wrapper
+    {
+      background-image: url("current_user_slider_wrapper.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      padding:10px;
+      .current_user_slider
+      {
+        width:410px;
+        &.ui-slider
+        {
+          background-image: url("current_slider_unfilled.png");
+          background-size: 111% 100%;
+        }
+        .ui-slider-handle
+        {
+          background-image: url("current_user_slider_thumb.png");
+          background-repeat: no-repeat;
+          background-position: -2px -2px;
+          border-radius: 14px;
+          top: -8px;
+          height:29px;
+          width:30px;
+        }
+      }
+    }
+  }
+}

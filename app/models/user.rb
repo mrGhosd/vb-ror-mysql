@@ -17,6 +17,12 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :role_officer
   accepts_nested_attributes_for :role_contract
 
+  has_attached_file :image,
+                    :use_timestamp => false,
+                    :styles => {normal: "300x200>", small: "200x120>", iphone: "120x120"}
+  validates_attachment_content_type :image,
+
+
   def avatar_url
     "http://vk.com/#{id}.jpg"
   end

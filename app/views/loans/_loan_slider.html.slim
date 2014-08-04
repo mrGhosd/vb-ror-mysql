@@ -1,4 +1,4 @@
-.main_content[class="#{hidden_calc}"]
+.main_content
   .slider_amount
     .amount
       span="Сумма займа:"
@@ -37,4 +37,4 @@
       span.right_slider_arrow
       #slider_everymonth_pay
     .pay_range
-  = button_tag 'Получить денежное довольствие', class: 'loan_confirm' if hidden_calc.nil?
+  = button_tag 'Получить денежное довольствие', class: 'loan_confirm'

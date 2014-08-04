@@ -139,6 +139,24 @@ body {
   margin-right:20px;
   .user_actions
   {
-
+    .user_cabinet
+    {
+      background-image: url("feedback_button.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      color: #ffffff;
+      &:hover
+      {
+        background-position: center center;
+        background-image: url("green_button_hover.png");
+      }
+    }
   }
+}
+.ui-dialog.user_cabinet
+{
+  position:fixed !important;
+  top:67px !important;
+  left: 235px !important;
+
 }

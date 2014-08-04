@@ -1,0 +1,39 @@
+.loan_information
+  .loan_info_item
+    .info_cell
+      span.info_item_title="Сумма займа: "
+      span.info_item_value="#{@current_user.loans.unpayed_loans.loan_sum} р."
+    .divide_line
+  .loan_info_item
+    .info_cell
+      span.info_item_title="Количество месяцев: "
+      span.info_item_value="#{@current_user.loans.unpayed_loans.date_in_months} месяцев"
+    .divide_line
+  .loan_info_item
+    .info_cell
+      span.info_item_title="Дата закрытия займа: "
+      span.info_item_value="#{@current_user.loans.unpayed_loans.end_date.strftime("%d-%m-%Y")}"
+    .divide_line
+  .loan_info_item
+    .info_cell
+      p.info_item_title="Ежемесячный платеж:"
+      .specific_payment_info
+        .loan_info_item
+          .info_cell
+            span.info_item_title.small="Сумма которую необходимо внести по ежемесячному платежу: "
+            span.info_item_value="#{@current_user.loans.unpayed_loans.everymonth_pay} р."
+        .loan_info_item
+          .info_cell
+            span.info_item_title.small="Дата до которой необходимо совершить ежемесячный платеж: "
+            span.info_item_value="#{@current_user.loans.unpayed_loans.closest_payment_date.strftime("%d.%m")}"
+    .divide_line
+  .payment_slider
+    .payment_slider_title
+      span.graph_title="График платежей: "
+      = text_field_tag :current_day, "#{@current_user.loans.unpayed_loans.current_day_in_loan_history}-й день"
+      = hidden_field_tag :date_sum, "#{@current_user.loans.unpayed_loans.date_in_days}"
+      = hidden_field_tag :current_day, "#{@current_user.loans.unpayed_loans.current_day_in_loan_history}"
+    .current_user_slider_wrapper
+      .current_user_slider
+
+
