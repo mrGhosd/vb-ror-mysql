@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :role_officer
   accepts_nested_attributes_for :role_contract
 
+  validates :surname, presence: true
+  validates :name, presence: true
+  validates :secondname, presence: true
+
   has_attached_file :avatar,
                     :use_timestamp => false,
                     :styles => {normal: "300x200>", small: "200x120>", iphone: "120x120"}

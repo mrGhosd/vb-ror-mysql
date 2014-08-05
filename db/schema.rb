@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.integer "phone",                         null: false
   end
 
-  create_table "role_contracts", force: true do |t|
+  create_table "role_contracts", id: false, force: true do |t|
     t.integer "user_id",       null: false
     t.integer "rank_id",       null: false
     t.integer "post_id",       null: false
@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.integer "duty_phone",    null: false
   end
 
-  create_table "role_kursants", force: true do |t|
+  create_table "role_kursants", id: false, force: true do |t|
     t.integer "user_id",                      null: false
     t.string  "univercity_name",  limit: 100, null: false
     t.string  "faculty",          limit: 50,  null: false
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.integer "education_phone",              null: false
   end
 
-  create_table "role_officers", force: true do |t|
+  create_table "role_officers", id: false, force: true do |t|
     t.integer "user_id",      null: false
     t.integer "post_id",      null: false
     t.integer "unit_number",  null: false
