@@ -9,8 +9,9 @@ module ApplicationHelper
       elsif user.role_id == 2
         user.build_role_contract if user.role_contract.blank?
       else
-        user.build_role_officet if user.role_officer.blank?
+        user.build_role_officer if user.role_officer.blank?
       end
     user
   end
+
 end

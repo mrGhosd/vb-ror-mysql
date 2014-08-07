@@ -14,12 +14,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(@current_user.id)
+    @user.revert_params_from_id_to_value
     render 'edit', layout: false
     # @user.update_params!(user_params)
   end
 
   def update
-    if @current_user.update_attributes(user_params)
+    if @current_user.revert_params_from_value_to_id.update_attributes(user_params)
        message = "Ваша личная информация успешно обновлена"
     else
       message = "Ошибка! Повторите операцию позденее!"

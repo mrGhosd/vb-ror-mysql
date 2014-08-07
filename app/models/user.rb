@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   validates :surname, presence: true
   validates :name, presence: true
   validates :secondname, presence: true
+  validates :login, uniqueness: true
+  validates :password, uniqueness: true
 
   has_attached_file :avatar,
                     :use_timestamp => false,
@@ -39,6 +41,10 @@ class User < ActiveRecord::Base
     Role.find_by_value(role).id
   end
 
+  def full_name
+    [surname, name, secondname].join(' ')
+  end
+
   def self.login(login, password)
     # session[:current_user] = "1"
     # cookies[:currenr_user] = {value: true, expires: 1.week.from_now}
@@ -47,6 +53,19 @@ class User < ActiveRecord::Base
 
   def logout(session)
 
+  end
+
+
+  def revert_params_from_id_to_value
+    self.role_id = Role.find(self.role_id).value
+    self
+  end
+
+
+  def revert_params_from_value_to_id
+    binding.pry
+    self.role_id = Role.find_by_value(role_id).id
+    self
   end
 
 end
