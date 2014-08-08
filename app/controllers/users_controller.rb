@@ -14,13 +14,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(@current_user.id)
-    @user.revert_params_from_id_to_value
     render 'edit', layout: false
-    # @user.update_params!(user_params)
   end
 
   def update
-    if @current_user.revert_params_from_value_to_id.update_attributes(user_params)
+    binding.pry
+    if @current_user.update_attributes(user_params)
        message = "Ваша личная информация успешно обновлена"
     else
       message = "Ошибка! Повторите операцию позденее!"
@@ -31,9 +30,8 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :role_id, :sex, :date_of_birth, :place_of_birth,
+    params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :user_role, :sex, :date_of_birth, :place_of_birth,
                                  :avatar, :login, :password,
-                                 loans_attributes: [:id, :user_id, :loan_sum, :begin_date, :end_date],
                                  contact_information_attributes: [:id, :user_id, :email, :actual_adress, :phone_adress,
                                                                   :contact_person_surname, :contact_person_name,
                                                                   :contact_person_secondname, :contact_person_phone],

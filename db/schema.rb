@@ -159,36 +159,36 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.integer "phone",                         null: false
   end
 
-  create_table "role_contracts", id: false, force: true do |t|
-    t.integer "user_id",       null: false
-    t.integer "rank_id",       null: false
-    t.integer "post_id",       null: false
-    t.text    "military_unit", null: false
-    t.text    "unit_address",  null: false
-    t.integer "duty_phone",    null: false
+  create_table "role_contracts", force: true do |t|
+    t.integer "user_id"
+    t.integer "rank_id"
+    t.integer "post_id"
+    t.text    "military_unit"
+    t.text    "unit_address"
+    t.integer "duty_phone"
   end
 
-  create_table "role_kursants", id: false, force: true do |t|
-    t.integer "user_id",                      null: false
-    t.string  "univercity_name",  limit: 100, null: false
-    t.string  "faculty",          limit: 50,  null: false
-    t.integer "course",                       null: false
-    t.date    "graduate_date",                null: false
-    t.text    "course_post",                  null: false
-    t.boolean "excelent_student",             null: false
-    t.boolean "debt",                         null: false
-    t.boolean "contract",                     null: false
-    t.integer "duty_phone",                   null: false
-    t.integer "education_phone",              null: false
+  create_table "role_kursants", force: true do |t|
+    t.integer "user_id"
+    t.string  "univercity_name",  limit: 100
+    t.string  "faculty",          limit: 50
+    t.integer "course"
+    t.date    "graduate_date"
+    t.text    "course_post"
+    t.boolean "excelent_student"
+    t.boolean "debt"
+    t.boolean "contract"
+    t.integer "duty_phone"
+    t.integer "education_phone"
   end
 
-  create_table "role_officers", id: false, force: true do |t|
-    t.integer "user_id",      null: false
-    t.integer "post_id",      null: false
-    t.integer "unit_number",  null: false
-    t.text    "unit_address", null: false
-    t.integer "duty_phone",   null: false
-    t.integer "rank_id",      null: false
+  create_table "role_officers", force: true do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.integer "unit_number"
+    t.text    "unit_address"
+    t.integer "duty_phone"
+    t.integer "rank_id"
   end
 
   create_table "roles", force: true do |t|

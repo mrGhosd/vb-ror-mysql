@@ -36,4 +36,9 @@ describe User do
                        secondname: "wadawdaw")
     expect(user.full_name).to eq 'awdawdaw ololol wadawdaw'
   end
+
+  it "has a loan" do
+    # binding.pry
+    expect(FactoryGirl.build(:user).loan.count).to eq 1
+  end
 end

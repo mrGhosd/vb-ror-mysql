@@ -21,16 +21,35 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :secondname, presence: true
   validates :login, uniqueness: true
-  validates :password, uniqueness: true
 
   has_attached_file :avatar,
                     :use_timestamp => false,
                     :styles => {normal: "300x200>", small: "200x120>", iphone: "120x120"}
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  def user_role
+    Role.find(role_id).value
+  end
 
-  def avatar_url
-    "http://vk.com/#{id}.jpg"
+  def user_role=(role)
+    Role.find_by_value(role).id
+  end
+
+  def user_sex
+    if sex
+      "Мужской"
+    else
+      "Женский"
+    end
+  end
+
+  def user_sex=(bool)
+    if bool
+      param = true
+    else
+      param = false
+    end
+    self.sex = param
   end
 
   def self.get_percent_id(percent_val)
@@ -40,6 +59,10 @@ class User < ActiveRecord::Base
   def self.get_role_id(role)
     Role.find_by_value(role).id
   end
+
+
+
+
 
   def full_name
     [surname, name, secondname].join(' ')
