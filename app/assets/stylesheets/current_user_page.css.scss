@@ -1,5 +1,58 @@
 .user_cabinet
 {
+
+  .personal_data_cell
+  {
+    margin-bottom:15px;
+    label
+    {
+      font-size: 15px;
+    }
+    input[type="text"],
+    textarea
+    {
+      font-size: 15px;
+    }
+    textarea
+    {
+      resize: none;
+    }
+    .radio_field
+    {
+      margin-top:10px;
+      margin-right: 25px;
+      label
+      {}
+      input
+      {
+        margin-left:10px;
+        margin-top:0px;
+      }
+    }
+    .popup-main
+    {
+      background-color: #e6e6e6;
+      height:100px;
+      width:220px;
+      position:relative;
+      top:-10px;
+      border: 1px solid #c8c8c8;
+      border-radius: 0px 0px 4px 4px;
+      ul
+      {
+        li
+        {
+          padding:3px;
+          &.current
+          {
+            background-color: #224f0e;
+            color: #ffffff;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
   #cabinet_tabs
   {
     ul
@@ -10,6 +63,8 @@
       }
     }
     #personal_data,
+    #pasport,
+    #voen_pasport,
     #contact_information,
     #special_question
     {
@@ -27,7 +82,7 @@
     }
     #contact_information
     {
-      height:260px;
+      height:380px;
     }
     #special_question
     {
@@ -39,6 +94,23 @@
           float: left;
         }
       }
+    }
+  }
+  .edit_user_profile
+  {
+    float: right;
+    margin-top:10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    background-image: url('feedback_button.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    &:hover
+    {
+      background-image: url('green_button_hover.png');
+      background-position: center center;
     }
   }
 }

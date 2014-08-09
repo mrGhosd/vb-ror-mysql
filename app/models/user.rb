@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def user_role=(role)
-    Role.find_by_value(role).id
+    self.role_id = Role.find_by_value(role).id
   end
 
   def user_sex

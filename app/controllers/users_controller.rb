@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     if @current_user.update_attributes(user_params)
        message = "Ваша личная информация успешно обновлена"
     else
@@ -26,6 +25,10 @@ class UsersController < ApplicationController
     end
     flash[:notice] = message
     redirect_to root_path
+  end
+
+  def user_nested_info
+    render json: params[:class_name].constantize.all
   end
 
 private

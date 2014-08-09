@@ -1,4 +1,5 @@
-= form_for setup_user_data(@user), url: 'users', method: :patch do |f|
+= javascript_include_tag 'popup_window'
+= form_for setup_user_data(@user), url: 'users', method: :patch, html: { id: 'edit_user_form' } do |f|
   #cabinet_tabs
     ul
       li
@@ -15,7 +16,7 @@
       .left_column
         .personal_data_cell
           = f.label 'Роль'
-          = f.text_field :user_role
+          = f.text_field :user_role, class: 'popup-available Role'
         .personal_data_cell
           = f.label 'Фамилия:'
           = f.text_field :surname
@@ -49,60 +50,65 @@
 
     #pasport
       = f.fields_for :passport do |p|
-        .personal_data_cell
-          = p.label 'Серия:'
-          = p.text_field :pasport_seria
-        .personal_data_cell
-          = p.label 'Номер:'
-          = p.text_field :pasport_number
-        .personal_data_cell
-          = p.label 'Когда выдан:'
-          = p.text_field :pasport_when
-        .personal_data_cell
-          = p.label 'Где:'
-          = p.text_field :pasport_where
-        .personal_data_cell
-          = p.label 'Код:'
-          = p.text_field :pasport_code
-        .personal_data_cell
-          = p.label 'Постоянная регистрация (прописка):'
-          = p.text_field :definite_registration
-        .personal_data_cell
-          = p.label 'Серия старого паспорта'
-          = p.text_field :old_pasport_seria
-        .personal_data_cell
-          = p.label 'Номер старого паспорта'
-          = p.text_field :old_pasport_number
+        .left_column
+          .personal_data_cell
+            = p.label 'Серия:'
+            = p.text_field :pasport_seria
+          .personal_data_cell
+            = p.label 'Номер:'
+            = p.text_field :pasport_number
+          .personal_data_cell
+            = p.label 'Когда выдан:'
+            = p.text_field :pasport_when
+          .personal_data_cell
+            = p.label 'Где:'
+            = p.text_area :pasport_where
+        .right_column
+          .personal_data_cell
+            = p.label 'Код:'
+            = p.text_field :pasport_code
+          .personal_data_cell
+            = p.label 'Постоянная регистрация (прописка):'
+            = p.text_field :definite_registration
+          .personal_data_cell
+            = p.label 'Серия старого паспорта'
+            = p.text_field :old_pasport_seria
+          .personal_data_cell
+            = p.label 'Номер старого паспорта'
+            = p.text_field :old_pasport_number
 
     #voen_pasport
       = f.fields_for :voen_pasport do |vp|
-        .personal_data_cell
-          = vp.label 'Серия:'
-          = vp.text_field :voen_seria
-        .personal_data_cell
-          = vp.label 'Номер:'
-          = vp.text_field :voen_number
-        .personal_data_cell
-          = vp.label 'Когда:'
-          = vp.text_field :voen_when
-        .personal_data_cell
-          = vp.label 'Где:'
-          = vp.text_field :voen_where
-        .personal_data_cell
-          = vp.label 'Национальность:'
-          = vp.text_field :nationality_id
-        .personal_data_cell
-          = vp.label 'Образование:'
-          = vp.text_field :education_id
-        .personal_data_cell
-          = vp.label 'Семейное положение:'
-          = vp.text_field :relashionship_id
-        .personal_data_cell
-          = vp.label 'Гражданска специальность:'
-          = vp.text_field :specialization_id
-        .personal_data_cell
-          = vp.label 'Спортивные разряды:'
-          = vp.text_field :sport_mastery_id
+        .left_column
+          .personal_data_cell
+            = vp.label 'Серия:'
+            = vp.text_field :voen_seria
+          .personal_data_cell
+            = vp.label 'Номер:'
+            = vp.text_field :voen_number
+          .personal_data_cell
+            = vp.label 'Когда:'
+            = vp.text_field :voen_when
+          .personal_data_cell
+            = vp.label 'Где:'
+            = vp.text_area :voen_where
+          .personal_data_cell
+            = vp.label 'Национальность:'
+            = vp.text_field :user_nationality, class: 'popup-available Nationality'
+        .right_column
+
+          .personal_data_cell
+            = vp.label 'Образование:'
+            = vp.text_field :user_education, class: 'popup-available Education'
+          .personal_data_cell
+            = vp.label 'Семейное положение:'
+            = vp.text_field :user_relationship, class: 'popup-available Relashionship'
+          .personal_data_cell
+            = vp.label 'Гражданска специальность:'
+            = vp.text_field :user_specialization, class: 'popup-available Specialization'
+          .personal_data_cell
+            = vp.label 'Спортивные разряды:'
+            = vp.text_field :user_sport_mastery, class: 'popup-available SportMastery'
 
     #contact_information
       = f.fields_for :contact_information do |contact|
@@ -137,36 +143,36 @@
             .personal_data_cell
               = kursant.label 'Название высшего учебного заведения:'
               = kursant.text_field :univercity_name
-              .personal_data_cell
-                = kursant.label 'Факультет:'
-                = kursant.text_field :faculty
-              .personal_data_cell
-                = kursant.label 'Курс:'
-                = kursant.text_field :course
-              .personal_data_cell
-                = kursant.label 'Дата выпуска:'
-                = kursant.text_field :graduate_date
-              .personal_data_cell
-                = kursant.label 'Должность на курсе:'
-                = kursant.text_field :course_post
-              .personal_data_cell
-                = kursant.label 'Являетесь ли вы отличником учебы?'
-                .radio_buttons_element
-                  .radio_field
-                    = kursant.label 'Да'
-                    = kursant.radio_button :excelent_student, true
-                  .radio_field
-                    = kursant.label 'Нет'
-                    = kursant.radio_button :excelent_student, false
-              .personal_data_cell
-                = kursant.label 'Имеются ли у вас задолженности по учебной программе?'
-                .radio_buttons_element
-                  .radio_field
-                    = kursant.label 'Да'
-                    = kursant.radio_button :debt, true
-                  .radio_field
-                    = kursant.label 'Нет'
-                    = kursant.radio_button :debt, false
+            .personal_data_cell
+              = kursant.label 'Факультет:'
+              = kursant.text_field :faculty
+            .personal_data_cell
+              = kursant.label 'Курс:'
+              = kursant.text_field :course
+            .personal_data_cell
+              = kursant.label 'Дата выпуска:'
+              = kursant.text_field :graduate_date
+            .personal_data_cell
+              = kursant.label 'Должность на курсе:'
+              = kursant.text_field :course_post
+            .personal_data_cell
+              = kursant.label 'Являетесь ли вы отличником учебы?'
+              .radio_buttons_element
+                .radio_field
+                  = kursant.label 'Да'
+                  = kursant.radio_button :excelent_student, true
+                .radio_field
+                  = kursant.label 'Нет'
+                  = kursant.radio_button :excelent_student, false
+            .personal_data_cell
+              = kursant.label 'Имеются ли у вас задолженности по учебной программе?'
+              .radio_buttons_element
+                .radio_field
+                  = kursant.label 'Да'
+                  = kursant.radio_button :debt, true
+                .radio_field
+                  = kursant.label 'Нет'
+                  = kursant.radio_button :debt, false
           .right_column
             .personal_data_cell
               = kursant.label 'Заключен контракт с ВС РФ?'
@@ -183,39 +189,39 @@
             .personal_data_cell
               = kursant.label 'Телефон учебного отдела:'
               = kursant.text_field :education_phone
-    - if @user.role_id == 2
-      = f.fields_for :role_contract do |contract|
-        .personal_data_cell
-          = contract.label 'Звание:'
-          = contract.text_field :rank_id
-        .personal_data_cell
-          = contract.label 'Должность:'
-          = contract.text_field :post_id
-        .personal_data_cell
-          = contract.label 'Военная часть:'
-          = contract.text_field :military_unit
-        .personal_data_cell
-          = contract.label 'Адрес военной части:'
-          = contract.text_field :unit_address
-        .personal_data_cell
-          = contract.label 'Телефон дежурного:'
-          = contract.text_field :duty_phone
-    - if @user.role_id == 3
-      = f.fields_for :role_officer do |officer|
-        .personal_data_cell
-          = officer.label 'Должность:'
-          = officer.text_field :post_id
-        .personal_data_cell
-          = officer.label 'Звание:'
-          = officer.text_field :rank_id
-        .personal_data_cell
-          = officer.label 'Телефон военной части:'
-          = officer.text_field :unit_number
-        .personal_data_cell
-          = officer.label 'Адрес военной части:'
-          = officer.text_field :unit_address
-        .personal_data_cell
-          = officer.label 'Телефон дежурного:'
-          = officer.text_field :duty_phone
-  = f.submit 'Сохранить данные', class: 'btn'
+      - if @user.role_id == 2
+        = f.fields_for :role_contract do |contract|
+          .personal_data_cell
+            = contract.label 'Звание:'
+            = contract.text_field :rank_id
+          .personal_data_cell
+            = contract.label 'Должность:'
+            = contract.text_field :post_id
+          .personal_data_cell
+            = contract.label 'Военная часть:'
+            = contract.text_field :military_unit
+          .personal_data_cell
+            = contract.label 'Адрес военной части:'
+            = contract.text_field :unit_address
+          .personal_data_cell
+            = contract.label 'Телефон дежурного:'
+            = contract.text_field :duty_phone
+      - if @user.role_id == 3
+        = f.fields_for :role_officer do |officer|
+          .personal_data_cell
+            = officer.label 'Должность:'
+            = officer.text_field :post_id
+          .personal_data_cell
+            = officer.label 'Звание:'
+            = officer.text_field :rank_id
+          .personal_data_cell
+            = officer.label 'Телефон военной части:'
+            = officer.text_field :unit_number
+          .personal_data_cell
+            = officer.label 'Адрес военной части:'
+            = officer.text_field :unit_address
+          .personal_data_cell
+            = officer.label 'Телефон дежурного:'
+            = officer.text_field :duty_phone
+  = f.submit 'Сохранить данные', class: 'btn edit_user_profile'
 

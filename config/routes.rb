@@ -74,7 +74,7 @@ VoenbankRorPostgres::Application.routes.draw do
     post "/new", controller: 'callbacks', action: 'create'
   end
   resource :users do
-
+    get :user_nested_info, on: :collection
     resource :deposits do
       get 'deposit_request', on: :collection
     end
