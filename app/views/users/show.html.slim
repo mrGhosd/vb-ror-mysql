@@ -1,0 +1,96 @@
+.admin_user_page
+  .user-show-page
+    h2="Профиль пользователя №#{@user.id}"
+    .admin_user_head_info
+      .admin_user_info_cell
+        .admin_user_cell
+          p.label= "ID:"
+          p.value= @user.id
+        .admin_user_cell
+          p.label= "Роль"
+          p.value= @user.user_role
+      .admin_user_cell.image
+        - if @user.avatar.blank?
+          = image_tag 'empty_user.jpg', class: 'empty_image'
+        - else
+          = image_tag @user.avatar(:normal)
+        p.label= "Изобрежение профиля пользователя"
+    .admin_user_body_info
+      .admin-user-main
+        .admin_user_cell
+          p.label= "Фамиля"
+          p.value= @user.surname
+        .admin_user_cell
+          p.label= "Имя"
+          p.value= @user.name
+        .admin_user_cell
+          p.label= "Отчество"
+          p.value= @user.secondname
+        .admin_user_cell
+          p.label= "Пол"
+          p.value= @user.user_sex
+      .admin-user-pasport
+        .admin_user_cell
+          p.label= "Дата рождения"
+          p.value= @user.date_of_birth
+        .admin_user_cell
+          p.label= "Место рождения"
+          p.value= @user.place_of_birth
+      .admin-user-contact
+        .admin_user_cell
+          p.label= "Номер телефона"
+          p.value= @user.contact_phone
+        .admin_user_cell
+          p.label= "Email"
+          p.value= @user.contact_information.email
+  .user-page-actions
+    = link_to '&larr; Вернуться к списку пользователей'.html_safe, users_path, class: 'btn btn-info'
+    = link_to 'Редактировать пользователя', '#', class: 'btn btn-success', remote: true
+    = link_to 'Удалить пользователя', '#', class: 'btn btn-danger delete-from-cabinet', remote: true
+
+.admin-user-loans
+  - if @user.loans.blank?
+    p="У данного пользователя нет кредитов/вкладов"
+  - else
+    - @user.loans.limit(5).each do |loan|
+      .loan-item
+        .loan-title
+          p = "Сумма: #{loan.loan_sum} Дата начала: #{loan.begin_date.to_date}"
+          span.arrow.down
+        .loan-item-body
+          .cell-loan-sum
+            .admin-loan-cell
+              p.title= "Сумма кредита: "
+              p.value= loan.loan_sum
+            .admin-loan-cell
+              p.title= "Процент по займу: "
+              p.value= loan.percent_id
+            .admin-loan-cell
+              p.title= "Ежемесячный платеж: "
+              p.value= loan.everymonth_pay
+          .cell-loan-time
+            .admin-loan-cell
+              p.title= "Дата начала: "
+              p.value= loan.begin_date.to_date
+            .admin-loan-cell
+              p.title= "Дата окончания: "
+              p.value= loan.end_date.to_date
+            .admin-loan-cell
+              p.title= "Количество месяцев: "
+              p.value= loan.date_in_months
+          .cell-loan-status
+            .admin-loan-cell
+              p.title= "Оплачен: "
+              p.value= loan.status
+            .admin-loan-cell
+              p.title= "Одобрен: "
+              - if loan.response.blank?
+                p.value= 'Не рассмотрен'
+              - else
+                p.value= loan.response
+          .cell-loan-controll
+            = link_to 'Оплатить кредит', '#', class: 'btn btn-primary', remote: true
+            = link_to 'Отобразить историю платежей', '#', class: 'btn btn-info', remote: true
+            - if loan.response.blank?
+              = link_to 'Подтвердить займ', '#', class: 'btn btn-success', remote: true
+              = link_to 'Отклонить займ', '#', class: 'btn btn-danger', remote: true

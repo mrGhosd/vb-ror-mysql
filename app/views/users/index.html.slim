@@ -1,0 +1,16 @@
+table.table.table-bordered.user-information
+  tr
+    th= "№"
+    th= "Фамилия"
+    th= "Имя"
+    th= "Отчество"
+    th= "Номер телефона"
+    th= "Дополнительные действия"
+  - @users.each do |user|
+    tr
+      td.user_id= user.id
+      td= user.surname
+      td= user.name
+      td= user.secondname
+      td= user.contact_phone
+      td

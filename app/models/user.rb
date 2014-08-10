@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   validates :surname, presence: true
   validates :name, presence: true
   validates :secondname, presence: true
-  validates :login, uniqueness: true
 
   has_attached_file :avatar,
                     :use_timestamp => false,
@@ -28,11 +27,11 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   def user_role
-    Role.find(role_id).value
+    Role.find(role_id).value unless role_id.blank?
   end
 
   def user_role=(role)
-    self.role_id = Role.find_by_value(role).id
+    self.role_id = Role.find_by_value(role).id unless Role.find_by_value(role).blank?
   end
 
   def user_sex

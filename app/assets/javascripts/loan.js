@@ -7,10 +7,6 @@ $(document).ready(function()
         $('.user-role a').removeClass('active');
         $(this).toggleClass('active')
     });
-    console.log($(".short_reg_control.reg_form_controll"));
-    $(".short_reg_control.reg_form_controll").on('click', function(){
-        console.log($(this));
-    });
 
 
 

@@ -1,5 +1,6 @@
 = javascript_include_tag 'popup_window'
-= form_for setup_user_data(@user), url: 'users', method: :patch, html: { id: 'edit_user_form' } do |f|
+= form_for setup_user_data(@user), url: "/users", method: :patch, html: { id: 'edit_user_form' } do |f|
+  = f.hidden_field :id, value: @user.id
   #cabinet_tabs
     ul
       li
@@ -137,7 +138,7 @@
             = contact.label 'Телефон:'
             = contact.text_field :contact_person_phone
     #special_question
-      - if @current_user.role_id == 1
+      - if @user.role_id == 1
         = f.fields_for :role_kursant do |kursant|
           .left_column
             .personal_data_cell

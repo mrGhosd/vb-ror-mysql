@@ -36,6 +36,7 @@ gem 'jquery-turbolinks'
 gem 'pry-rails'
 gem 'gmaps4rails'
 gem 'jquery-ui-rails'
+gem 'will_paginate', '~> 3.0'
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

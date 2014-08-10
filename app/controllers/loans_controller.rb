@@ -1,4 +1,9 @@
 class LoansController < ApplicationController
+
+  def index
+    @loans = Loan.all
+  end
+
   def new
     ::Callback.new
     @user = User.new
@@ -13,26 +18,24 @@ class LoansController < ApplicationController
 
   def create
     params[:user][:date_of_birth].to_date
-    if params[:short_registration].blank?
-      params[:user][:passport_attributes][:pasport_when].to_date
-      @user = User.new(user_reg_params)
-    else
-      @user = User.new(user_short_reg_params)
-    end
+    @user = User.new(user_reg_params)
     @user.save
     redirect_to root_path
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def loan_request
     new
-    # role_form
     render 'loans/loan_request', layout: false
   end
 
 
   private
   def user_short_reg_params
-    params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :role_id, :sex, :date_of_birth, :place_of_birth,
+    params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :user_role, :user_sex, :date_of_birth, :place_of_birth,
                                  loans_attributes: [:id, :user_id, :loan_sum, :begin_date, :end_date],
                                  contact_information_attributes: [:id, :user_id, :email])
   end

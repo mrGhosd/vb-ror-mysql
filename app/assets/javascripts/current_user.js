@@ -3,7 +3,7 @@ $(document).ready(function()
     buildSlider();
     $(".user_cabinet").click(function()
     {
-        buildDialog();
+        buildDialog($(this));
     });
 });
 
@@ -22,23 +22,34 @@ function buildSlider()
             disable: true
         });
 }
-function buildDialog()
+function buildDialog(link)
 {
-    var dialog = $("<div id='#dialog_window'></div>");
+    var user_id= link.data('user');
+    console.log(user_id);
+    var dialog = $("<div id='dialog_window'></div>");
     dialog.insertBefore(".wrapper");
     dialog.dialog({
         title: 'Личный кабинет',
         dialogClass: 'user_cabinet',
         width: 958,
-        modal: true
+        modal: true,
+        close: function()
+        {
+            $("#dialog_window").remove();
+        }
     });
     $.ajax({
         url: '/users/edit',
+        data: {user_id: user_id},
         type: 'GET',
         success: function(html)
         {
             dialog.html(html);
             $("#cabinet_tabs").tabs({selected: 0});
+        },
+        error: function(error)
+        {
+            alert(error);
         }
 
     });

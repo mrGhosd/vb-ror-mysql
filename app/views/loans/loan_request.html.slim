@@ -10,7 +10,7 @@
   .static_page
     .static_page_title
       h2.step_title="Шаг 1"
-  = form_for @user, url: '/users/loans' do |f|
+  = form_for @user, url: '/users/loans', method: 'POST' do |f|
     .main_info.short_reg.step_1
       = f.hidden_field :role_id, value: User.get_role_id(params[:role]), class: 'hidden_role'
       .loan_form_item
@@ -56,7 +56,7 @@
         = f.label 'Номер телефона'
         = f.text_field :contact_phone
       .short_reg_control.reg_form_controll
-        = f.submit 'Отправить текущие данные', class: 'send_data_now', name: 'short_registration'
+        = f.submit 'Отправить текущие данные', class: 'send_data_now'
         = link_to 'Продолжить &rarr;'.html_safe, "#", class:'next step_2', remote: true
     .passport_form.regForm.step_2
       = f.fields_for :passport do |p|

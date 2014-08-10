@@ -62,9 +62,8 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.datetime "updated_at"
   end
 
-  create_table "education", id: false, force: true do |t|
-    t.integer "education_id", null: false
-    t.text    "value",        null: false
+  create_table "educations", force: true do |t|
+    t.text "value", null: false
   end
 
   create_table "faqs", force: true do |t|
@@ -99,9 +98,8 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.boolean  "response"
   end
 
-  create_table "nationality", id: false, force: true do |t|
-    t.integer "nationality_id", null: false
-    t.text    "value",          null: false
+  create_table "nationalities", force: true do |t|
+    t.text "value", null: false
   end
 
   create_table "partners", force: true do |t|
@@ -140,9 +138,8 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.boolean "loan_or_deposit", null: false
   end
 
-  create_table "relationship", id: false, force: true do |t|
-    t.integer "relashionship_id", null: false
-    t.text    "value",            null: false
+  create_table "relashionships", force: true do |t|
+    t.text "value", null: false
   end
 
   create_table "relative_degree", id: false, force: true do |t|
@@ -205,14 +202,12 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.datetime "updated_at"
   end
 
-  create_table "specialization", id: false, force: true do |t|
-    t.integer "specialization_id", null: false
-    t.text    "value",             null: false
+  create_table "specializations", force: true do |t|
+    t.text "value", null: false
   end
 
-  create_table "sport_mastery", id: false, force: true do |t|
-    t.integer "sport_mastery_id", null: false
-    t.text    "value",            null: false
+  create_table "sport_masteries", force: true do |t|
+    t.text "value", null: false
   end
 
   create_table "static_pages", force: true do |t|
