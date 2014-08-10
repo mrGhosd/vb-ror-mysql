@@ -1,0 +1,19 @@
+= link_to "&larr; На страницу пользователя".html_safe, profile_page_users_path(id: params[:user]), class: 'btn btn-warning'
+table.table.table-bordered
+  tr
+    th= "ID"
+    th="Сумма операции:"
+    th= "Текущая сумма вклада:"
+    th= "Тип операции:"
+    th= "Дата операции"
+  - @contrib.each do |contrib|
+    tr
+      td= contrib.id
+      td= contrib.operation_summ
+      td= deposit.deposit_current_summ
+      td
+        - if contrib.removed_brought
+          = "Добавление средств"
+        - else
+          = "Снятие средств"
+      td= contrib.created_at

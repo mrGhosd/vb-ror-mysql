@@ -27,9 +27,26 @@ class LoansController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def loan_status
+    loan = Loan.find(params[:id])
+    if params[:result] == "loan-accept"
+      stat = true
+    else
+      stat = false
+    end
+    loan.response = stat
+    loan.save
+    head :ok
+  end
+
   def loan_request
-    new
-    render 'loans/loan_request', layout: false
+    if @current_user
+      current_user_create_loan(@current_user)
+      render json: {answer: flash[:notice]}, status: 200
+    else
+      new
+      render 'loans/loan_request', layout: false
+    end
   end
 
 
@@ -64,5 +81,14 @@ class LoansController < ApplicationController
                                                           :duty_phone, :rank_id],
                                  )
 
+  end
+
+  def current_user_create_loan(user)
+    if user.loans.unpayed_loans.blank?
+      Loan.create(user_id: user.id, loan_sum: params[:amount], begin_date: Time.zone.now,
+                  end_date: Time.zone.now + params[:time].to_i.months)
+    else
+      flash[:notice] = "У вас есть неоплаченные кредиты! Закройте сперва их"
+    end
   end
 end

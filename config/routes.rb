@@ -77,14 +77,21 @@ VoenbankRorPostgres::Application.routes.draw do
   resource :users do
     get :index, on: :collection
     get :user_nested_info, on: :collection
-    get '/:id/show', controller: 'users', action: 'show'
+    get '/:id/show', controller: 'users', action: 'show', as: :profile_page
+
     resources :deposits do
       get 'deposit_request', on: :collection
+
+      resources :contribution_accounts
+
     end
 
     resources :loans do
       get 'loan_request', on: :collection
       post 'short_registration', on: :collection
+      get 'loan_status', on: :member
+
+      resources :loan_repayments
     end
   end
 

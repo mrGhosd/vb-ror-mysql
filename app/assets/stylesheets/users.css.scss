@@ -62,7 +62,35 @@
     }
   }
 }
-.admin-user-loans
+.admin-user-deposits
+{
+  display: none;
+}
+.admin_user_navigation
+{
+  margin-bottom: 20px;
+ a
+ {
+   width:35%;
+   display:inline-block;
+   color:#000000;
+   border:1px solid #c8c8c8;
+   text-decoration: none;
+   padding: 5px 50px 5px 50px;
+   border-radius: 4px 4px 0px 0px;
+   text-align: center;
+
+   &.active
+   {
+     background-image: url('feedback_button.png');
+     background-size: 100% 100%;
+     background-color: #224f0e;
+     color: #ffffff;
+   }
+ }
+}
+.admin-user-loans,
+.admin-user-deposits
 {
   .loan-title
   {
@@ -112,6 +140,23 @@
     {
       display: inline-block;
       margin-right: 10px;
+
+    }
+    .cell-loan-controll
+    {
+      .repayment_form
+      {
+        padding: 10px;
+        display:none;
+        .repayment_input
+        {
+          margin-top: 10px;
+        }
+        .btn
+        {
+          margin-left: 10px;
+        }
+      }
     }
   }
 }

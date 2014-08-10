@@ -67,7 +67,16 @@ $(document).ready(function()
                 data: {amount: amount, time: time, role: role},
                 success: function(html)
                 {
-                    $(".content_part").slideUp().html(html).slideDown();
+
+                    if(typeof html == "string")
+                    {
+                        $(".content_part").slideUp().html(html).slideDown();
+                    }
+                    else
+                    {
+                        systemDialogWindow(html.answer);
+                    }
+
                 }
             });
         }
@@ -77,6 +86,11 @@ $(document).ready(function()
 
     setDefaultValues();
 
+});
+
+$(document).ajaxError(function(e, xhr, status, error)
+{
+    alert("ajaxError" + " " + e + " " + xhr + " " + status + " "+ error);
 });
 
 function getLoanAmount()
@@ -176,4 +190,29 @@ function calc_everymonth_pay()
     var everymonth = parseInt(((amount / time) + (amount * 21 / 100)), 10);
     $("#slider_everymonth_pay").slider("value", everymonth);
     $( ".pay_value" ).val(everymonth + " р.")
+}
+
+function systemDialogWindow(message)
+{
+    var dialog = $("<div id='system_dialog_window'></div>");
+    dialog.insertBefore(".wrapper");
+    dialog.dialog({
+        title: 'Сообщение системы',
+        dialogClass: 'system_message',
+        width: 400,
+        modal: true,
+        show: 'slide',
+        hide: 'slide',
+        buttons:{
+          "OK": function()
+          {
+             $("#system_dialog_window").remove();
+          }
+        },
+        close: function()
+        {
+            $("#system_dialog_window").remove();
+        }
+    }).html(message);
+
 }

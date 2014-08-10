@@ -42,15 +42,17 @@
           p.value= @user.contact_phone
         .admin_user_cell
           p.label= "Email"
-          p.value= @user.contact_information.email
+          p.value= @user.contact_information.email unless @user.contact_information.blank?
   .user-page-actions
     = link_to '&larr; Вернуться к списку пользователей'.html_safe, users_path, class: 'btn btn-info'
     = link_to 'Редактировать пользователя', '#', class: 'btn btn-success', remote: true
     = link_to 'Удалить пользователя', '#', class: 'btn btn-danger delete-from-cabinet', remote: true
-
-.admin-user-loans
+.admin_user_navigation
+  = link_to 'Кредиты', '#', class: 'loan active', remote: true
+  = link_to 'Вклады', '#', class: 'deposit', remote: true
+.admin-user-loans.loan.user-money
   - if @user.loans.blank?
-    p="У данного пользователя нет кредитов/вкладов"
+    p="У данного пользователя нет кредитов"
   - else
     - @user.loans.limit(5).each do |loan|
       .loan-item
@@ -68,6 +70,9 @@
             .admin-loan-cell
               p.title= "Ежемесячный платеж: "
               p.value= loan.everymonth_pay
+            .admin-loan-cell
+              p.title= "Текущее состояние: "
+              p.value= loan.payed_sum
           .cell-loan-time
             .admin-loan-cell
               p.title= "Дата начала: "
@@ -89,8 +94,51 @@
               - else
                 p.value= loan.response
           .cell-loan-controll
-            = link_to 'Оплатить кредит', '#', class: 'btn btn-primary', remote: true
-            = link_to 'Отобразить историю платежей', '#', class: 'btn btn-info', remote: true
+            = link_to 'Оплатить кредит', '#', class: 'btn btn-primary repayment-form-show', remote: true
+            = link_to 'Отобразить историю платежей', users_loan_loan_repayments_path(loan_id: loan.id, user: @user.id), class: 'btn btn-info'
             - if loan.response.blank?
-              = link_to 'Подтвердить займ', '#', class: 'btn btn-success', remote: true
-              = link_to 'Отклонить займ', '#', class: 'btn btn-danger', remote: true
+              = link_to 'Подтвердить займ', '#', class: "btn btn-success loan-accept #{loan.id}", remote: true
+              = link_to 'Отклонить займ', '#', class: "btn btn-danger loan-deciline #{loan.id}", remote: true
+            .repayment_form
+              = form_for :repayment, url: "/users/loans/#{loan.id}/loan_repayments/" do |f|
+                = f.hidden_field :loan_id, value: loan.id
+                = f.text_field :granted_summ, class: 'repayment_input'
+                = f.submit 'Отправить', class: 'btn btn-info'
+.admin-user-deposits.deposit.user-money
+  - if @user.deposits.blank?
+    p="У данного пользователя нет вкладов"
+  - else
+    - @user.deposits.limit(5).each do |deposit|
+      .loan-item
+        .loan-title
+          p = "Сумма: #{deposit.deposit_current_summ} Дата начала: #{deposit.created_at.to_date}"
+          span.arrow.down
+        .loan-item-body
+          .cell-loan-sum
+            .admin-loan-cell
+              p.title= "Текущая сумма вклада: "
+              p.value= deposit.deposit_current_summ
+            .admin-loan-cell
+              p.title= "Процент по займу: "
+              p.value= deposit.percent_id
+            .cell-loan-time
+              .admin-loan-cell
+                p.title= "Дата начала: "
+                p.value= deposit.created_at.to_date
+            .cell-loan-controll
+              = link_to 'Снять/добавить деньги', '#', class: 'btn btn-primary repayment-form-show', remote: true
+              = link_to 'Отобразить историю платежей', users_deposit_contribution_accounts_path(deposit_id: deposit.id, user: @user.id), class: 'btn btn-info'
+              .repayment_form
+                = form_for :contribution, url: "/users/deposits/#{deposit.id}/contribution_accounts/" do |f|
+                  = f.hidden_field :deposit_id, value: deposit.id
+                  = f.text_field :operation_summ,  class: 'repayment_input'
+                  .radio_item
+                    .radio_controll_item
+                      = f.label 'Добавить'
+                      = f.radio_button :removed_brought, value: true
+                    .radion_controll_item
+                      = f.label 'Снять'
+                      = f.radio_button :removed_brought, value: false
+                  = f.submit 'Отправить', class: 'btn btn-info'
+
+

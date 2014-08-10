@@ -1,7 +1,7 @@
 class Loan < ActiveRecord::Base
   belongs_to :user
   has_many :percent
-  has_many :loan_repayment
+  has_many :loan_repayments
   validates_presence_of :loan_sum, :begin_date, :end_date
 
   scope :unpayed_loans, -> { where(status: false).last}
@@ -25,5 +25,15 @@ class Loan < ActiveRecord::Base
 
   def current_day_in_loan_history
     (Date.today.to_date - begin_date.to_date).to_i
+  end
+
+  def payed_sum
+    return "Не рассмотрен" if response.blank?
+    payment = LoanRepayment.sum(:granted_summ, conditions: {loan_id: id})
+    if payment < loan_sum.to_i
+      "#{payment}/#{loan_sum}"
+    else
+      "#{loan_sum}/#{loan_sum} - займ оплачен"
+    end
   end
 end

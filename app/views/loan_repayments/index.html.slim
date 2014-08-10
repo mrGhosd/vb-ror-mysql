@@ -1,0 +1,9 @@
+= link_to "&larr; На страницу пользователя".html_safe, profile_page_users_path(id: params[:user]), class: 'btn btn-warning'
+table.table.table-bordered
+  tr
+    th="Сумма:"
+    th= "Дата операции"
+  - @payment.each do |payment|
+    tr
+      td= payment.granted_summ
+      td= payment.created_at.to_date

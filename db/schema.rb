@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804174303) do
+ActiveRecord::Schema.define(version: 20140810190014) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.string  "contact_person_name",       limit: 50
     t.string  "contact_person_secondname", limit: 50
     t.integer "contact_person_phone",      limit: 8
-    t.string  "email",                                null: false
+    t.string  "email"
   end
 
   create_table "contact_messages", force: true do |t|
@@ -43,20 +43,20 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.datetime "updated_at"
   end
 
-  create_table "contribution_account", id: false, force: true do |t|
-    t.integer "depost_id",       null: false
-    t.integer "operation_summ",  null: false
-    t.integer "user_id",         null: false
-    t.date    "operation_date",  null: false
-    t.time    "operation_time",  null: false
-    t.boolean "removed/brought", null: false
+  create_table "contribution_accounts", force: true do |t|
+    t.integer  "depost_id",       null: false
+    t.integer  "operation_summ",  null: false
+    t.date     "operation_date",  null: false
+    t.time     "operation_time",  null: false
+    t.boolean  "removed/brought", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "deposits", force: true do |t|
     t.integer  "user_id",                          null: false
     t.string   "deposit_current_summ", limit: 256, null: false
     t.integer  "percent_id",                       null: false
-    t.date     "begin_date"
     t.boolean  "response"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -82,10 +82,11 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.datetime "updated_at"
   end
 
-  create_table "loan_repayment", id: false, force: true do |t|
-    t.integer "loan_id",      null: false
-    t.integer "granted_summ", null: false
-    t.date    "date_change",  null: false
+  create_table "loan_repayments", force: true do |t|
+    t.integer  "loan_id",      null: false
+    t.integer  "granted_summ", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "loans", force: true do |t|
@@ -117,12 +118,12 @@ ActiveRecord::Schema.define(version: 20140804174303) do
 
   create_table "passports", force: true do |t|
     t.integer "user_id",               null: false
-    t.integer "pasport_seria",         null: false
-    t.integer "pasport_number",        null: false
-    t.date    "pasport_when",          null: false
-    t.text    "pasport_where",         null: false
-    t.integer "pasport_code",          null: false
-    t.text    "definite_registration", null: false
+    t.integer "pasport_seria"
+    t.integer "pasport_number"
+    t.date    "pasport_when"
+    t.text    "pasport_where"
+    t.integer "pasport_code"
+    t.text    "definite_registration"
     t.integer "old_pasport_seria"
     t.integer "old_pasport_number"
   end
@@ -252,7 +253,7 @@ ActiveRecord::Schema.define(version: 20140804174303) do
     t.date    "end_date",   null: false
   end
 
-  create_table "users", primary_key: "user_id", force: true do |t|
+  create_table "users", force: true do |t|
     t.string   "surname",             limit: 50, null: false
     t.string   "name",                limit: 50, null: false
     t.string   "secondname",          limit: 50, null: false
@@ -272,15 +273,15 @@ ActiveRecord::Schema.define(version: 20140804174303) do
 
   create_table "voen_pasports", force: true do |t|
     t.integer "user_id",           null: false
-    t.integer "voen_seria",        null: false
-    t.integer "voen_number",       null: false
-    t.text    "voen_where",        null: false
-    t.date    "voen_when",         null: false
-    t.integer "nationality_id",    null: false
-    t.integer "education_id",      null: false
-    t.integer "relashionship_id",  null: false
-    t.integer "specialization_id", null: false
-    t.integer "sport_mastery_id",  null: false
+    t.integer "voen_seria"
+    t.integer "voen_number"
+    t.text    "voen_where"
+    t.date    "voen_when"
+    t.integer "nationality_id"
+    t.integer "education_id"
+    t.integer "relashionship_id"
+    t.integer "specialization_id"
+    t.integer "sport_mastery_id"
   end
 
 end

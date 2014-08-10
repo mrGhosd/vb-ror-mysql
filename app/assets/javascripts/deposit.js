@@ -133,8 +133,14 @@ $(document).ready(function()
                  data: {amount: amount, time: time, percent: percent},
                  success: function(html)
                  {
-//                     $(".calc_deposit").hide();
-                     $(".calc_deposit").html(html);
+                     if(typeof html == 'string')
+                     {
+                        $(".calc_deposit").html(html);
+                     }
+                     else
+                     {
+                         systemDialogWindow(html.response);
+                     }
                  }
                 });
         }
