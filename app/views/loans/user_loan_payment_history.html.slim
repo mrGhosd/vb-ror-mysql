@@ -1,0 +1,11 @@
+= link_to "&larr; На страницу пользователя".html_safe, root_path, class: 'brn brn-warning'
+table.table.table-bordered
+  tr
+    th= "ID:"
+    th= "Дата:"
+    th= "Внесенная сумма:"
+  - @payments.each do |pay|
+    tr
+      td= pay.id
+      td= pay.created_at
+      td= pay.granted_summ

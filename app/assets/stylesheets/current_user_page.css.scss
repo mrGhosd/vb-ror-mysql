@@ -117,7 +117,7 @@
 .loan_information
 {
   width:490px;
-  height:506px;
+//  height:556px;
   float: left;
   background-image: url("loan_bg_sliders.png");
   background-repeat: no-repeat;
@@ -173,6 +173,7 @@
     float:left;
     margin-top: 21px;
     margin-left:37px;
+    margin-bottom: 20px;
     .payment_slider_title
     {
       height:50px;

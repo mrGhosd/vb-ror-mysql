@@ -8,6 +8,9 @@ describe StocksController do
 
   describe 'GET #show' do
     it 'assigns the requested stock to @stock' do
+      let(:stock) do
+        create(:stock)
+      end
       stock = create(:stock)
       get :show, id: stock
       expect(assigns(:stock)).to eq stock

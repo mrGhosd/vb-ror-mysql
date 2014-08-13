@@ -5,6 +5,14 @@ $(document).ready(function()
     {
         buildDialog($(this));
     });
+    $(".loan_page div.title").click(function()
+    {
+        showLoansInformation($(this));
+    });
+    $(".history_item_title").click(function()
+    {
+        showLoansItem($(this));
+    });
 });
 
 function buildSlider()
@@ -54,4 +62,38 @@ function buildDialog(link)
 
     });
 
+}
+
+function showLoansInformation(button)
+{
+    var block = button.next();
+    var arrow = button.find('span.arrow');
+    if(block.hasClass('hidden'))
+    {
+        block.removeClass('hidden').addClass('active');
+        arrow.removeClass('down').addClass('up');
+    }
+    else
+    {
+        block.removeClass('active').addClass('hidden');
+        arrow.removeClass('up').addClass('down');
+    }
+}
+
+function showLoansItem(button)
+{
+    var body = button.closest('.user_history_item').find('.history_item_body');
+    var arrow = button.find('span.arrow');
+    if(button.hasClass('closed'))
+    {
+        body.fadeIn('slow');
+        arrow.removeClass('down').addClass('up');
+        button.removeClass('closed');
+    }
+    else
+    {
+        body.fadeOut('slow');
+        arrow.removeClass('up').addClass('down');
+        button.addClass('closed');
+    }
 }

@@ -1,4 +1,22 @@
 .loan_page
-  .hidden_calculator
-    = render 'loan_slider'
-  = render 'loan_information'
+  .current_user_calc
+    div.calculator_title.title class=(@current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
+      p= 'Калькулятор займа'
+      span.arrow.down
+    .hidden_calculator class=(@current_user.loans.payed_loans.blank? ? 'active' : 'hidden')
+      = render 'loan_slider'
+  .current_loan_info
+    .loan_info_title.title class=(@current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
+      p= 'Информация о текущем займе'
+      span.arrow.down
+    .loan_info_body class=(@current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
+      = render 'loan_information'
+  - unless @current_user.loans.payed_loans.blank?
+    .current_user_history
+      .history_title.title.active
+        p= 'Последние займы'
+        span.arrow.down
+      .history_body.hidden
+        = render partial: 'user_loans_history'
+
+

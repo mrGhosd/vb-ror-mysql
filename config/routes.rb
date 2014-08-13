@@ -90,7 +90,7 @@ VoenbankRorPostgres::Application.routes.draw do
       get 'loan_request', on: :collection
       post 'short_registration', on: :collection
       get 'loan_status', on: :member
-
+      get 'user_loan_payment_history', on: :member
       resources :loan_repayments
     end
   end

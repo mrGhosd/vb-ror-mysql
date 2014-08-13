@@ -50,6 +50,12 @@ class LoansController < ApplicationController
   end
 
 
+  def user_loan_payment_history
+    loan = Loan.find(params[:id])
+    @payments = LoanRepayment.where(loan_id: loan.id)
+  end
+
+
   private
   def user_short_reg_params
     params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :user_role, :user_sex, :date_of_birth, :place_of_birth,

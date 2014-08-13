@@ -4,7 +4,10 @@ class Loan < ActiveRecord::Base
   has_many :loan_repayments
   validates_presence_of :loan_sum, :begin_date, :end_date
 
+
   scope :unpayed_loans, -> { where(status: false).last}
+  scope :payed_loans, -> { where(status: true) }
+
 
   def date_in_months
     (end_date.year * 12 + end_date.month) - (begin_date.year * 12 + begin_date.month)
@@ -20,7 +23,14 @@ class Loan < ActiveRecord::Base
 
   def closest_payment_date
     month_diff = (Date.today.month - begin_date.month).to_i
-    begin_date + month_diff.month
+    current_date = begin_date + month_diff.month
+    if Date.today > current_date.to_date
+      current_date + 1.month
+    end
+  end
+
+  def actual_close_data
+    LoanRepayment.where(loan_id: id).last.created_at.to_date
   end
 
   def current_day_in_loan_history
@@ -33,7 +43,8 @@ class Loan < ActiveRecord::Base
     if payment < loan_sum.to_i
       "#{payment}/#{loan_sum}"
     else
-      "#{loan_sum}/#{loan_sum} - займ оплачен"
+      "#{loan_sum}/#{loan_sum}"
     end
   end
+
 end
