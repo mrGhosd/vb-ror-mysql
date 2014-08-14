@@ -1,0 +1,13 @@
+= link_to "&larr; На страницу вкладов пользователя".html_safe, new_users_deposit_path, class: 'brn brn-warning'
+table.table.table-bordered
+  tr
+    th= "ID:"
+    th= "Дата:"
+    th= "Внесенная сумма:"
+    th= "Тип операции"
+  - @payment.each do |pay|
+    tr
+      td= pay.id
+      td= pay.created_at
+      td= pay.operation_summ
+      td= pay.removed_brought ? "Внесена" :  "Снята"

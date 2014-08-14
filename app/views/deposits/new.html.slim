@@ -1,88 +1,18 @@
 .static_page.deposit_page
   .static_page_title
     h2="Калькулятор вклада"
-  .deposit_calc_wrapper
-    .calc_deposit
-      .slider_deposit_amount
-        .deposit_amount
-          span="Мне надо приумножить:"
-          = text_field_tag nil, nil, class: 'deposit_amount_value'
-        .slider_wrapper
-          span.left_slider_arrow
-          span.right_slider_arrow
-          #slider_deposit_amount
-        .amount_range
-          .range_1 = "100 тыс."
-          .range_2 = "500 тыс."
-          .range_3 = "1 м."
-          .range_4 = "1.5 м."
-          .range_5 = "2 м."
-          .range_6 = "2.5"
-          .range_7 = "3 м."
-
-        .slider_divider
-      .slider_deposit_time
-        .deposit_time
-          span = "За время:"
-          = text_field_tag nil, nil, class: 'deposit_time_value'
-        .slider_wrapper
-          span.left_slider_arrow
-          span.right_slider_arrow
-          #slider_deposit_time
-        .time_range
-          .range_1 = "1"
-          .range_2 = "2"
-          .range_3 = "3"
-        .slider_divider
-      .percents_chose
-        .slider_percent
-          .main_percent_slider
-            p = "Проценты:"
-            p.left_side.active = "Добавлять проценты ко вкладу"
-            p.right_side = "Забирать проценты по итогу расчетного периода"
-            #percents_slider
-      = button_tag 'Получить денежное довольствие', class: 'deposit_confirm'
-    .vertical_divider_line
-    .deposit_diagram
-      .deposit_diagram_wrapper
-        .deposit_left_diagram
-          .deposit_info_user
-            p = "Вложил"
-            p.user_amount
-          .deposit_diagram_top
-          .deposit_diagram_middle
-            .deposit_diagram_middle_top
-            .deposit_diagram_middle_middle
-            .deposit_diagram_middle_bottom
-          .deposit_diagram_bottom
-        .deposit_right_diagram
-          .deposit_info_user
-            p = "Забрал"
-            p.user_full_summ
-          .deposit_profit_diagram_top
-          .deposit_profit_diagram_middle
-            .deposit_diagram_middle_top
-            .deposit_diagram_middle_middle
-            .deposit_diagram_middle_bottom
-          .deposit_diagram_top
-          .deposit_diagram_middle
-            .deposit_diagram_middle_top
-            .deposit_diagram_middle_middle
-            .deposit_diagram_middle_bottom
-          .deposit_diagram_bottom
-      .deposit_information
-        .main_title
-          span = "За "
-          span.month_count
-          span=" месяцев я получу "
-        p.current_summ
-        .optional_info
-          p = "Из них"
-          ul.pay_list
-            li
-              p="Мой вклад:"
-              p.user_deposit
-            li
-              p="Начисленные проценты:"
-              p.added_percents
-
+  - if @current_user
+    .deposit_calc.main_temp
+      .deposit_calc_title.closed
+        p="Калькулятор депозита"
+        span.arrow.down
+      .deposit_calc_body.body_partial.hide
+        = render 'deposit_calc'
+    .deposit_list.main_temp
+      .deposit_list_title.closed
+        p="Список вкладов"
+        span.arrow.down
+      .deposit_list_body.body_partial.hide
+        = render 'deposit_list'
+  - else
+    = render 'deposit_calc'

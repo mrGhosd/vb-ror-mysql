@@ -27,6 +27,11 @@ class DepositsController < ApplicationController
 
   end
 
+  def deposits_contribution_list
+    deposit = Deposit.find(params[:id])
+    @payment = ContributionAccount.where(deposit_id: deposit.id)
+  end
+
   private
 
   def user_params

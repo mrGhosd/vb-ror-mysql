@@ -81,6 +81,7 @@ VoenbankRorPostgres::Application.routes.draw do
 
     resources :deposits do
       get 'deposit_request', on: :collection
+      get 'deposits_contribution_list', on: :member
 
       resources :contribution_accounts
 

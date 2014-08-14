@@ -13,6 +13,14 @@ $(document).ready(function()
     {
         showLoansItem($(this));
     });
+    $(".deposit_calc_title, .deposit_list_title").click(function()
+    {
+        showDepositsValues($(this));
+    });
+    $(".deposit_list_item_title").click(function()
+    {
+        showDepositItem($(this));
+    });
 });
 
 function buildSlider()
@@ -93,6 +101,43 @@ function showLoansItem(button)
     else
     {
         body.fadeOut('slow');
+        arrow.removeClass('up').addClass('down');
+        button.addClass('closed');
+    }
+}
+
+function showDepositsValues(button)
+{
+    var body = button.closest('.main_temp').find('.body_partial');
+    var arrow = button.find('span.arrow');
+    if(button.hasClass('closed'))
+    {
+        body.show();
+        button.removeClass('closed');
+        arrow.removeClass('down').addClass('up');
+
+    }
+    else
+    {
+        body.hide();
+        button.addClass('closed');
+        arrow.removeClass('up').addClass('down');
+    }
+}
+
+function showDepositItem(button)
+{
+    var body = button.closest('.deposit_list_item').find('.deposit_list_item_body');
+    var arrow = button.find('span.arrow');
+    if(button.hasClass('closed'))
+    {
+        body.fadeIn('slow').addClass('hide');
+        arrow.removeClass('down').addClass('up');
+        button.removeClass('closed');
+    }
+    else
+    {
+        body.fadeOut('slow').removeClass('hide');
         arrow.removeClass('up').addClass('down');
         button.addClass('closed');
     }

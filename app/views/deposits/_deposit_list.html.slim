@@ -1,0 +1,14 @@
+- @current_user.deposits.each do |deposit|
+  .deposit_list_item
+    .deposit_list_item_title.closed
+      p= "#{deposit.created_at.to_date} - #{deposit.deposit_current_summ} р."
+      span.arrow.down
+    .deposit_list_item_body.hide
+      .list_body_cell
+        p.title= "Сумма вклада: "
+        p.value= "#{deposit.deposit_current_summ} р."
+      .list_body_cell
+        p.title= "Дата начала: "
+        p.value= "#{deposit.created_at.to_date}"
+      .list_body_cell
+        = link_to 'Просмотр истории вклада', deposits_contribution_list_users_deposit_path(id: deposit.id)
