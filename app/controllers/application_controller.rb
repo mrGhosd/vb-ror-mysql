@@ -41,8 +41,6 @@ class ApplicationController < ActionController::Base
     if params[:logout]
       session.delete(:current_user)
       cookies.delete(:current_user)
-      # @current_user.session = nil
-      # @current_user.save
       redirect_to root_path
     end
   end
@@ -50,6 +48,12 @@ class ApplicationController < ActionController::Base
   def user_cabinet
     @user = User.find(@current_user.id)
     render 'shared/user_cabinet'
+  end
+
+  def check_admin
+   unless @current_user.is_admin?
+     redirect_to root_path
+   end
   end
 
 end

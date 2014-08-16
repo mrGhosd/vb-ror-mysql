@@ -1,3 +1,4 @@
+= render template: 'shared/page_title', locals: { title: 'Пользователи'}
 table.table.table-bordered.user-information
   tr
     th= "№"
@@ -14,3 +15,5 @@ table.table.table-bordered.user-information
       td= user.secondname
       td= user.contact_phone
       td
+
+= will_paginate @users

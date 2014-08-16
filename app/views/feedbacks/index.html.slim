@@ -1,7 +1,7 @@
 .feedback_page
   .static_page_title
     h2="Отзывы"
-  - @feedback.each do |feed|
+  - @feedbacks.each do |feed|
       .feedback_message
         .feedback_title
           span.feedback_author
@@ -10,7 +10,7 @@
             = feed.created_at.strftime("%Y-%m-%d %H:%M:%S")
         .feedback_text
           = feed.feedback_text
-        - if feed == @feedback[-1]
+        - if feed == @feedbacks[-1]
         - else
           .feedback_divide_line
 

@@ -59,9 +59,9 @@ class User < ActiveRecord::Base
     Role.find_by_value(role).id
   end
 
-
-
-
+  def is_admin?
+    [132].include?(id)
+  end
 
   def full_name
     [surname, name, secondname].join(' ')

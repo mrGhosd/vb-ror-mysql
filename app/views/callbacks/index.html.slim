@@ -1,0 +1,20 @@
+= render template: 'shared/page_title', locals: { title: 'Обратный звонок'}
+table.table.table-bordered
+  tr
+    th= "ID"
+    th= "Фамилия"
+    th= "Имя"
+    th= "Отчество"
+    th= "Номер телефона"
+    th= "Email"
+    th= "Дата"
+  - @callbacks.each do |callback|
+    tr
+      td= callback.id
+      td= callback.call_surname
+      td= callback.call_name
+      td= callback.call_second_name
+      td= callback.call_phone
+      td= callback.call_email
+      td= callback.created_at.strftime("%d-%m-%Y")
+= will_paginate @users

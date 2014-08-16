@@ -1,10 +1,9 @@
 class CallbacksController < ApplicationController
   def index
-
+    @callbacks = ::Callback.all.paginate(page: params[:page], per_page: 10)
   end
 
   def create
-    # binding.pry
     @callback = ::Callback.new(callback_params)
     @callback.save
     flash[:notice] = "Ваша просьба о звонке успешно отпарвлена!"
