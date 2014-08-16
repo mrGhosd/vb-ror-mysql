@@ -19,7 +19,7 @@ class StaticPagesController < ApplicationController
       when "service"
         service
       when "contacts"
-        redirect_to new_contact_messages_path
+        redirect_to new_contact_message_path
       when "deposit"
         redirect_to new_users_deposit_path
       else

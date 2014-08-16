@@ -1,7 +1,7 @@
 class ContactMessagesController < ApplicationController
-
-  def index
-    @messages = ContactMessage.all
+  before_action :check_admin, only: %w[admin]
+  def admin
+    @messages = ContactMessage.all.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -12,7 +12,7 @@ class ContactMessagesController < ApplicationController
   def create
     @message = ContactMessage.new(messages_params)
     @message.save
-    redirect_to new_contact_messages_path
+    redirect_to new_contact_message_path
   end
 
   def destroy

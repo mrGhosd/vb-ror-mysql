@@ -34,11 +34,11 @@ VoenbankRorPostgres::Application.routes.draw do
     get :admin, on: :collection
   end
 
-  resource :contact_messages do
-    get '/', controller: 'contact_messages', action: 'admin'
+  resources :contact_messages do
+    get :admin, on: :collection
     # get "/new", controller: 'contact_messages', action: 'new'
-    post "/new", controller: 'contact_messages', action: 'create'
-    post '/:id/destroy', controller: 'contact_messages', action: 'destroy', as: 'delete'
+    # post "/new", controller: 'contact_messages', action: 'create'
+    # post '/:id/destroy', controller: 'contact_messages', action: 'destroy', as: 'delete'
   end
 
   resources :callbacks
