@@ -3,9 +3,9 @@ $(document).ready(function(){
     {
         var stock_row = $(this).parents("tr");
         $.ajax({
-            url: '/stocks/'+stock_row.attr("stock_id")+'/destroy',
+            url: '/stocks/'+stock_row.attr("stock_id"),
             type: 'POST',
-            data: {},
+            method: 'delete',
             success: function(result)
             {
                 $(stock_row).fadeOut(200);

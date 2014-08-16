@@ -1,4 +1,5 @@
 class CallbacksController < ApplicationController
+  before_action :check_admin, only: %w[index]
   def index
     @callbacks = ::Callback.all.paginate(page: params[:page], per_page: 10)
   end

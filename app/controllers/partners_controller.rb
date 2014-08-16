@@ -1,17 +1,18 @@
 class PartnersController < ApplicationController
+  before_action :check_admin, only: %w[admin new create edit update]
 
   def index
     @partners = Partner.where(enabled: true)
   end
 
-  def index_admin
+  def admin
     @partners = Partner.all
   end
 
   def create
     @partner = Partner.new(partners_params)
     @partner.save
-    redirect_to new_partners_path
+    redirect_to admin_partners_path
   end
 
   def new

@@ -16,4 +16,4 @@
       .user_history_cell
         p.title= 'Просмотр истории платежей'
         p.value
-          = link_to 'Платежи по займу', user_loan_payment_history_users_loan_path(id: loan.id), class: 'btn btn-info'
+          = link_to 'Платежи по займу', user_loan_payment_history_user_loan_path(user_id: @current_user.id, id: loan.id), class: 'btn btn-info'

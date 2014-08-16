@@ -1,4 +1,5 @@
 .partners_page
+  = link_to "Создать партнера", new_partner_path, class: 'btn btn-warning'
   table.table.table-bordered.stocks_info
     tr
       th = "Номер партнера"
@@ -6,6 +7,7 @@
       th = "Описание"
       th = "Ссылка на ресурс"
       th = "Изображение"
+      th = "Дополнительные действия"
     - @partners.each do |partner|
       tr partner_id='#{partner.id}' class="partner_#{partner.id} main"
         td.stock_id
@@ -21,11 +23,8 @@
             = image_tag partner.image.url(:small)
           - else
             i="Изображения не существует"
-      tr partner_id='#{partner.id}' class="partner_#{partner.id} hidden"
-        td
-          = link_to "Редактировать", edit_partners_path(partner.id), class: "btn btn-primary"
-        td
+        td partner_id='#{partner.id}' class="partner_#{partner.id}"
+          = link_to "Редактировать", edit_partner_path(partner.id), class: "btn btn-primary"
           = link_to "Удалить", "", class: "btn btn-danger partner-destroy", remote: true
-        td
           - status, class_val = partner.enabled ? "Не отображать" : "Отображать", partner.enabled ? "btn-success" : "btn-warning"
           =link_to status, "",  class: "btn partner-show #{class_val}", remote: true

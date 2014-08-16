@@ -12,32 +12,17 @@ VoenbankRorPostgres::Application.routes.draw do
 
 
 
-  resource :stocks do
-    get '/:id', controller: 'stocks', action: 'show'
-    get '/', controller: 'stocks', action: 'admin'
-    get '/:id/edit', controller: 'stocks', action: 'edit', as: "stock_edit"
-    post '/:id/edit', controller: 'stocks', action: 'update', as: 'update_stock_edit'
-    post '/:id/destroy', controller: 'stocks', action: 'destroy', as: 'delete'
-    get "/new", controller: 'stocks', action: 'new'
-    post "/new", controller: 'stocks', action: 'create'
-    post '/:id/stock_switch', controller: 'stocks', action: 'stock_switch'
+  resources :stocks do
+    post :stock_switch, on: :member
   end
 
   resources :feedbacks do
-    # post "/new", controller: 'feedbacks', action: 'new'
     get :admin, on: :collection
   end
 
-  resource :partners do
-    get "/new", controller: 'partners', action: 'new'
-    post "/new", controller: 'partners', action: 'create'
-    get '/', controller: 'partners', action: 'admin'
-    get '/index_admin', controller: 'partners', action: 'index_admin'
-    get '/:id', controller: 'partners', action: 'show', as: "detail"
-    get '/:id/edit', controller: 'partners', action: 'edit', as: "edit"
-    post '/:id/edit', controller: 'partners', action: 'update', as: 'update_edit'
-    post '/:id/destroy', controller: 'partners', action: 'destroy', as: 'delete'
-    post '/:id/partner_switch', controller: 'partners', action: 'partner_switch'
+  resources :partners do
+    post :partner_switch, on: :member
+    get :admin, on: :collection
   end
 
   resource :faqs do
@@ -69,13 +54,9 @@ VoenbankRorPostgres::Application.routes.draw do
     post '/:id/destroy', controller: 'contact_messages', action: 'destroy', as: 'delete'
   end
 
-  resources :callbacks do
-    # get "/new", controller: 'callbacks', action: 'new'
-    # post "/new", controller: 'callbacks', action: 'create'
-  end
+  resources :callbacks 
 
   resource :users do
-    get :admin, on: :collection
     get :user_nested_info, on: :collection
     get '/:id/show', controller: 'users', action: 'show', as: :profile_page
 

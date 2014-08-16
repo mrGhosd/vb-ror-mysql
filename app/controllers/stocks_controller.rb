@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-
+  before_action :check_admin, only: %w[index]
   def index
     @stock = Stock.all
     # render json: @stock.to_json(only: [:stock_title, :stock_text, :created_at], methods: [:image_url])
