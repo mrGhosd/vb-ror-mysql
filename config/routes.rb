@@ -26,25 +26,12 @@ VoenbankRorPostgres::Application.routes.draw do
   end
 
   resources :faqs do
-    # get "/new", controller: 'faqs', action: 'new'
-    # post "/new", controller: 'faqs', action: 'create'
-    # get '/', controller: 'faqs', action: 'admin'
-    # get '/:id/edit', controller: 'faqs', action: 'edit', as: "edit"
-    # post '/:id/edit', controller: 'faqs', action: 'update', as: 'update'
     get :admin, on: :collection
-    # post '/:id/destroy', controller: 'faqs', action: 'destroy'
   end
 
-  resource :shares do
-    get "/new", controller: 'shares', action: 'new'
-    post "/new", controller: 'shares', action: 'create'
-    get '/', controller: 'shares', action: 'admin'
-    get '/index_admin', controller: 'shares', action: 'index_admin'
-    get '/:id', controller: 'shares', action: 'show', as: "detail"
-    get '/:id/edit', controller: 'shares', action: 'edit', as: "edit"
-    post '/:id/edit', controller: 'shares', action: 'update', as: 'update_edit'
-    post '/:id/destroy', controller: 'shares', action: 'destroy', as: 'delete'
-    post '/:id/share_switch', controller: 'shares', action: 'share_switch'
+  resources :shares do
+    post :share_switch, on: :member
+    get :admin, on: :collection
   end
 
   resource :contact_messages do

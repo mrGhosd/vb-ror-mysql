@@ -1,3 +1,4 @@
+= link_to 'Создать', new_share_path, class: 'btn btn-warning'
 table.table.table-bordered.stocks_info
   tr
     th = "Номер акции"
@@ -12,9 +13,7 @@ table.table.table-bordered.stocks_info
       td
         = share.share_text
       td
-        = link_to "Редактировать", edit_shares_path(share.id), class: "btn btn-primary"
-      td
+        = link_to "Редактировать", edit_share_path(share.id), class: "btn btn-primary"
         = link_to "Удалить", "", class: "btn btn-danger share_destroy", remote: true
-      td
         - status, class_val = share.enabled ? "Не отображать" : "Отображать", share.enabled ? "btn-success" : "btn-warning"
         =link_to status, "",  class: "btn share-show #{class_val}", remote: true

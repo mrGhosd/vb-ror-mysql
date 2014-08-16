@@ -1,16 +1,18 @@
 class SharesController < ApplicationController
+  before_action :check_admin, only: %w[admin new create edit update destroy]
+
   def index
     @share = Share.where(enabled: true)
   end
 
-  def index_admin
+  def admin
     @share = Share.all
   end
 
   def create
     @share = Share.new(share_params)
     @share.save
-    redirect_to shares_path
+    redirect_to admin_shares_path
   end
 
   def new
@@ -19,9 +21,9 @@ class SharesController < ApplicationController
 
   def update
     @share = Share.find(params[:id])
-    if @share.update_attributes(partners_params)
+    if @share.update_attributes(share_params)
       flash[:notice] = "Информация об акции успешно обновлена"
-      redirect_to shares_path
+      redirect_to admin_shares_path
     else
       render :edit
     end
