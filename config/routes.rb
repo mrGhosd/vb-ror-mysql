@@ -25,14 +25,14 @@ VoenbankRorPostgres::Application.routes.draw do
     get :admin, on: :collection
   end
 
-  resource :faqs do
-    get "/new", controller: 'faqs', action: 'new'
-    post "/new", controller: 'faqs', action: 'create'
-    get '/', controller: 'faqs', action: 'admin'
-    get '/:id/edit', controller: 'faqs', action: 'edit', as: "edit"
-    post '/:id/edit', controller: 'faqs', action: 'update', as: 'update'
-    get '/admin_show', controller: 'faqs', action: 'admin_show'
-    post '/:id/destroy', controller: 'faqs', action: 'destroy'
+  resources :faqs do
+    # get "/new", controller: 'faqs', action: 'new'
+    # post "/new", controller: 'faqs', action: 'create'
+    # get '/', controller: 'faqs', action: 'admin'
+    # get '/:id/edit', controller: 'faqs', action: 'edit', as: "edit"
+    # post '/:id/edit', controller: 'faqs', action: 'update', as: 'update'
+    get :admin, on: :collection
+    # post '/:id/destroy', controller: 'faqs', action: 'destroy'
   end
 
   resource :shares do
@@ -54,7 +54,7 @@ VoenbankRorPostgres::Application.routes.draw do
     post '/:id/destroy', controller: 'contact_messages', action: 'destroy', as: 'delete'
   end
 
-  resources :callbacks 
+  resources :callbacks
 
   resource :users do
     get :user_nested_info, on: :collection

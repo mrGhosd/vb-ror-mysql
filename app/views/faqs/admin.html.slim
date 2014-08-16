@@ -1,3 +1,4 @@
+= link_to 'Создать', new_faq_path, class: 'btn btn-warning'
 table.table.table-bordered.stocks_info
   tr
     th = "Номер новости"
@@ -13,6 +14,6 @@ table.table.table-bordered.stocks_info
       td
         = faq.answer[0..10]<<"..."
       td
-        = link_to "Редактировать", edit_faqs_path(faq.id), class: "btn btn-primary"
+        = link_to "Редактировать", edit_faq_path(faq.id), class: "btn btn-primary"
       td
         = link_to "Удалить", "", class: "btn btn-danger faq_destroy", remote: true
