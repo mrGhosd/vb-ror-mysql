@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
       session[:current_user] = @current_user.id
       @current_user.session = session[:current_user]
       @current_user.save
-      cookies[:current_user] = { value: true, expires: 1.week.from_now }
+      cookies[:current_user] = { value: @current_user.id, expires: 1.week.from_now }
+      UserMailer.login_email(@current_user).deliver
       redirect_to root_path
     end
   end

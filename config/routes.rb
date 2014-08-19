@@ -36,15 +36,13 @@ VoenbankRorPostgres::Application.routes.draw do
 
   resources :contact_messages do
     get :admin, on: :collection
-    # get "/new", controller: 'contact_messages', action: 'new'
-    # post "/new", controller: 'contact_messages', action: 'create'
-    # post '/:id/destroy', controller: 'contact_messages', action: 'destroy', as: 'delete'
   end
 
   resources :callbacks
 
   resource :users do
     get :user_nested_info, on: :collection
+    get :index, on: :collection
     get '/:id/show', controller: 'users', action: 'show', as: :profile_page
 
     resources :deposits do
@@ -64,16 +62,16 @@ VoenbankRorPostgres::Application.routes.draw do
     end
   end
 
-  resource :percents do
-    get '/', controller: 'percents', action: 'admin'
-    # get "/new", controller: 'percents', action: 'new'
-    # post "/new", controller: 'percents', action: 'create'
+  resources :percents do
+    # get '/', controller: 'percents', action: 'admin'
   end
+
+  resources :statistics
 
   # post "callbacks/new", controller: 'callbacks', action: 'create'
 
   namespace :api do
-    resources :users do
+    resources :index do
       post 'login', on: :collection
     end
   end

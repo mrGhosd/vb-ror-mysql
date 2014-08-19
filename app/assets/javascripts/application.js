@@ -30,6 +30,7 @@
 //= require current_user
 //= require users
 //= require admin-user-info
+//= require percents
 //= require_tree .
 
 

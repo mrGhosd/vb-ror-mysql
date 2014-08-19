@@ -3,7 +3,7 @@ require '../test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @u = users(:coursant)
+    @u = index(:coursant)
   end
 
 
@@ -39,6 +39,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should contain only deposits that belong to zombie" do
-    assert @u.deposits.all? { |d| d.users == @u }
+    assert @u.deposits.all? { |d| d.index == @u }
   end
 end

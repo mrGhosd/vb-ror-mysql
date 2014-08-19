@@ -1,0 +1,18 @@
+table.percent-main.table.table-bordered
+  tr
+    th="ID"
+    th="Значение"
+    th="Дата начала"
+    th="Дата окончания"
+    th="Мин./Макс. сумма"
+    th="Мин./Макс. срок"
+    th="Тип"
+  - @percent.each do |percent|
+    tr
+      td.percent_id= percent.id
+      td= percent.value
+      td= percent.begin_date.strftime("%d-%m-%Y")
+      td= percent.end_date.strftime("%d-%m-%Y")
+      td= "#{percent.min_summ}/#{percent.max_summ}"
+      td= "#{percent.min_time}/#{percent.max_time}"
+      td= percent.loan_or_deposit ? "Займ" : "Вклад"
