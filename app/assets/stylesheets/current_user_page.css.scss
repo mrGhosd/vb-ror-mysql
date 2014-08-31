@@ -208,6 +208,11 @@
           background-image: url("current_slider_unfilled.png");
           background-size: 111% 100%;
         }
+        .ui-slider-range
+        {
+          background-image: url("loan_slider_filled_part.png");
+          border-radius: 14px;
+        }
         .ui-slider-handle
         {
           background-image: url("current_user_slider_thumb.png");

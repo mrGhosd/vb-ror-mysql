@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810190014) do
+ActiveRecord::Schema.define(version: 20140829184606) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -43,12 +43,19 @@ ActiveRecord::Schema.define(version: 20140810190014) do
     t.datetime "updated_at"
   end
 
+  create_table "contract_documents", force: true do |t|
+    t.string   "file_name"
+    t.text     "main_text"
+    t.boolean  "enabled"
+    t.boolean  "contract_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "contribution_accounts", force: true do |t|
-    t.integer  "depost_id",       null: false
+    t.integer  "deposit_id",      null: false
     t.integer  "operation_summ",  null: false
-    t.date     "operation_date",  null: false
-    t.time     "operation_time",  null: false
-    t.boolean  "removed/brought", null: false
+    t.boolean  "removed_brought", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

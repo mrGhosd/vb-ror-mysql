@@ -43,6 +43,13 @@ class UsersController < ApplicationController
     render json: params[:class_name].constantize.all
   end
 
+  def get_document
+    user = User.find(params[:id])
+    loan = Loan.find(params[:loan_id])
+    pdf = Contract.new(user, loan)
+    send_data pdf.render, filename: "#{pdf.get_title}.pdf", type: 'application/pdf'
+  end
+
 private
   def user_params
     params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :user_role, :user_sex, :date_of_birth, :place_of_birth,

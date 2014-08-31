@@ -1,0 +1,20 @@
+.document_page
+  = link_to "Создать новый шаблон", new_contract_document_path, class: 'btn btn-warning'
+  table.table.table-bordered
+    tr
+      th= "ID"
+      th= "Название файла"
+      th= "Текст договора"
+      th= "Активность"
+      th= "Тип договора"
+      th
+    - @contract_documents.each do |doc|
+      tr
+        td= doc.id
+        td= doc.file_name
+        td= doc.main_text
+        td= doc.enabled
+        td= doc.contract_type
+        td
+          = link_to 'Редактировать шаблон', edit_contract_document_path(id: doc.id), class: 'btn btn-success'
+          = link_to 'Удалить', "#", class: 'btn btn-danger'

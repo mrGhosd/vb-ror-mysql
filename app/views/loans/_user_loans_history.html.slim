@@ -17,3 +17,7 @@
         p.title= 'Просмотр истории платежей'
         p.value
           = link_to 'Платежи по займу', user_loan_payment_history_users_loan_path(id: loan.id), class: 'btn btn-info'
+      .user_history_cell
+        p.title= 'Получить договор по данному займу:'
+        p.value
+          = link_to 'Скачать', document_users_path(id: @current_user.id, loan_id: loan.id), class: 'btn btn-success'

@@ -42,6 +42,7 @@
       = hidden_field_tag :current_day, "#{loan.current_day_in_loan_history}"
     .current_user_slider_wrapper
       .current_user_slider
-
+  = link_to 'Получить договор по этому займу', document_users_path(id: @current_user.id, loan_id: loan.id),
+   class: 'btn btn-success get_current_loan_contract' unless loan.status
 
 

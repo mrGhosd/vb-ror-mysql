@@ -1,0 +1,26 @@
+.document_form
+  = form_for @contract_document do |f|
+    .doc_form_item
+      = f.label 'Название файла'
+      = f.text_field :file_name
+    .doc_form_item
+      = f.label 'Текст документа'
+      = f.text_area :main_text
+    .doc_form_item
+      = f.label 'Доступен'
+      .radio_item
+        = f.label 'Да'
+        = f.radio_button :enabled,true
+      .radio_item
+        = f.label ' Нет'
+        = f.radio_button :enabled,false
+    .doc_form_item
+      = f.label 'Тип'
+      .radio_item
+        = f.label 'Займ'
+        = f.radio_button :contract_type,true
+      .radio_item
+        = f.label 'Вклад'
+        = f.radio_button :contract_type,false
+    = f.submit 'Отправить', class: 'btn btn-success'
+
