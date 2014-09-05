@@ -74,7 +74,7 @@ VoenbankRorPostgres::Application.routes.draw do
   # post "callbacks/new", controller: 'callbacks', action: 'create'
 
   namespace :api do
-    resources :index do
+    resources :users do
       post 'login', on: :collection
     end
   end

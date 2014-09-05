@@ -44,5 +44,7 @@
       .current_user_slider
   = link_to 'Получить договор по этому займу', document_users_path(id: @current_user.id, loan_id: loan.id),
    class: 'btn btn-success get_current_loan_contract' unless loan.status
+  /- pay_url = Robokassa.client.init_payment_url(loan.id, loan.loan_sum, "Loan", '', 'ru', @current_user.contact_information.email, {})
+  /= link_to "Оплатить через сервис ROBOX", pay_url
 
 
