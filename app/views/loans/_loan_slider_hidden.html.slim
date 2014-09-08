@@ -9,7 +9,7 @@
     .loan_info_title.title class=(@current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
       p= 'Информация о текущем займе'
       span.arrow.down
-    .loan_info_body class=(@current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
+    .loan_info_body.active
       = render 'loan_information'
   - unless @current_user.loans.payed_loans.blank?
     .current_user_history

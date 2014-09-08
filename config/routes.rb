@@ -71,7 +71,9 @@ VoenbankRorPostgres::Application.routes.draw do
 
   resources :contract_documents
 
-  # post "callbacks/new", controller: 'callbacks', action: 'create'
+  resources :roles_percents do
+    get 'role_data_list', on: :collection
+  end
 
   namespace :api do
     resources :users do

@@ -41,9 +41,9 @@ class Loan < ActiveRecord::Base
     return "Не рассмотрен" if response.blank?
     payment = LoanRepayment.sum(:granted_summ, conditions: {loan_id: id})
     if payment < loan_sum.to_i
-      "#{payment}/#{loan_sum}"
+      "#{payment}/#{loan_sum} р."
     else
-      "#{loan_sum}/#{loan_sum}"
+      "#{loan_sum}/#{loan_sum} р."
     end
   end
 
