@@ -88,10 +88,6 @@ $(document).ready(function()
 
 });
 
-$(document).ajaxError(function(e, xhr, status, error)
-{
-    alert("ajaxError" + " " + e + " " + xhr + " " + status + " "+ error);
-});
 
 function getLoanAmount()
 {

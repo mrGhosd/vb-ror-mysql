@@ -5,7 +5,7 @@ header.header
   .callback_phone
     p = "Номер обратной связи"
     p = "(812) 950-10-98"
-  - if @current_user
+  - if current_user
     = render template: "shared/user_head"
   -else
     = render template: "shared/authorization"

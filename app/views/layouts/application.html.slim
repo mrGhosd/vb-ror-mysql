@@ -9,7 +9,7 @@ html
     .wrapper
       = render template: "shared/main_head"
       = render template: "shared/news_slider"
-      - if @current_user && @current_user.is_admin?
+      - if current_user && current_user.is_admin?
         = render template: "shared/admin_panel"
       .main_part
         = render template: "shared/navigation/main"

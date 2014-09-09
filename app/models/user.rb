@@ -68,15 +68,20 @@ class User < ActiveRecord::Base
   end
 
   def self.login(login, password)
-    # session[:current_user] = "1"
-    # cookies[:currenr_user] = {value: true, expires: 1.week.from_now}
-    current_user = User.find_by login: login, password: password
+    User.find_by login: login, password: password
   end
 
   def logout(session)
 
   end
 
+  def self.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def self.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
 
   def revert_params_from_id_to_value
     self.role_id = Role.find(self.role_id).value
@@ -88,6 +93,11 @@ class User < ActiveRecord::Base
     binding.pry
     self.role_id = Role.find_by_value(role_id).id
     self
+  end
+
+  private
+  def create_remember_token
+    self.remember_token = User.encrypt(User.new_remember_token)
   end
 
 end

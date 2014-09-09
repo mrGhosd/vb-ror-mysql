@@ -1,10 +1,10 @@
 .user_info
   .greetings
     p= "Здравствуйте,"
-    p.user_full_name= "#{@current_user.full_name}"
-    - if @current_user.is_admin?
+    p.user_full_name= "#{current_user.full_name}"
+    - if current_user.is_admin?
       p="АДМИНИСТРАТОР"
 
   .user_actions
-    = link_to "Личный кабинет", "#", remote: true, class: 'btn user_cabinet', data: {user: @current_user.id}
+    = link_to "Личный кабинет", "#", remote: true, class: 'btn user_cabinet', data: {user: current_user.id}
     = link_to "Выйти", logout_path(logout: true),  class: 'btn logout-button'

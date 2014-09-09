@@ -1,17 +1,17 @@
 .loan_page
   .current_user_calc
-    div.calculator_title.title class=(@current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
+    div.calculator_title.title class=(current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
       p= 'Калькулятор займа'
       span.arrow.down
-    .hidden_calculator class=(@current_user.loans.payed_loans.blank? ? 'active' : 'hidden')
+    .hidden_calculator class=(current_user.loans.payed_loans.blank? ? 'active' : 'hidden')
       = render 'loan_slider'
   .current_loan_info
-    .loan_info_title.title class=(@current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
+    .loan_info_title.title class=(current_user.loans.payed_loans.blank? ? 'hidden' : 'active')
       p= 'Информация о текущем займе'
       span.arrow.down
     .loan_info_body.active
       = render 'loan_information'
-  - unless @current_user.loans.payed_loans.blank?
+  - unless current_user.loans.payed_loans.blank?
     .current_user_history
       .history_title.title.active
         p= 'Последние займы'

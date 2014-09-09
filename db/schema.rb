@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905185936) do
+ActiveRecord::Schema.define(version: 20140909183759) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(version: 20140905185936) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "remember_token"
   end
 
   create_table "voen_pasports", force: true do |t|

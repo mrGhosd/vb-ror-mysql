@@ -1,4 +1,4 @@
-- @current_user.loans.payed_loans.limit(5).each do |loan|
+- current_user.loans.payed_loans.limit(5).each do |loan|
   .user_history_item
     .history_item_title.closed
       p="#{loan.begin_date.to_date} - #{loan.actual_close_data.to_date} #{loan.loan_sum} р."
@@ -20,4 +20,4 @@
       .user_history_cell
         p.title= 'Получить договор по данному займу:'
         p.value
-          = link_to 'Скачать', document_users_path(id: @current_user.id, loan_id: loan.id), class: 'btn btn-success'
+          = link_to 'Скачать', document_users_path(id: current_user.id, loan_id: loan.id), class: 'btn btn-success'

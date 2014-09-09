@@ -38,6 +38,7 @@ gem 'gmaps4rails'
 gem 'jquery-ui-rails'
 gem 'will_paginate', '~> 3.0.5'
 gem 'prawn'
+gem 'bcrypt-ruby'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
