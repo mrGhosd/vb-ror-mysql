@@ -18,9 +18,6 @@ $(document).ready(function()
             },
             error: function(json)
             {
-//                error_popup = $("<div class='auth_error_field'></div>");
-//                error_popup.append("<p>"+json.responseText+"</p>");
-//                error_popup.prependTo(".authorization").hide().fadeIn();
                 showErrorWindow(json.responseText);
             }
         });

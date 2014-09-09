@@ -28,9 +28,10 @@ $(document).ready(function()
     });
     $(".right_navigation_button").click(function()
     {
+       count_slides = $(".slider .nav span").size();
        var current_slide = $(".slider .nav .on");
        var number_attr = parseInt(current_slide.attr("rel"), 10) + 1;
-        if(number_attr > 4)
+        if(number_attr >= count_slides)
         {
             $(".nav span:first").click();
         }
