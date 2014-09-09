@@ -1,0 +1,11 @@
+= link_to 'Создать новое значение', new_roles_percent_path, class: 'btn btn-warning'
+table.table.table-bordered
+  tr
+    th="ID"
+    th="Роль"
+    th="Значение процента"
+  - @percents.each do |percent|
+    tr
+      td= percent.id
+      td= Role.find(percent.role_id).value
+      td= Percent.find(percent.percent_id).value

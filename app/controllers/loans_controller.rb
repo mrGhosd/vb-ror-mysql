@@ -1,5 +1,4 @@
 class LoansController < ApplicationController
-
   def index
     @loans = Loan.all
   end
@@ -20,7 +19,8 @@ class LoansController < ApplicationController
     params[:user][:date_of_birth].to_date
     @user = User.new(user_reg_params)
     @user.save
-    redirect_to root_path
+    redirect_to root_path and return
+
   end
 
   def show
@@ -53,6 +53,7 @@ class LoansController < ApplicationController
   def user_loan_payment_history
     loan = Loan.find(params[:id])
     @payments = LoanRepayment.where(loan_id: loan.id)
+    head :ok
   end
 
 
@@ -65,7 +66,7 @@ class LoansController < ApplicationController
 
   def user_reg_params
     params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :role_id, :sex, :date_of_birth, :place_of_birth,
-                                 loans_attributes: [:id, :user_id, :loan_sum, :begin_date, :end_date],
+                                 loans_attributes: [:id, :user_id, :loan_sum, :percent_id, :begin_date, :end_date],
                                  contact_information_attributes: [:id, :user_id, :email, :actual_adress, :phone_adress,
                                                                   :contact_person_surname, :contact_person_name,
                                                                   :contact_person_secondname, :contact_person_phone],

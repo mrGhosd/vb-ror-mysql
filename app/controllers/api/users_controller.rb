@@ -1,5 +1,6 @@
 module Api
   class UsersController < ApplicationController
+    protect_from_forgery except: :login
 
     def index
       @user = User.all

@@ -18,7 +18,7 @@ table.table.table-bordered.stocks_info
         - else
           i="Изображения не существует"
       td
-        = link_to "Редактировать", stock_edit_stocks_path(st.id), class: "btn btn-primary"
+        = link_to "Редактировать", edit_stock_path(st.id), class: "btn btn-primary"
       td
         = link_to "Удалить", "", class: "btn btn-danger stock-destroy", remote: true
       td

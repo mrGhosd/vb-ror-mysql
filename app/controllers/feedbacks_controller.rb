@@ -1,4 +1,14 @@
 class FeedbacksController < ApplicationController
+  before_action :check_admin, only: %w[admin]
+
+  def index
+    @feedbacks = Feedback.limit(4).order(created_at: :desc)
+  end
+
+  def admin
+    @feedbacks = Feedback.all.paginate(page: params[:page], per_page: 10)
+  end
+
   def new
     @feedback = Feedback.new
   end
@@ -9,8 +19,11 @@ class FeedbacksController < ApplicationController
     redirect_to feedbacks_path
   end
 
-  def show
-    @feedback = Feedback.limit(4).order(created_at: :desc)
+
+  def destroy
+    @feedback = Feedback.find(params[:id])
+    @feedback.destroy
+    head :ok
   end
 
 

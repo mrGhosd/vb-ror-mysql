@@ -5,7 +5,7 @@
   - @partners.each do |partner|
     .partner_item
       .partner_image
-        = link_to detail_partners_path(id: partner.id) do
+        = link_to partner_path(id: partner.id) do
           = image_tag partner.image(:normal)
       .partner_title
         p = link_to partner.partner_title, partner.partner_url

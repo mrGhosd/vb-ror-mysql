@@ -25,12 +25,13 @@ $(document).ready(function()
     {
         var faq_row = $(this).parents("tr");
         $.ajax({
-            url: '/faqs/'+faq_row.attr("faq_id")+'/destroy',
+            url: '/shares/'+faq_row.attr("share_id"),
             type: 'POST',
+            method: 'delete',
             data: {},
             success: function(result)
             {
-                $("tr.faq_"+faq_row.attr("faq_id")).fadeOut(200);
+                $("tr.share_"+faq_row.attr("share_id")).fadeOut(200);
             }
         });
     });

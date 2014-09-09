@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
   has_many :loans
   has_many :deposits
-  has_one :passport
-  has_one :voen_pasport
-  has_one :contact_information
-  has_one :role_kursant
-  has_one :role_contract
-  has_one :role_officer
+  has_one :passport, dependent: :destroy
+  has_one :voen_pasport, dependent: :destroy
+  has_one :contact_information, dependent: :destroy
+  has_one :role_kursant, dependent: :destroy
+  has_one :role_contract, dependent: :destroy
+  has_one :role_officer, dependent: :destroy
   accepts_nested_attributes_for :deposits
   accepts_nested_attributes_for :loans
   accepts_nested_attributes_for :passport
@@ -59,9 +59,9 @@ class User < ActiveRecord::Base
     Role.find_by_value(role).id
   end
 
-
-
-
+  def is_admin?
+    [132].include?(id)
+  end
 
   def full_name
     [surname, name, secondname].join(' ')

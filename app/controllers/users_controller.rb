@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -41,6 +41,13 @@ class UsersController < ApplicationController
 
   def user_nested_info
     render json: params[:class_name].constantize.all
+  end
+
+  def get_document
+    user = User.find(params[:id])
+    loan = Loan.find(params[:loan_id])
+    pdf = Contract.new(user, loan)
+    send_data pdf.render, filename: "#{pdf.get_title}.pdf", type: 'application/pdf'
   end
 
 private

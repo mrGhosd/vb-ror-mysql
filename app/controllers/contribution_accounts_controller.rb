@@ -3,7 +3,7 @@ class ContributionAccountsController < ApplicationController
   def index
     deposit = Deposit.find(params[:deposit_id])
     @contrib = ContributionAccount.where(deposit_id: deposit.id)
-    render 'index', locals: { contrib: @contrib, deposit: deposit }
+    render 'admin', locals: { contrib: @contrib, deposit: deposit }
   end
 
   def new

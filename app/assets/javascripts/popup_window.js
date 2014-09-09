@@ -42,7 +42,7 @@ function popupFindData(className, popup)
            dataType: 'json',
            success: function (data) {
                $.each(data, function (index, value) {
-                   list.append("<li>" + this.value + "</li>");
+                   list.append("<li data-field-id='"+this.id+"' >" + this.value + "</li>");
                    cache.push(this.value);
                });
                popup.find("li").on('mouseenter',function()
@@ -56,8 +56,11 @@ function popupFindData(className, popup)
                    .on('click', function()
                    {
                        text = $(this).text();
+                       field_id = $(this).data("field-id");
                        console.log(text);
-                       $(this).closest('.popup-main').prev('.popup-available').val(text);
+                       var closest_popup = $(this).closest('.popup-main');
+                       closest_popup.prev('.popup-available').val(text);
+                       closest_popup.next('.popup-hidden-field').val(field_id);
                    });
            }
        });
@@ -67,5 +70,5 @@ function popupFindData(className, popup)
 
 $(document).ready(function()
 {
-   popupWindow($("#edit_user_form"));
+   popupWindow($("#edit_user_form, #roles_percent_form"));
 });

@@ -1,10 +1,11 @@
 class FaqsController < ApplicationController
+  before_action :check_admin, only: %w[admin new create edit update destroy]
 
   def index
     @faq = Faq.limit(10)
   end
 
-  def admin_show
+  def admin
     @faq = Faq.all
   end
 
@@ -15,7 +16,7 @@ class FaqsController < ApplicationController
   def create
     @faq = Faq.new(faq_params)
     @faq.save
-    redirect_to faqs_path
+    redirect_to admin_faqs_path
   end
 
   def edit
@@ -24,9 +25,9 @@ class FaqsController < ApplicationController
 
   def update
     @faq = Faq.find(params[:id])
-    if @faq.update_attributes(news_params)
+    if @faq.update_attributes(faq_params)
       flash.now[:notice] = "Вопрос/ответ успешно изменен"
-      redirect_to faqs_path
+      redirect_to admin_faqs_path
     else
       render :edit
     end

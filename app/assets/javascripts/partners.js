@@ -1,14 +1,14 @@
 /**
  * Created by vsokoltsov on 17.06.14.
  */
-var partner_main = function(){
+$(document).ready(function(){
     $(".partner-destroy").click(function()
     {
         var partner_row = $(this).parents("tr");
         $.ajax({
-            url: '/partners/'+partner_row.attr("partner_id")+'/destroy',
+            url: '/partners/'+partner_row.attr("partner_id"),
             type: 'POST',
-            data: {},
+            method: 'delete',
             success: function(result)
             {
                 $("tr.partner_"+partner_row.attr("partner_id")).fadeOut(200);
@@ -18,11 +18,12 @@ var partner_main = function(){
 
     $(".partner-show").click(function(){
         var button = $(this);
-        var stock_row = $(this).parents("tr");
+        var stock_row = $(this).closest("td");
+        console.log(stock_row.attr("partner_id"));
         $.ajax({
             url: '/partners/'+stock_row.attr("partner_id")+'/partner_switch',
             type: 'POST',
-            data: {id: stock_row.attr("stock_id")},
+            data: {id: stock_row.attr("partner_id")},
             success: function(success)
             {
                 if(success.success)
@@ -53,7 +54,7 @@ var partner_main = function(){
             obj.fadeIn(200);
         }
     });
-};
+});
 
 function admin_panel(tar, obj)
 {
@@ -72,5 +73,3 @@ function admin_panel(tar, obj)
        }
     });
 }
-
-$(document).on('page:load', partner_main());

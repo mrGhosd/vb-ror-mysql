@@ -1,0 +1,24 @@
+.popup-main
+{
+  background-color: #e6e6e6;
+  height:100px;
+  width:220px;
+  position:relative;
+  top:-10px;
+  border: 1px solid #c8c8c8;
+  border-radius: 0px 0px 4px 4px;
+  overflow-y: scroll;
+  ul
+  {
+    li
+    {
+      padding:3px;
+      &.current
+      {
+        background-color: #224f0e;
+        color: #ffffff;
+        cursor: pointer;
+      }
+    }
+  }
+}

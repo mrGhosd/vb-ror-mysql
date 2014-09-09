@@ -54,6 +54,7 @@ function deleteUser(button)
 
 function buildAdminDialog(link)
 {
+
     popup_classes = link.closest('.user_short_info').attr("class");
     user_id = popup_classes.split(" ");
     console.log(user_id[1]);

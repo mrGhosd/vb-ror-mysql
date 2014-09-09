@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-
+  before_action :check_admin, only: %w[new create edit update destroy]
   def index
     @stock = Stock.all
     # render json: @stock.to_json(only: [:stock_title, :stock_text, :created_at], methods: [:image_url])
@@ -51,4 +51,5 @@ class StocksController < ApplicationController
   def news_params
     params.require(:stock).permit(:stock_title, :stock_text, :image)
   end
+
 end

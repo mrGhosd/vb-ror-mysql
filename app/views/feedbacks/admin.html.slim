@@ -1,0 +1,16 @@
+= render template: 'shared/page_title', locals: { title: 'Отзывы'}
+table.table.table-bordered
+  tr
+    th="ID"
+    th="Автор"
+    th="Текст отзыва"
+    th="Дата создания"
+    th= "Дополнительные действия"
+  - @feedbacks.each do |feedback|
+    tr
+      td.user_id= feedback.id
+      td= feedback.feedback_author
+      td= feedback.feedback_text
+      td= feedback.created_at.strftime("%Y-%m-%d %H:%M:%S")
+      td
+        = link_to 'Удалить', '#', class: 'btn btn-danger admin-delete-feedback', remote: true

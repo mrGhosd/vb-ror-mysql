@@ -45,7 +45,7 @@
           p.value= @user.contact_information.email unless @user.contact_information.blank?
   .user-page-actions
     = link_to '&larr; Вернуться к списку пользователей'.html_safe, users_path, class: 'btn btn-info'
-    = link_to 'Редактировать пользователя', '#', class: 'btn btn-success', remote: true
+    = link_to 'Редактировать пользователя', '#', class: 'btn btn-success edit-user', remote: true
     = link_to 'Удалить пользователя', '#', class: 'btn btn-danger delete-from-cabinet', remote: true
 .admin_user_navigation
   = link_to 'Кредиты', '#', class: 'loan active', remote: true
@@ -96,6 +96,7 @@
           .cell-loan-controll
             = link_to 'Оплатить кредит', '#', class: 'btn btn-primary repayment-form-show', remote: true
             = link_to 'Отобразить историю платежей', users_loan_loan_repayments_path(loan_id: loan.id, user: @user.id), class: 'btn btn-info'
+            = link_to 'Получить договор по текущему займу', document_users_path(id: @user.id, loan_id: loan.id), class: 'btn btn-default'
             - if loan.response.blank?
               = link_to 'Подтвердить займ', '#', class: "btn btn-success loan-accept #{loan.id}", remote: true
               = link_to 'Отклонить займ', '#', class: "btn btn-danger loan-deciline #{loan.id}", remote: true

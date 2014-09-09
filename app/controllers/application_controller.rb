@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
       session[:current_user] = @current_user.id
       @current_user.session = session[:current_user]
       @current_user.save
-      cookies[:current_user] = { value: true, expires: 1.week.from_now }
+      cookies[:current_user] = { value: @current_user.id, expires: 1.week.from_now }
+      UserMailer.login_email(@current_user).deliver
       redirect_to root_path
     end
   end
@@ -41,8 +42,6 @@ class ApplicationController < ActionController::Base
     if params[:logout]
       session.delete(:current_user)
       cookies.delete(:current_user)
-      # @current_user.session = nil
-      # @current_user.save
       redirect_to root_path
     end
   end
@@ -50,6 +49,12 @@ class ApplicationController < ActionController::Base
   def user_cabinet
     @user = User.find(@current_user.id)
     render 'shared/user_cabinet'
+  end
+
+  def check_admin
+   if @current_user.blank? || !@current_user.is_admin?
+     redirect_to root_path
+   end
   end
 
 end

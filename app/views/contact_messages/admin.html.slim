@@ -1,0 +1,16 @@
+table.table.table-bordered
+  tr
+    th="ID"
+    th="ФИО"
+    th="Email"
+    th="Контактный телефон"
+    th="Сообщение"
+    th="Дата создания"
+  - @messages.each do |message|
+    tr
+      td= message.id
+      td= message.user_name
+      td= message.user_email
+      td= message.user_phone
+      td= message.user_message
+      td= message.created_at.strftime("%d-%m-%Y")

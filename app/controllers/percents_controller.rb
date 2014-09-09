@@ -29,6 +29,8 @@ class PercentsController < ApplicationController
 
   def destroy
     @percent = Percent.find(params[:id])
+    @percent.destroy
+    head :ok
   end
 
   private

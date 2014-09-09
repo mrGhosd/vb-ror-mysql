@@ -21,7 +21,13 @@ $(document).ready(function()
     {
         showDepositItem($(this));
     });
+
+    $(".get_current_loan_contract").click(function()
+    {
+        getContractDocument($(this));
+    });
 });
+
 
 function buildSlider()
 {

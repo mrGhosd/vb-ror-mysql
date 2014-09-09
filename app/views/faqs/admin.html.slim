@@ -1,0 +1,19 @@
+= link_to 'Создать', new_faq_path, class: 'btn btn-warning'
+table.table.table-bordered.stocks_info
+  tr
+    th = "Номер новости"
+    th = "Заголовок"
+    th = "Текст"
+    th = "Изображение"
+  - @faq.each do |faq|
+    tr faq_id='#{faq.id}' class="faq_#{faq.id}"
+      td.stock_id
+        = faq.id
+      td
+        = faq.question[0..10]<<"..."
+      td
+        = faq.answer[0..10]<<"..."
+      td
+        = link_to "Редактировать", edit_faq_path(faq.id), class: "btn btn-primary"
+      td
+        = link_to "Удалить", "", class: "btn btn-danger faq_destroy", remote: true

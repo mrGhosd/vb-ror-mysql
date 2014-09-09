@@ -1,5 +1,5 @@
 .contact_messages_form
-  = form_for :contact_message do |f|
+  = form_for @message do |f|
     .form_field
       = f.label 'Имя'
       = f.text_field :user_name

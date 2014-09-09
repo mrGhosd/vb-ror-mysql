@@ -25,8 +25,9 @@ $(document).ready(function()
     {
         var faq_row = $(this).parents("tr");
         $.ajax({
-            url: '/faqs/'+faq_row.attr("faq_id")+'/destroy',
+            url: '/faqs/'+faq_row.attr("faq_id"),
             type: 'POST',
+            method: 'delete',
             data: {},
             success: function(result)
             {
