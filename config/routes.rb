@@ -71,6 +71,8 @@ VoenbankRorPostgres::Application.routes.draw do
 
   resources :contract_documents
 
+  resources :roles
+
   resources :roles_percents do
     get 'role_data_list', on: :collection
   end

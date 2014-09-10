@@ -58,13 +58,14 @@ $(document).ready(function()
     {
         var amount = getLoanAmount();
         var time = getLoanTime();
-        var role = $(".user-role a.active").attr("role");
+        var role = $(".user-role a.active").data("role-id");
+        var percent_id = $(".user-role a.active").data("percent-id");
 
         if (amount != " " && time != " " && role != " ")
         {
             $.ajax({
                 url: '/users/loans/loan_request',
-                data: {amount: amount, time: time, role: role},
+                data: {amount: amount, time: time, role: role, percent_id: percent_id},
                 success: function(html)
                 {
 

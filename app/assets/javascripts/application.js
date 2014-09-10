@@ -31,6 +31,7 @@
 //= require users
 //= require admin-user-info
 //= require percents
+//= require roles
 //= require_tree .
 
 

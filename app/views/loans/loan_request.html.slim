@@ -12,7 +12,7 @@
       h2.step_title="Шаг 1"
   = form_for @user, url: '/users/loans', method: 'POST' do |f|
     .main_info.short_reg.step_1
-      = f.hidden_field :role_id, value: User.get_role_id(params[:role]), class: 'hidden_role'
+      = f.hidden_field :role_id, value: params[:role], class: 'hidden_role'
       .loan_form_item
         = f.label 'Фамилия'
         = f.text_field :surname
@@ -42,7 +42,7 @@
           = l.label 'Сумма займа'
           = l.text_field :loan_sum_view, value: params[:amount], disabled: true
           = l.hidden_field :loan_sum, value: params[:amount]
-          = l.hidden_field :percent_id, value: 7
+          = l.hidden_field :percent_id, value: params[:percent_id]
         .loan_form_item
           = l.label 'Срок займа'
           = l.text_field :loan_time, value: params[:time], disabled: true

@@ -1,0 +1,24 @@
+= link_to 'К списку всех ролей', roles_path, class: "btn"
+= form_for @role do |f|
+  .role_item
+    = f.label 'Название роли:'
+    = f.text_field :value
+  .role_item
+    = f.label 'Роль активна?:'
+    .radiobutton_item
+      .radio_field
+        = f.label 'Да'
+        = f.radio_button :active, true
+      .radio_field
+        = f.label 'Нет'
+        = f.radio_button :active, false
+  .role_item
+    = f.label 'Роль выбрана по умолчанию?:'
+    .radiobutton_item
+      .radio_field
+        = f.label 'Да'
+        = f.radio_button :default_chosen, true
+      .radio_field
+        = f.label 'Нет'
+        = f.radio_button :default_chosen, false
+  = f.submit 'Отправить', class: "btn btn-success"

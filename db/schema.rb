@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909183759) do
+ActiveRecord::Schema.define(version: 20140910081642) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -200,6 +200,8 @@ ActiveRecord::Schema.define(version: 20140909183759) do
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active",         default: false
+    t.boolean  "default_chosen", default: false
   end
 
   create_table "roles_percents", force: true do |t|
