@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
                     :styles => {normal: "300x200>", small: "200x120>", iphone: "120x120"}
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  after_create :set_login_password
+
   def user_role
     Role.find(role_id).value unless role_id.blank?
   end
@@ -97,6 +99,12 @@ class User < ActiveRecord::Base
   private
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
+  end
+
+  def set_login_password
+    self.login = "#{self.id}#{self.role_id}#{self.created_at.strftime("%d%m%Y%H%m")}"
+    self.password = User.new_remember_token.last(7)
+    save
   end
 
 end

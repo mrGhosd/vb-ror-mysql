@@ -60,7 +60,6 @@ $(document).ready(function()
         var time = getLoanTime();
         var role = $(".user-role a.active").data("role-id");
         var percent_id = $(".user-role a.active").data("percent-id");
-
         if (amount != " " && time != " " && role != " " && percent_id != "")
         {
             $.ajax({

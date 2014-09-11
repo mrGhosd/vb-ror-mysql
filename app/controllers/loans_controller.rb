@@ -19,6 +19,7 @@ class LoansController < ApplicationController
     params[:user][:date_of_birth].to_date
     @user = User.new(user_reg_params)
     @user.save
+    UserMailer.register_email(@user).deliver
     redirect_to root_path and return
 
   end

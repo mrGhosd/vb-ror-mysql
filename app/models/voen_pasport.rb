@@ -28,7 +28,6 @@ class VoenPasport < ActiveRecord::Base
   end
 
   def user_education=(type)
-    # binding.pry
     self.education_id = Education.find_by_value(type).id unless Education.find_by_value(type).blank?
   end
 
