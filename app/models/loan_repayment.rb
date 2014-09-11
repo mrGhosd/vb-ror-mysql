@@ -3,7 +3,6 @@ class LoanRepayment < ActiveRecord::Base
   after_save :check_loan_status
 
   def check_loan_status
-    binding.pry
     loan = Loan.find(loan_id)
     payment = LoanRepayment.sum(:granted_summ, conditions: {loan_id: loan.id})
     if payment >= loan.loan_sum.to_i

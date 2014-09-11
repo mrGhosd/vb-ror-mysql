@@ -21,7 +21,7 @@ class RolesController < ApplicationController
   def create
     @role = Role.new(roles_params)
     @role.save
-    redirect_to roles_path
+    redirect_to new_roles_percent_path(current_role_id: @role.id, current_role_value: @role.value)
   end
 
   def destroy

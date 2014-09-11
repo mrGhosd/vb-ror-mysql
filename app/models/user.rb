@@ -90,7 +90,6 @@ class User < ActiveRecord::Base
 
 
   def revert_params_from_value_to_id
-    binding.pry
     self.role_id = Role.find_by_value(role_id).id
     self
   end

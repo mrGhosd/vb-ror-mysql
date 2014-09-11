@@ -8,7 +8,7 @@ class VoenPasport < ActiveRecord::Base
 
   def user_nationality
     if self.nationality_id.blank?
-      1
+      Nationality.first.value
     else
       Nationality.find(nationality_id).value
     end
@@ -21,19 +21,20 @@ class VoenPasport < ActiveRecord::Base
 
   def user_education
     if self.education_id.blank?
-      1
+      Education.first.value
     else
       Education.find(education_id).value
     end
   end
 
   def user_education=(type)
+    # binding.pry
     self.education_id = Education.find_by_value(type).id unless Education.find_by_value(type).blank?
   end
 
   def user_relationship
     if self.relashionship_id.blank?
-     1
+     Relashionship.first.value
     else
       Relashionship.find(relashionship_id).value
     end
@@ -45,7 +46,7 @@ class VoenPasport < ActiveRecord::Base
 
   def user_specialization
     if self.specialization_id.blank?
-      1
+      Specialization.first.value
     else
       Specialization.find(specialization_id).value
     end
@@ -57,7 +58,7 @@ class VoenPasport < ActiveRecord::Base
 
   def user_sport_mastery
     if self.sport_mastery_id.blank?
-      1
+      SportMastery.first.value
     else
       SportMastery.find(sport_mastery_id).value
     end
@@ -65,7 +66,8 @@ class VoenPasport < ActiveRecord::Base
   end
 
   def user_sport_mastery=(degree)
-    self.sport_mastery_id = SportMastery.find_by_value(degree).value unless SportMastery.find_by_value(degree).blank?
+    # binding.pry
+    self.sport_mastery_id = SportMastery.find_by(value: degree).id unless SportMastery.find_by_value(degree).blank?
   end
 
 end

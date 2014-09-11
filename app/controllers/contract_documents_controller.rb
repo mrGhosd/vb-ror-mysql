@@ -8,7 +8,6 @@ class ContractDocumentsController < ApplicationController
   end
 
   def create
-    binding.pry
     @contract_document = ContractDocument.new(document_params)
     @contract_document.save
     redirect_to contract_documents_path

@@ -61,7 +61,7 @@ $(document).ready(function()
         var role = $(".user-role a.active").data("role-id");
         var percent_id = $(".user-role a.active").data("percent-id");
 
-        if (amount != " " && time != " " && role != " ")
+        if (amount != " " && time != " " && role != " " && percent_id != "")
         {
             $.ajax({
                 url: '/users/loans/loan_request',

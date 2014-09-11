@@ -26,6 +26,8 @@ class Loan < ActiveRecord::Base
     current_date = begin_date + month_diff.month
     if Date.today > current_date.to_date
       current_date + 1.month
+    else
+      current_date
     end
   end
 
