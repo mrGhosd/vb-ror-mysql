@@ -132,7 +132,7 @@ function specialQuestion(val)
 
 $(document).ready(function()
 {
-    $(".datepicker").datepicker({dateFormat: "dd.mm.yy"});
+    $(".datepicker").datepicker({dateFormat: "dd.mm.yy", changeMonth:true, changeYear:true});
     specialQuestion($('.step_1 .hidden_role').val());
     $(".reg_form_controll a").click(function(){
         changeFocusPage($(this));

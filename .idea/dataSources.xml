@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3543881088">
+  <component name="DataSourceManagerImpl" format="xml" hash="3851079230">
     <data-source source="LOCAL" name="Rails voenbank-ror-postgres: development" uuid="d98b9238-d55d-4ed1-b5c3-6ba42bb5c0b6">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
@@ -19,6 +19,12 @@
       <user-password>dfebdfc6dfdedfcbdfc3dfd8dff5df9cdf93</user-password>
       <schema-pattern>vb_site.* vb_site_test.*</schema-pattern>
       <default-schemas>vb_site.* vb_site_test.*</default-schemas>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails voenbank-ror-postgres: production" uuid="b0ab59f9-f7a2-4c8e-8f0f-86a36be9148a">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/voenbank-ror</jdbc-url>
       <libraries />
     </data-source>
   </component>

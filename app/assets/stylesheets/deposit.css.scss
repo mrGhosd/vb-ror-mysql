@@ -1,3 +1,13 @@
+#new_user
+{
+  .deposit_form_item
+  {
+    input
+    {
+      width:350px !important;
+    }
+  }
+}
 .deposit_page {
   .deposit_calc_wrapper {
     width: 671px;
@@ -11,6 +21,7 @@
       float: left;
       .deposit_request
       {
+
         margin: 31px 25px 0px 25px;
         input
         {

@@ -12,24 +12,12 @@ $(document).ready(function()
                 calculate_full_summ();
                 deposit_main_diagram_change();
             },
-//            start: function(event, ui)
-//            {
-//                calculate_full_summ();
-////                deposit_main_diagram_change();
-//
-//            },
             change: function(event, ui)
             {
                 calculate_full_summ();
                 deposit_main_diagram_change();
 
             }
-//            stop: function(event, ui)
-//            {
-//                calculate_full_summ();
-//                deposit_main_diagram_change();
-//
-//            }
         });
     $("#slider_deposit_time").slider(
         {
