@@ -9,18 +9,21 @@ function changeMenuButton(number)
 }
 function changeFocusPage(object)
 {
-    var classes = object.attr('class');
-    var arr_class = classes.split(" ");
-    var page = arr_class[1];
+    if(object.hasClass("disable")){
+        return false;
+    } else {
+        var classes = object.attr('class');
+        var arr_class = classes.split(" ");
+        var page = arr_class[1];
 
 
-
-    changeMenuButton(page);
-    object.parent().parent().hide();
-    removeDisableNavigation(page);
-    $("div."+page).show();
-    setStepTitle(page);
-    addVisitPage(page);
+        changeMenuButton(page);
+        object.parent().parent().hide();
+        removeDisableNavigation(page);
+        $("div." + page).show();
+        setStepTitle(page);
+        addVisitPage(page);
+    }
 }
 function removeDisableNavigation(page)
 {

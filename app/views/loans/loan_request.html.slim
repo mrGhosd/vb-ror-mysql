@@ -1,4 +1,5 @@
 = javascript_include_tag 'registration.js'
+= javascript_include_tag 'validation.js'
 = javascript_include_tag 'popup_window.js'
 .registration_page
   .btn-group.registration_navigation
@@ -12,7 +13,7 @@
     .static_page_title
       h2.step_title="Шаг 1"
   = form_for @user, url: '/users/loans', method: 'POST' do |f|
-    .main_info.short_reg.step_1
+    .main_info.short_reg.step_1{step="step_1"}
       = f.hidden_field :role_id, value: params[:role], class: 'hidden_role'
       .loan_form_item
         = f.label 'Фамилия'
@@ -60,7 +61,7 @@
       .short_reg_control.reg_form_controll
         = f.submit 'Отправить текущие данные', class: 'send_data_now'
         = link_to 'Продолжить &rarr;'.html_safe, "#", class:'next step_2', remote: true
-    .passport_form.regForm.step_2
+    .passport_form.regForm.step_2{step="step_2"}
       = f.fields_for :passport do |p|
         .loan_form_item
           = p.label 'Серия паспорта:'
@@ -89,7 +90,7 @@
         .reg_form_controll
           = link_to "&larr; Вернуться".html_safe, "#", remote:true, class: 'back step_1'
           = link_to 'Продолжить &rarr;'.html_safe, "#", remote:true, class: 'next step_3'
-    .voen_passport_form.step_3
+    .voen_passport_form.step_3{step="step_3"}
       = f.fields_for :voen_pasport do |vp|
         .loan_form_item
           = vp.label 'Серия:'
@@ -121,7 +122,7 @@
         .reg_form_controll
           = link_to "&larr; Вернуться".html_safe, "#", remote:true, class: 'back step_2'
           = link_to 'Продолжить &rarr;'.html_safe, "#", remote:true, class: 'next step_4'
-    .contact_information_form.step_4
+    .contact_information_form.step_4{step="step_4"}
       = f.fields_for :contact_information do |cf|
         .loan_form_item
           = cf.label 'Адрес фактического проживания:'
@@ -138,8 +139,8 @@
         .reg_form_controll
           = link_to "&larr; Вернуться".html_safe, "#", remote:true, class: 'back step_3'
           = link_to 'Продолжить &rarr;'.html_safe, "#", remote:true, class: 'next step_5'
-    .role_information_form.step_5
-      .form_kursant.special_form
+    .role_information_form.step_5{step="step_5"}
+      .form_kursant.special_form.step_5{step="step_5"}
         = f.fields_for :role_kursant do |kursant|
           .loan_form_item
             = kursant.label 'Название высшего учебного заведения:'
@@ -189,7 +190,7 @@
           .loan_form_item
             = kursant.label 'Телефон учебного отдела:'
             = kursant.text_field :education_phone
-      .form_contract.special_form
+      .form_contract.special_form.step_5{step="step_5"}
         = f.fields_for :role_contract do |contract|
           .loan_form_item
             = contract.label 'Звание:'
@@ -206,7 +207,7 @@
           .loan_form_item
             = contract.label 'Телефон дежурного:'
             = contract.text_field :duty_phone
-      .form_officer.special_form
+      .form_officer.special_form.step_5{step="step_5"}
         = f.fields_for :role_officer do |officer|
           .loan_form_item
             = officer.label 'Должность:'

@@ -46,6 +46,10 @@
   .loan_form_item
   {
    margin-bottom: 5px;
+    input.error-field
+    {
+      border: 2px solid #ff0000;
+    }
     &.popup
     {
       position: relative;
@@ -81,6 +85,10 @@
   {
     margin-top:32px;
     margin-bottom:100px;
+    a.disable
+    {
+      opacity: 0.4;
+    }
   }
   a
   {
