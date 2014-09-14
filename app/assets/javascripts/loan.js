@@ -70,7 +70,7 @@ $(document).ready(function()
 
                     if(typeof html == "string")
                     {
-                        $(".content_part").slideUp().html(html).slideDown();
+                        $(".content_part").html(html).hide().slideDown();
                     }
                     else
                     {

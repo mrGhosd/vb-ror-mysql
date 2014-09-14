@@ -11,5 +11,10 @@ module Api
       @user = User.find_by(login: params[:login], password: params[:password])
       render json: @user, status: 200
     end
+
+    def show
+      user = User.find(params[:id])
+      render json: user, status: 200
+    end
   end
 end

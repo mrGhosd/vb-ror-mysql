@@ -1,11 +1,12 @@
 = javascript_include_tag 'registration.js'
+= javascript_include_tag 'popup_window.js'
 .registration_page
   .btn-group.registration_navigation
     = link_to "Шаг 1", "#", remote: true, class: 'btn step_1 active'
-    = link_to "Шаг 2", "#", remote: true, class: 'btn step_2'
-    = link_to "Шаг 3", "#", remote: true, class: 'btn step_3'
-    = link_to "Шаг 4", "#", remote: true, class: 'btn step_4'
-    = link_to "Шаг 5", "#", remote: true, class: 'btn step_5'
+    = link_to "Шаг 2", "#", remote: true, class: 'btn step_2 disable'
+    = link_to "Шаг 3", "#", remote: true, class: 'btn step_3 disable'
+    = link_to "Шаг 4", "#", remote: true, class: 'btn step_4 disable'
+    = link_to "Шаг 5", "#", remote: true, class: 'btn step_5 disable'
 
   .static_page
     .static_page_title
@@ -33,7 +34,7 @@
             = f.radio_button :sex, false
       .loan_form_item
         = f.label 'Дата рождения'
-        = f.text_field :date_of_birth
+        = f.text_field :date_of_birth, class: "datepicker"
       .loan_form_item
         = f.label 'Место рождения'
         = f.text_field :place_of_birth
@@ -69,7 +70,7 @@
           = p.text_field :pasport_number
         .loan_form_item
           = p.label 'Дата выдачи:'
-          = p.text_field :pasport_when
+          = p.text_field :pasport_when, class: "datepicker"
         .loan_form_item
           = p.label 'Кем выдан:'
           = p.text_field :pasport_where
@@ -101,22 +102,22 @@
           = vp.text_field :voen_where
         .loan_form_item
           = vp.label 'Когда:'
-          = vp.text_field :voen_when
-        .loan_form_item
+          = vp.text_field :voen_when, class: "datepicker"
+        .loan_form_item.popup
           = vp.label 'Национальность:'
-          = vp.text_field :nationality_id
-        .loan_form_item
+          = vp.text_field :nationality_id, class: 'popup-available Nationality'
+        .loan_form_item.popup
           = vp.label 'Образование:'
-          = vp.text_field :education_id
-        .loan_form_item
+          = vp.text_field :education_id, class: "popup-available Education"
+        .loan_form_item.popup
           = vp.label 'Семейное положение:'
-          = vp.text_field :relashionship_id
-        .loan_form_item
+          = vp.text_field :relashionship_id, class: "popup-available Relashionship"
+        .loan_form_item.popup
           = vp.label 'Гражданская специалость:'
-          = vp.text_field :specialization_id
-        .loan_form_item
+          = vp.text_field :specialization_id, class: "popup-available Specialization"
+        .loan_form_item.popup
           = vp.label 'Спортивные разряды:'
-          = vp.text_field :sport_mastery_id
+          = vp.text_field :sport_mastery_id, class: "popup-available SportMastery"
         .reg_form_controll
           = link_to "&larr; Вернуться".html_safe, "#", remote:true, class: 'back step_2'
           = link_to 'Продолжить &rarr;'.html_safe, "#", remote:true, class: 'next step_4'
@@ -151,7 +152,7 @@
             = kursant.text_field :course
           .loan_form_item
             = kursant.label 'Дата выпуска:'
-            = kursant.text_field :graduate_date
+            = kursant.text_field :graduate_date, class: "datepicker"
           .loan_form_item
             = kursant.label 'Должность на курсе:'
             = kursant.text_field :course_post

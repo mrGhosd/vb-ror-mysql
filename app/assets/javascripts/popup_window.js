@@ -70,5 +70,5 @@ function popupFindData(className, popup)
 
 $(document).ready(function()
 {
-   popupWindow($("#edit_user_form, #roles_percent_form"));
+   popupWindow($("#edit_user_form, #roles_percent_form, #new_user"));
 });
