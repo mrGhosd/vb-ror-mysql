@@ -7,8 +7,11 @@ class StocksController < ApplicationController
 
   def create
     @stock = Stock.new(news_params)
-    @stock.save
-    redirect_to new_stocks_path
+    if @stock.save
+      redirect_to new_stock_path
+    else
+      render :new
+    end
   end
 
   def new
