@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
 
   after_create :set_login_password
 
+  def avatar_url
+    avatar.url(:small)
+  end
+
   def user_role
     Role.find(role_id).value unless role_id.blank?
   end
