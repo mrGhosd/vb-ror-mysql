@@ -2,6 +2,3 @@
   - Role.active.each do |role|
     = link_to role.value, '#', class: "btn role-chose-button #{'active' if role.default_chosen}",
       remote: true, data: {percent_id: "#{role.percents.last.id if role.percents.exists?}", role_id: role.id}
-  /= link_to 'Курсант', '#', class:'btn first_item active',role: "Курсант", remote:true
-  /= link_to 'В/С контрактной службы', '#', class:'btn second_item', role: "Контракт", remote:true
-  /= link_to 'Офицер', '#', class:'btn third_item', role: "Офицер", remote:true

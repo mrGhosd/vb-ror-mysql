@@ -1,7 +1,7 @@
-- current_user.loans.payed_loans.limit(5).each do |loan|
+- LoanDecorator.decorate_collection(current_user.loans.payed_loans.limit(5)).each do |loan|
   .user_history_item
     .history_item_title.closed
-      p="#{loan.begin_date.to_date} - #{loan.actual_close_data.to_date} #{loan.loan_sum} р."
+      p= loan.history_title
       span.arrow.down
     .history_item_body.hide
       .user_history_cell
