@@ -82,6 +82,12 @@ VoenbankRorPostgres::Application.routes.draw do
       post 'login', on: :collection
     end
 
+    resources :loans
+    resources :deposits
+
     resources :stocks
+    resources :shares
+    resources :partners
   end
+
 end

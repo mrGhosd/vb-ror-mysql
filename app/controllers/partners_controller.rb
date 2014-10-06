@@ -2,7 +2,7 @@ class PartnersController < ApplicationController
   before_action :check_admin, only: %w[admin new create edit update destroy]
 
   def index
-    @partners = Partner.where(enabled: true)
+    @partners = Partner.enabled
   end
 
   def admin
