@@ -10,6 +10,5 @@ class Stock < ActiveRecord::Base
 
   def image_url
    image.url(:small)
-   #  self.image(:small)
   end
 end

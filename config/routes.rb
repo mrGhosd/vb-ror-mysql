@@ -81,5 +81,7 @@ VoenbankRorPostgres::Application.routes.draw do
     resources :users do
       post 'login', on: :collection
     end
+
+    resources :stocks
   end
 end
