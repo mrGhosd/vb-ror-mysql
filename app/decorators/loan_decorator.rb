@@ -6,6 +6,10 @@ class LoanDecorator < Draper::Decorator
     status ? "Оплачен" : "#{object.payed_sum}"
   end
 
+  def loan_sum
+    object.blank? ? "Не указана" : "#{object.loan_sum} р."
+  end
+
   def date_of_closing
     if status
       object.actual_close_data.strftime("%d-%m-%Y")
@@ -14,11 +18,17 @@ class LoanDecorator < Draper::Decorator
     end
   end
 
+  def status
+    object.blank? ? "Не существует"  : object.status
+  end
+
   def closest_payment_day
     object.closest_payment_date.strftime("%d.%m")
   end
 
   def history_title
-    "#{object.begin_date.to_date} - #{object.actual_close_data.to_date} #{object.loan_sum} р."
+    if user.loans
+      "#{object.begin_date.to_date} - #{object.actual_close_data.to_date} #{object.loan_sum} р."
+    end
   end
 end

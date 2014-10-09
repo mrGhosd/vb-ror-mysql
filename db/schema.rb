@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.string  "contact_person_name",       limit: 50
     t.string  "contact_person_secondname", limit: 50
     t.integer "contact_person_phone",      limit: 8
-    t.string  "email",                                null: false
+    t.string  "email"
   end
 
   create_table "contact_messages", force: true do |t|
@@ -52,13 +52,10 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.datetime "updated_at"
   end
 
-  create_table "contribution_accounts", id: false, force: true do |t|
-    t.integer  "depost_id",       null: false
+  create_table "contribution_accounts", force: true do |t|
+    t.integer  "deposit_id",      null: false
     t.integer  "operation_summ",  null: false
-    t.integer  "user_id",         null: false
-    t.date     "operation_date",  null: false
-    t.time     "operation_time",  null: false
-    t.boolean  "removed/brought", null: false
+    t.boolean  "removed_brought", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,15 +64,13 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.integer  "user_id",                          null: false
     t.string   "deposit_current_summ", limit: 256, null: false
     t.integer  "percent_id",                       null: false
-    t.date     "begin_date"
     t.boolean  "response"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "educations", id: false, force: true do |t|
-    t.integer "education_id", null: false
-    t.text    "value",        null: false
+  create_table "educations", force: true do |t|
+    t.text "value", null: false
   end
 
   create_table "faqs", force: true do |t|
@@ -94,10 +89,9 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.datetime "updated_at"
   end
 
-  create_table "loan_repayments", id: false, force: true do |t|
+  create_table "loan_repayments", force: true do |t|
     t.integer  "loan_id",      null: false
     t.integer  "granted_summ", null: false
-    t.date     "date_change",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -112,9 +106,8 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.boolean  "response"
   end
 
-  create_table "nationalities", id: false, force: true do |t|
-    t.integer "nationality_id", null: false
-    t.text    "value",          null: false
+  create_table "nationalities", force: true do |t|
+    t.text "value", null: false
   end
 
   create_table "partners", force: true do |t|
@@ -132,12 +125,12 @@ ActiveRecord::Schema.define(version: 20140911214214) do
 
   create_table "passports", force: true do |t|
     t.integer "user_id",               null: false
-    t.integer "pasport_seria",         null: false
-    t.integer "pasport_number",        null: false
-    t.date    "pasport_when",          null: false
-    t.text    "pasport_where",         null: false
-    t.integer "pasport_code",          null: false
-    t.text    "definite_registration", null: false
+    t.integer "pasport_seria"
+    t.integer "pasport_number"
+    t.date    "pasport_when"
+    t.text    "pasport_where"
+    t.integer "pasport_code"
+    t.text    "definite_registration"
     t.integer "old_pasport_seria"
     t.integer "old_pasport_number"
   end
@@ -153,9 +146,8 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.boolean "loan_or_deposit", null: false
   end
 
-  create_table "relationships", id: false, force: true do |t|
-    t.integer "relashionship_id", null: false
-    t.text    "value",            null: false
+  create_table "relashionships", force: true do |t|
+    t.text "value", null: false
   end
 
   create_table "relative_degree", id: false, force: true do |t|
@@ -172,36 +164,36 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.integer "phone",                         null: false
   end
 
-  create_table "role_contracts", id: false, force: true do |t|
-    t.integer "user_id",       null: false
-    t.integer "rank_id",       null: false
-    t.integer "post_id",       null: false
-    t.text    "military_unit", null: false
-    t.text    "unit_address",  null: false
-    t.integer "duty_phone",    null: false
+  create_table "role_contracts", force: true do |t|
+    t.integer "user_id"
+    t.integer "rank_id"
+    t.integer "post_id"
+    t.text    "military_unit"
+    t.text    "unit_address"
+    t.integer "duty_phone"
   end
 
-  create_table "role_kursants", id: false, force: true do |t|
-    t.integer "user_id",                      null: false
-    t.string  "univercity_name",  limit: 100, null: false
-    t.string  "faculty",          limit: 50,  null: false
-    t.integer "course",                       null: false
-    t.date    "graduate_date",                null: false
-    t.text    "course_post",                  null: false
-    t.boolean "excelent_student",             null: false
-    t.boolean "debt",                         null: false
-    t.boolean "contract",                     null: false
-    t.integer "duty_phone",                   null: false
-    t.integer "education_phone",              null: false
+  create_table "role_kursants", force: true do |t|
+    t.integer "user_id"
+    t.string  "univercity_name",  limit: 100
+    t.string  "faculty",          limit: 50
+    t.integer "course"
+    t.date    "graduate_date"
+    t.text    "course_post"
+    t.boolean "excelent_student"
+    t.boolean "debt"
+    t.boolean "contract"
+    t.integer "duty_phone"
+    t.integer "education_phone"
   end
 
-  create_table "role_officers", id: false, force: true do |t|
-    t.integer "user_id",      null: false
-    t.integer "post_id",      null: false
-    t.integer "unit_number",  null: false
-    t.text    "unit_address", null: false
-    t.integer "duty_phone",   null: false
-    t.integer "rank_id",      null: false
+  create_table "role_officers", force: true do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.integer "unit_number"
+    t.text    "unit_address"
+    t.integer "duty_phone"
+    t.integer "rank_id"
   end
 
   create_table "roles", force: true do |t|
@@ -225,14 +217,12 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.datetime "updated_at"
   end
 
-  create_table "specializations", id: false, force: true do |t|
-    t.integer "specialization_id", null: false
-    t.text    "value",             null: false
+  create_table "specializations", force: true do |t|
+    t.text "value", null: false
   end
 
-  create_table "sport_masteries", id: false, force: true do |t|
-    t.integer "sport_mastery_id", null: false
-    t.text    "value",            null: false
+  create_table "sport_masteries", force: true do |t|
+    t.text "value", null: false
   end
 
   create_table "static_pages", force: true do |t|
@@ -277,7 +267,7 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.date    "end_date",   null: false
   end
 
-  create_table "users", primary_key: "user_id", force: true do |t|
+  create_table "users", force: true do |t|
     t.string   "surname",             limit: 50, null: false
     t.string   "name",                limit: 50, null: false
     t.string   "secondname",          limit: 50, null: false
@@ -300,15 +290,15 @@ ActiveRecord::Schema.define(version: 20140911214214) do
 
   create_table "voen_pasports", force: true do |t|
     t.integer "user_id",           null: false
-    t.integer "voen_seria",        null: false
-    t.integer "voen_number",       null: false
-    t.text    "voen_where",        null: false
-    t.date    "voen_when",         null: false
-    t.integer "nationality_id",    null: false
-    t.integer "education_id",      null: false
-    t.integer "relashionship_id",  null: false
-    t.integer "specialization_id", null: false
-    t.integer "sport_mastery_id",  null: false
+    t.integer "voen_seria"
+    t.integer "voen_number"
+    t.text    "voen_where"
+    t.date    "voen_when"
+    t.integer "nationality_id"
+    t.integer "education_id"
+    t.integer "relashionship_id"
+    t.integer "specialization_id"
+    t.integer "sport_mastery_id"
   end
 
 end

@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :stock do
     stock_title "Title"
     stock_text "Text"
+    enabled     true
 
     factory :disable_stock do
       enabled false

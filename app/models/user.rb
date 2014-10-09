@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :loans
-  has_many :deposits
+  has_many :loans, dependent: :destroy
+  has_many :deposits, dependent: :destroy
   has_one :passport, dependent: :destroy
   has_one :voen_pasport, dependent: :destroy
   has_one :contact_information, dependent: :destroy

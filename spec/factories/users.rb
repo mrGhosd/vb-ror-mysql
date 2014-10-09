@@ -3,6 +3,9 @@ FactoryGirl.define do
     surname     "S"
     name        "N"
     secondname  "SN"
+    role_id     1
+    login       "3"
+    password    "3"
 
     #advance associations
     after(:build) do |loan|
@@ -10,4 +13,6 @@ FactoryGirl.define do
       begin_date: Time.zone.today, end_date: Time.zone.today + 6.months)
     end
   end
+
+
 end
