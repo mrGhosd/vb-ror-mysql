@@ -32,7 +32,7 @@
           = f.text_field :sex
         .personal_data_cell
           = f.label 'Дата рождения'
-          = f.text_field :date_of_birth
+          = f.text_field :date_of_birth, class: 'datepicker'
         .personal_data_cell
           = f.label 'Место рождения'
           = f.text_field :place_of_birth
@@ -60,7 +60,7 @@
             = p.text_field :pasport_number
           .personal_data_cell
             = p.label 'Когда выдан:'
-            = p.text_field :pasport_when
+            = p.text_field :pasport_when, class: 'datepicker'
           .personal_data_cell
             = p.label 'Где:'
             = p.text_area :pasport_where
@@ -89,7 +89,7 @@
             = vp.text_field :voen_number
           .personal_data_cell
             = vp.label 'Когда:'
-            = vp.text_field :voen_when
+            = vp.text_field :voen_when, class: 'datepicker'
           .personal_data_cell
             = vp.label 'Где:'
             = vp.text_area :voen_where
@@ -152,7 +152,7 @@
               = kursant.text_field :course
             .personal_data_cell
               = kursant.label 'Дата выпуска:'
-              = kursant.text_field :graduate_date
+              = kursant.text_field :graduate_date, class: 'datepicker'
             .personal_data_cell
               = kursant.label 'Должность на курсе:'
               = kursant.text_field :course_post

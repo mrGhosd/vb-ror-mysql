@@ -18,7 +18,9 @@ class Loan < ActiveRecord::Base
   end
 
   def everymonth_pay
-    (loan_sum.to_i / date_in_months) * Percent.find(percent_id).value
+    if percent_id
+      (loan_sum.to_i / date_in_months) * Percent.find(percent_id).try(:value)
+    end
   end
 
   def closest_payment_date

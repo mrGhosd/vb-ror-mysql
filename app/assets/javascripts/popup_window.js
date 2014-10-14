@@ -70,5 +70,6 @@ function popupFindData(className, popup)
 
 $(document).ready(function()
 {
+   $(".datepicker").datepicker({dateFormat: "dd.mm.yy", changeMonth:true, changeYear:true});
    popupWindow($("#edit_user_form, #roles_percent_form, #new_user"));
 });

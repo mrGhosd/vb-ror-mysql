@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
                     :use_timestamp => false,
                     :styles => {normal: "300x200>", small: "200x120>", iphone: "120x120"}
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-
+  scope :api_request, -> { includes(:loans, :deposits, :passport, :voen_pasport, :contact_information, :role_kursant, :role_contract, :role_officer) }
   after_create :set_login_password
 
   def avatar_url
@@ -57,6 +57,19 @@ class User < ActiveRecord::Base
     self.sex = param
   end
 
+  def role
+    case Role.find(role_id).try(:id)
+      when 1
+        self.role_kursant
+      when 2
+        self.role_contract
+      when 3
+        self.role_officer
+      else
+        nil
+    end
+  end
+
   def self.get_percent_id(percent_val)
     Percent.find_by_value(percent_val).id
   end
@@ -75,10 +88,6 @@ class User < ActiveRecord::Base
 
   def self.login(login, password)
     User.find_by login: login, password: password
-  end
-
-  def logout(session)
-
   end
 
   def self.new_remember_token
