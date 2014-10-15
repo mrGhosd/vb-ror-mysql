@@ -2,7 +2,7 @@ class SharesController < ApplicationController
   before_action :check_admin, only: %w[admin new create edit update destroy]
 
   def index
-    @share = Share.where(enabled: true)
+    @share = Share.available
   end
 
   def admin
