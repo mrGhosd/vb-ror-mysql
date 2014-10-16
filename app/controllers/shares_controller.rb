@@ -39,13 +39,13 @@ class SharesController < ApplicationController
 
   def destroy
     @share = Share.find(params[:id])
-    @share.destroy!
+    @share.destroy
     render json: {success: true}
   end
 
   def share_switch
     @share = Share.find(params[:id])
-    @share.update_attributes(enabled: !@share.enabled)
+    @share.update(enabled: !@share.enabled)
     result = @share.enabled ? {success: true} : {success: false}
     render json: result
   end
