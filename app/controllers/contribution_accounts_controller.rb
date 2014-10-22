@@ -3,7 +3,7 @@ class ContributionAccountsController < ApplicationController
   def index
     deposit = Deposit.find(params[:deposit_id])
     @contrib = ContributionAccount.where(deposit_id: deposit.id)
-    render 'admin', locals: { contrib: @contrib, deposit: deposit }
+    render 'index', locals: { contrib: @contrib, deposit: deposit }
   end
 
   def new
@@ -24,7 +24,6 @@ class ContributionAccountsController < ApplicationController
   end
 
   def check_type_of_contrib(contrib)
-    binding.pry
     deposit = Deposit.find(contrib.deposit_id)
     deposit_sum = deposit.deposit_current_summ.to_i
     contrib_sum = contrib.operation_summ.to_i

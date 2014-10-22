@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911214214) do
+ActiveRecord::Schema.define(version: 20141022212027) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -268,9 +268,9 @@ ActiveRecord::Schema.define(version: 20140911214214) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "surname",             limit: 50, null: false
-    t.string   "name",                limit: 50, null: false
-    t.string   "secondname",          limit: 50, null: false
+    t.string   "surname",             limit: 50,                    null: false
+    t.string   "name",                limit: 50,                    null: false
+    t.string   "secondname",          limit: 50,                    null: false
     t.integer  "role_id"
     t.boolean  "sex"
     t.date     "date_of_birth"
@@ -286,6 +286,7 @@ ActiveRecord::Schema.define(version: 20140911214214) do
     t.string   "remember_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "access_role",                    default: "client"
   end
 
   create_table "voen_pasports", force: true do |t|

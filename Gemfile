@@ -61,6 +61,9 @@ group :test do
   gem 'database_cleaner', '~> 1.0.1'
   gem 'selenium-webdriver'
 end
+group :production do
+  gem 'backup'
+end
 
 gem 'aws-sdk'
 

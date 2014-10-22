@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
-    [132].include?(id)
+    self.access_role == "admin"
   end
 
   def full_name
