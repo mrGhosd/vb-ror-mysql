@@ -44,7 +44,7 @@ describe StocksController do
 
       it "redirects to new stock path" do
         post :create, stock: FactoryGirl.attributes_for(:stock)
-        response.should redirect_to new_stock_path
+        response.should redirect_to stocks_path
       end
     end
   end
