@@ -16,7 +16,7 @@ VoenbankRorPostgres::Application.routes.draw do
     post :stock_switch, on: :member
   end
 
-  resources :feedbacks do
+  resources :feedbacks, except: [:edit, :update] do
     get :admin, on: :collection
   end
 
@@ -38,7 +38,7 @@ VoenbankRorPostgres::Application.routes.draw do
     get :admin, on: :collection
   end
 
-  resources :callbacks
+  resources :callbacks, only: [:index, :create]
 
   resource :users do
     get :user_nested_info, on: :collection
