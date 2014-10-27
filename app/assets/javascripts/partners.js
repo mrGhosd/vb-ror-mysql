@@ -24,9 +24,9 @@ $(document).ready(function(){
             url: '/partners/'+stock_row.attr("partner_id")+'/partner_switch',
             type: 'POST',
             data: {id: stock_row.attr("partner_id")},
-            success: function(success)
+            success: function()
             {
-                if(success.success)
+                if(button.hasClass("btn-warning"))
                 {
                     button.text("Не отображать").removeClass("btn-warning").addClass("btn-success");
                 }

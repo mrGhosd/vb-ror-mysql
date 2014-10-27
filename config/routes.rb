@@ -62,9 +62,7 @@ VoenbankRorPostgres::Application.routes.draw do
     end
   end
 
-  resources :percents do
-    # get '/', controller: 'percents', action: 'admin'
-  end
+  resources :percents
 
   resources :statistics
 

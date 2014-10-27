@@ -10,8 +10,7 @@ class PartnersController < ApplicationController
   end
 
   def create
-    @partner = Partner.new(partners_params)
-    @partner.save
+    Partner.create(partners_params)
     redirect_to admin_partners_path
   end
 
@@ -20,13 +19,8 @@ class PartnersController < ApplicationController
   end
 
   def update
-    @partner = Partner.find(params[:id])
-    if @partner.update_attributes(partners_params)
-      flash[:notice] = "Информация о партнере успешно обновлена"
-      redirect_to partners_path
-    else
-      render :edit
-    end
+    Partner.find(params[:id]).update(partners_params)
+    redirect_to admin_partners_path
   end
 
   def show
@@ -38,16 +32,13 @@ class PartnersController < ApplicationController
   end
 
   def destroy
-    @partner = Partner.find(params[:id])
-    @partner.destroy!
+    Partner.find(params[:id]).destroy!
     render json: {success: true}
   end
 
   def partner_switch
-    @partner = Partner.find(params[:id])
-    @partner.update_attributes(enabled: !@partner.enabled)
-    result = @partner.enabled ? {success: true} : {success: false}
-    render json: result
+    Partner.find(params[:id]).toggle!(:enabled)
+    head :ok
   end
 
   private
