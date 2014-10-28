@@ -25,7 +25,7 @@ VoenbankRorPostgres::Application.routes.draw do
     get :admin, on: :collection
   end
 
-  resources :faqs do
+  resources :faqs, except: :show do
     get :admin, on: :collection
   end
 

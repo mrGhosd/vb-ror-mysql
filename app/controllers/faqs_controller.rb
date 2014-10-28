@@ -2,7 +2,7 @@ class FaqsController < ApplicationController
   before_action :check_admin, only: %w[admin new create edit update destroy]
 
   def index
-    @faq = Faq.limit(10)
+    @faq = Faq.last_ten
   end
 
   def admin
@@ -14,8 +14,7 @@ class FaqsController < ApplicationController
   end
 
   def create
-    @faq = Faq.new(faq_params)
-    @faq.save
+    Faq.create(faq_params)
     redirect_to admin_faqs_path
   end
 
@@ -24,18 +23,12 @@ class FaqsController < ApplicationController
   end
 
   def update
-    @faq = Faq.find(params[:id])
-    if @faq.update_attributes(faq_params)
-      flash.now[:notice] = "Вопрос/ответ успешно изменен"
-      redirect_to admin_faqs_path
-    else
-      render :edit
-    end
+    Faq.find(params[:id]).update(faq_params)
+    redirect_to admin_faqs_path
   end
 
   def destroy
-    @faq = Faq.find(params[:id])
-    @faq.destroy!
+    Faq.find(params[:id]).destroy!
     render json: {success: true}
   end
 
