@@ -5,10 +5,9 @@ class CallbacksController < ApplicationController
   end
 
   def create
-    @callback = ::Callback.new(callback_params)
-    @callback.save
+    ::Callback.create(callback_params)
     flash[:notice] = "Ваша просьба о звонке успешно отпарвлена!"
-    redirect_to new_contact_messages_path
+    redirect_to root_path
   end
 
   private
