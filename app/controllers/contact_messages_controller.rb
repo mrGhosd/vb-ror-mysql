@@ -10,14 +10,10 @@ class ContactMessagesController < ApplicationController
   end
 
   def create
-    @message = ContactMessage.new(messages_params)
-    @message.save
+    ContactMessage.create(messages_params)
     redirect_to new_contact_message_path
   end
 
-  def destroy
-
-  end
 
   private
   def messages_params
