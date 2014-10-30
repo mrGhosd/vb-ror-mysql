@@ -1,5 +1,6 @@
+= link_to 'На страницу списка', percents_path, class: "btn btn-info"
 .percent_form
-  = form_for @percent, url: percents_path do |f|
+  = form_for @percent do |f|
     = f.label 'Значение процента'
     = f.text_field :value
     = f.label 'Дата начала'

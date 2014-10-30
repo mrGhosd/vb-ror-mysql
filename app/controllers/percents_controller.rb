@@ -1,4 +1,5 @@
 class PercentsController < ApplicationController
+  before_action :check_admin
 
   def index
     @percent = Percent.all
@@ -9,18 +10,13 @@ class PercentsController < ApplicationController
   end
 
   def create
-    @percent = Percent.new(percent_params)
-    @percent.save
+    Percent.create(percent_params)
     redirect_to percents_path
   end
 
   def update
-    @percent = Percent.find(params[:id])
-    if @percent.update_attributes(news_params)
-      redirect_to faqs_path
-    else
-      render :edit
-    end
+    Percent.find(params[:id]).update(percent_params)
+    redirect_to percents_path
   end
 
   def edit
@@ -28,8 +24,7 @@ class PercentsController < ApplicationController
   end
 
   def destroy
-    @percent = Percent.find(params[:id])
-    @percent.destroy
+    Percent.find(params[:id]).destroy
     head :ok
   end
 
