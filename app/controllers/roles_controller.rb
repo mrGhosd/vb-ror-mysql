@@ -12,21 +12,17 @@ class RolesController < ApplicationController
   end
 
   def update
-    @role = Role.find(params[:id])
-    @role.update_attributes(roles_params)
-    @role.save
+    Role.find(params[:id]).update(roles_params)
     redirect_to roles_path
   end
 
   def create
-    @role = Role.new(roles_params)
-    @role.save
-    redirect_to new_roles_percent_path(current_role_id: @role.id, current_role_value: @role.value)
+    role = Role.create(roles_params)
+    redirect_to new_roles_percent_path(current_role_id: role.id, current_role_value: role.value)
   end
 
   def destroy
-    role = Role.find(params[:id])
-    role.destroy
+    Role.find(params[:id]).destroy
     head :ok
   end
 
