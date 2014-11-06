@@ -5,6 +5,14 @@
     input
     {
       width:350px !important;
+
+      &.error-field
+      {
+        border: 2px solid #ff0000;
+      }
+    }
+    .err-text{
+      color: #ff0000;
     }
   }
 }

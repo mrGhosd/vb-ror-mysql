@@ -208,7 +208,33 @@ function deposit_main_diagram_change()
     $(".deposit_profit_diagram_middle .deposit_diagram_middle_middle")
         .animate({ "height": profit_diagram_height + (exp * 1.5)}, 'fast');
     $(".deposit_profit_diagram_top").animate({"top": + profit_diagram_top_margin + (exp/4)});
-
-
-
 }
+$(document).delegate("#new_user", "submit", function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    $("#new_user input").removeClass("error-field");
+    $(".err-text").remove();
+    var default_url = $("#new_user").attr("action");
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: default_url,
+        data: $("#new_user").serialize(),
+        success: function(object){
+            console.log(object);
+        },
+        error: function(object){
+            var errors = JSON.parse(object.responseText);
+            $.each(errors.errors, function(key, value){
+                console.log(key);
+                $("#user_"+key).addClass("error-field");
+                for(var i = 0; i <value.length; i++){
+                    $("#user_"+key).after("<div class='err-text'>"+value[i]+"</div>");
+                }
+
+            });
+        }
+    });
+    return false;
+});
