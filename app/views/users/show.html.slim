@@ -136,10 +136,10 @@
                   .radio_item
                     .radio_controll_item
                       = f.label 'Добавить'
-                      = f.radio_button :removed_brought, value: true
+                      = f.radio_button :removed_brought,true
                     .radion_controll_item
                       = f.label 'Снять'
-                      = f.radio_button :removed_brought, value: false
+                      = f.radio_button :removed_brought,false
                   = f.submit 'Отправить', class: 'btn btn-info'
 
 

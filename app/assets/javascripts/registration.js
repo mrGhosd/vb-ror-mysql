@@ -62,37 +62,14 @@ function addVisitPage(val)
         return false;
     }
     else {
-//        for(page in visitedPages)
-//        {
-//            console.log("the page is " + page);
-//            visitedPages.push(val);
-//        }
           for(var i = 0; i < visitedPages.length; i++)
           {
               console.log("current_page " + visitedPages[i]);
               if(visitedPages[i] === val)
               {
-//                  visitedPages.push(val);
                   console.log("ooops!");
-//                  return false;
               }
           }
-//        $.each(visitedPages, function(item, i) {
-//            console.log("in addVisitPage value of visitedPages is "+visitedPages);
-//            console.log("val = " + val+", type is "+typeof val);
-//            console.log("item = " + i +" type is "+typeof i);
-//            if(i != val)
-//            {
-////                alert("item eq val");
-//                console.log("val = " + val);
-//                console.log("item = " + i);
-//                visitedPages.push(val);
-//                return false;
-//            }
-//            else {
-//
-//            }
-//        });
     }
 }
 function checkVisitedPages(page)
@@ -143,4 +120,35 @@ $(document).ready(function()
         registrationNavigation($(this));
         console.log(visitedPages);
     });
+});
+
+$(document).delegate("#new_user", "submit", function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    $("#new_user input").removeClass("error-field");
+    $(".err-text").remove();
+    var default_url = $("#new_user").attr("action");
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: default_url,
+        data: $("#new_user").serialize(),
+        success: function(object){
+            console.log(object);
+        },
+        error: function(object){
+            var errors = JSON.parse(object.responseText);
+            console.log(errors.errors);
+            $.each(errors.errors, function(key, value){
+                console.log(key);
+               $("#user_"+key).addClass("error-field");
+                for(var i = 0; i <value.length; i++){
+                    $("#user_"+key).after("<div class='err-text'>"+value[i]+"</div>");
+                }
+
+            });
+        }
+    });
+    return false;
 });

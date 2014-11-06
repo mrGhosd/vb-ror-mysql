@@ -16,12 +16,13 @@ class LoansController < ApplicationController
   end
 
   def create
-    params[:user][:date_of_birth].to_date
     @user = User.new(user_reg_params)
-    @user.save
-    UserMailer.register_email(@user).deliver
-    redirect_to root_path and return
-
+    if @user.save
+      UserMailer.register_email(@user).deliver
+      render json: {success: true}
+    else
+      render json: {errors: @user.errors}, status: :forbidden
+    end
   end
 
   def show
@@ -41,8 +42,8 @@ class LoansController < ApplicationController
   end
 
   def loan_request
-    if @current_user
-      current_user_create_loan(@current_user)
+    if current_user
+      current_user_create_loan
       render json: {answer: flash[:notice]}, status: 200
     else
       new
@@ -53,18 +54,11 @@ class LoansController < ApplicationController
 
   def user_loan_payment_history
     loan = Loan.find(params[:id])
-    @payments = LoanRepayment.where(loan_id: loan.id)
-    head :ok
+    redirect_to users_loan_loan_repayments_path(loan_id: loan.id)
   end
 
 
   private
-  def user_short_reg_params
-    params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :user_role, :user_sex, :date_of_birth, :place_of_birth,
-                                 loans_attributes: [:id, :user_id, :loan_sum, :begin_date, :end_date],
-                                 contact_information_attributes: [:id, :user_id, :email])
-  end
-
   def user_reg_params
     params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :role_id, :sex, :date_of_birth, :place_of_birth,
                                  loans_attributes: [:id, :user_id, :loan_sum, :percent_id, :begin_date, :end_date],
@@ -91,10 +85,19 @@ class LoansController < ApplicationController
 
   end
 
-  def current_user_create_loan(user)
-    if user.loans.unpayed_loans.blank?
-      Loan.create(user_id: user.id, loan_sum: params[:amount], begin_date: Time.zone.now,
-                  end_date: Time.zone.now + params[:time].to_i.months)
+  def current_user_loan_attributes
+    {
+        user_id: current_user.id,
+        loan_sum: params[:amount],
+        percent_id: current_user.active_percent,
+        begin_date: Time.zone.now,
+        end_date: Time.zone.now + params[:time].to_i.months
+    }
+  end
+
+  def current_user_create_loan
+    if current_user.loans.unpayed_loans.blank?
+      current_user.loans.create(current_user_loan_attributes)
     else
       flash[:notice] = "У вас есть неоплаченные кредиты! Закройте сперва их"
     end

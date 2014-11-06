@@ -1,4 +1,4 @@
-- LoanDecorator.decorate_collection(current_user.loans.payed_loans.limit(5)).each do |loan|
+- LoanDecorator.decorate_collection(current_user.loans.limit(5)).each do |loan|
   .user_history_item
     .history_item_title.closed
       p= loan.history_title
@@ -12,7 +12,7 @@
         p.value= loan.date_in_months
       .user_history_cell
         p.title= 'Дата закрытия'
-        p.value= loan.actual_close_data
+        p.value= loan.try(:actual_close_data)
       .user_history_cell
         p.title= 'Просмотр истории платежей'
         p.value

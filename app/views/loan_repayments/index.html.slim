@@ -1,4 +1,7 @@
-= link_to "&larr; На страницу пользователя".html_safe, profile_page_users_path(id: params[:user]), class: 'btn btn-warning'
+- if current_user.is_admin? && request.referer == root_path
+  = link_to "&larr; На страницу пользователя".html_safe, profile_page_users_path(id: params[:user]), class: 'btn btn-warning'
+- else
+  = link_to "&larr; На страницу займа".html_safe, root_path, class: "btn btn-info"
 table.table.table-bordered
   tr
     th="Сумма:"

@@ -12,7 +12,7 @@ class LoanDecorator < Draper::Decorator
 
   def date_of_closing
     if status
-      object.actual_close_data.strftime("%d-%m-%Y")
+      object.try(:actual_close_data).strftime("%d-%m-%Y")
     else
       object.end_date.strftime("%d-%m-%Y")
     end
@@ -27,8 +27,8 @@ class LoanDecorator < Draper::Decorator
   end
 
   def history_title
-    if user.loans
-      "#{object.begin_date.to_date} - #{object.actual_close_data.to_date} #{object.loan_sum} р."
+    if object
+      "#{object.begin_date.to_date} - #{object.try(:actual_close_data).to_date} #{object.loan_sum} р."
     end
   end
 end

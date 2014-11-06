@@ -2,12 +2,11 @@ class Loan < ActiveRecord::Base
   belongs_to :user
   has_many :percent
   has_many :loan_repayments
+  before_create :set_response
   validates_presence_of :loan_sum, :begin_date, :end_date
 
-
-  scope :unpayed_loans, -> { where(status: false).last}
+  scope :unpayed_loans, -> { where(status: false)}
   scope :payed_loans, -> { where(status: true) }
-
 
   def date_in_months
     (end_date.year * 12 + end_date.month) - (begin_date.year * 12 + begin_date.month)
@@ -23,6 +22,14 @@ class Loan < ActiveRecord::Base
     end
   end
 
+  def repayments
+    arr = []
+    self.loan_repayments.each do |loan|
+      arr << loan.to_json
+    end
+    arr
+  end
+
   def closest_payment_date
     month_diff = (Date.today.month - begin_date.month).to_i
     current_date = begin_date + month_diff.month
@@ -34,11 +41,19 @@ class Loan < ActiveRecord::Base
   end
 
   def actual_close_data
-    LoanRepayment.where(loan_id: id).last.created_at.to_date
+    if self.status
+      LoanRepayment.where(loan_id: id).last.try(:created_at).try(:to_date)
+    else
+      self.end_date.to_date
+    end
   end
 
   def current_day_in_loan_history
     (Date.today.to_date - begin_date.to_date).to_i
+  end
+
+  def set_response
+    self.update(response: false)
   end
 
   def payed_sum

@@ -17,9 +17,12 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :role_officer
   accepts_nested_attributes_for :role_contract
 
-  validates :surname, presence: true
-  validates :name, presence: true
-  validates :secondname, presence: true
+  validates :surname, presence: { message: "Фамилия не может быть пустой" }
+  validates :name, presence: { message: "Имя не может быть пустым" }
+  validates :secondname, presence: { message: "Отчество не может быть пустым" }
+  validates :contact_phone, presence: { message: "Телефон не может быть пустым" }
+  validates :contact_phone, numericality: {message: "Номер телефона должен быть числом"}
+
 
   has_attached_file :avatar,
                     :use_timestamp => false,
@@ -57,6 +60,7 @@ class User < ActiveRecord::Base
     self.sex = param
   end
 
+
   def role
     case Role.find(role_id).try(:id)
       when 1
@@ -84,6 +88,10 @@ class User < ActiveRecord::Base
 
   def full_name
     [surname, name, secondname].join(' ')
+  end
+
+  def active_percent
+    RolesPercent.find_by(role_id: self.role_id).percent_id
   end
 
   def self.login(login, password)
