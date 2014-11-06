@@ -12,15 +12,13 @@ class ApplicationController < ActionController::Base
   end
 
   def login
-    # if params[:login] && params[:password]
-
-      user = User.login(params[:login], params[:password])
-      if user.nil?
-        render json:"Пользователя с такими данными не существует", status: 302
-      else
-        log_in user
-        render json: {success: true}, status: 200
-      end
+    user = User.login(params[:login], params[:password])
+    if user.nil?
+      render json:"Пользователя с такими данными не существует", status: 302
+    else
+      log_in user
+      render json: {success: true}, status: 200
+    end
   end
 
   def delete_current_user

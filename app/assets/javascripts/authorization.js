@@ -2,9 +2,9 @@ $(document).ready(function()
 {
     $(".submit_login").on('click', function(e)
     {
-        e.preventDefault();
+        $(".auth_error_field").fadeOut().remove();
         $(".auth_login, .auth_pass").removeClass("error_input");
-        $(".auth_error_field").fadeOut();
+        e.preventDefault();
         login = $(".auth_login").val();
         password = $(".auth_pass").val();
         $.ajax({
