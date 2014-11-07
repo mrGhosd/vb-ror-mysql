@@ -12,10 +12,9 @@ FactoryGirl.define do
       access_role "admin"
     end
 
-    #advance associations
-    after(:build) do |loan|
-      user.loan << FactoryGirl.build(:loan, loan_sum: 10000,
-      begin_date: Time.zone.today, end_date: Time.zone.today + 6.months)
+    trait :with_deposit do
+          create :deposit
+
     end
   end
 
