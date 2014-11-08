@@ -6,6 +6,7 @@ require 'rspec/autorun'
 require 'capybara/rails'
 require 'support/feature_helpers'
 require "paperclip/matchers"
+require 'draggable_capybara'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

@@ -127,13 +127,12 @@ $(document).ready(function()
                      }
                      else
                      {
-                         systemDialogWindow(html.response);
+                         systemDialogWindow(html.response, "/");
                      }
                  }
                 });
         }
     });
-
 
 });
 
@@ -209,6 +208,16 @@ function deposit_main_diagram_change()
         .animate({ "height": profit_diagram_height + (exp * 1.5)}, 'fast');
     $(".deposit_profit_diagram_top").animate({"top": + profit_diagram_top_margin + (exp/4)});
 }
+function hideDialog(){
+    $("#system_dialog_window div.ui-dialog-buttonset button span").click(function(e)
+    {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        $("#system_dialog_window").remove();
+        window.location.href = "/";
+    });
+}
 $(document).delegate("#new_user", "submit", function(e){
     e.preventDefault();
     e.stopPropagation();
@@ -222,7 +231,7 @@ $(document).delegate("#new_user", "submit", function(e){
         url: default_url,
         data: $("#new_user").serialize(),
         success: function(object){
-            console.log(object);
+            systemDialogWindow(object.notice, "/");
         },
         error: function(object){
             var errors = JSON.parse(object.responseText);

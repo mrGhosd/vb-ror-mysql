@@ -74,7 +74,7 @@ $(document).ready(function()
                     }
                     else
                     {
-                        systemDialogWindow(html.answer);
+                        systemDialogWindow(html.answer, "/");
                     }
 
                 }
@@ -188,7 +188,7 @@ function calc_everymonth_pay()
     $( ".pay_value" ).val(everymonth + " р.")
 }
 
-function systemDialogWindow(message)
+function systemDialogWindow(message, url)
 {
     var dialog = $("<div id='system_dialog_window'></div>");
     dialog.insertBefore(".wrapper");
@@ -202,12 +202,18 @@ function systemDialogWindow(message)
         buttons:{
           "OK": function()
           {
-             $("#system_dialog_window").remove();
+              $("#system_dialog_window").remove();
+              if(url != "") {
+                  window.location.href = url;
+              }
           }
         },
         close: function()
         {
             $("#system_dialog_window").remove();
+            if(url != "") {
+                window.location.href = url;
+            }
         }
     }).html(message);
 
