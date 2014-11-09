@@ -82,7 +82,7 @@
 
    &.active
    {
-     background-image: image-url('feedback_button.png');
+     background-image: url('feedback_button.png');
      background-size: 100% 100%;
      background-color: #224f0e;
      color: #ffffff;
@@ -113,11 +113,11 @@
       background-repeat: no-repeat;
       &.up
       {
-        background-image: image-url('callback_arrow_up.png');
+        background-image: url('callback_arrow_up.png');
       }
       &.down
       {
-        background-image: image-url('callback_arrow_down.png');
+        background-image: url('callback_arrow_down.png');
       }
     }
 
