@@ -18,7 +18,7 @@
     color: #000000;
     &.active
     {
-      background-image: url("feedback_button.png");
+      background-image: image-url("feedback_button.png");
       background-size: 100% 100%;
       color: #ffffff;
     }
@@ -102,29 +102,29 @@
     text-decoration: none;
     &.next
     {
-      background-image: url("form_next_button.png");
+      background-image: image-url("form_next_button.png");
       float:right;
       &:hover
       {
-        background-image: url("green_button_hover.png");
+        background-image: image-url("green_button_hover.png");
       }
 
     }
     &.back
     {
       float:left;
-      background-image: url("form_back_button.png");
+      background-image: image-url("form_back_button.png");
       border: 1px solid #bbbbbb;
       color: #000000;
       &:hover
       {
-        background-image: url("form_back_button_hover.png");
+        background-image: image-url("form_back_button_hover.png");
       }
     }
   }
   input[type="submit"]
   {
-    background-image: url('feedback_button.png');
+    background-image: image-url('feedback_button.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     padding:16px 40px 13px 42px;

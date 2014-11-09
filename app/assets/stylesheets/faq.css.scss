@@ -21,10 +21,10 @@
         background-position: center center;
       }
       span.arrow.down {
-        background-image: url("faq_arrow_down.png");
+        background-image: image-url("faq_arrow_down.png");
       }
       span.arrow.up {
-        background-image: url("faq_arrow_up.png");
+        background-image: image-url("faq_arrow_up.png");
       }
     }
     .faq_question.open {

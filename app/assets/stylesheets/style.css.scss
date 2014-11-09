@@ -149,7 +149,7 @@ body {
       font-size: 17px;
       padding: 5px;
       font-weight: lighter;
-      background-image: url("feedback_button.png");
+      background-image: image-url("feedback_button.png");
       background-size: 100% 100%;
       background-repeat: no-repeat;
       color: #ffffff;
@@ -157,7 +157,7 @@ body {
       &:hover
       {
         background-position: center center;
-        background-image: url("green_button_hover.png");
+        background-image: image-url("green_button_hover.png");
       }
     }
     .logout-button

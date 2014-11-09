@@ -35,11 +35,11 @@
   .main_content {
     height: 565px;
     width: 491px;
-    background-image: url('loan_bg_sliders.png');
+    background-image: image-url('loan_bg_sliders.png');
     background-repeat: no-repeat;
     &.hidden_calculator
     {
-      background-image: url("loan_background_current.png") !important;
+      background-image: image-url("loan_background_current.png") !important;
       background-size: 100% 100%;
       opacity: 0.5;
     }
@@ -51,7 +51,7 @@
       font-size:23px;
       height:61px;
       width:410px;
-      background-image: url('feedback_button.png');
+      background-image: image-url('feedback_button.png');
       background-size: 100% 100%;
       border-radius:9px;
       border:none;
@@ -59,12 +59,12 @@
     }
     .loan_confirm:hover
     {
-      background-image: url('green_button_hover.png');
+      background-image: image-url('green_button_hover.png');
       background-size: 100% 100%;
     }
     .loan_confirm:active
     {
-     background-image: url('green_button_click.png');
+     background-image: image-url('green_button_click.png');
     }
   }
 
@@ -106,7 +106,7 @@
       background-image: none;
     }
     span.ui-slider-handle {
-      background-image: url('slider_toggle_button.png');
+      background-image: image-url('slider_toggle_button.png');
       border-radius: 13px;
       top: -6px;
       height:20px;
@@ -175,17 +175,17 @@
         background-repeat: no-repeat;
       }
       .left_slider_arrow {
-        background-image: url('slider_left_arrow.png');
+        background-image: image-url('slider_left_arrow.png');
         float: left;
       }
       .right_slider_arrow {
-        background-image: url('slider_right_arrow.png');
+        background-image: image-url('slider_right_arrow.png');
         float: right;
       }
     }
 
     .slider_divider {
-      background-image: url('slider_divider.png');
+      background-image: image-url('slider_divider.png');
       height: 2px;
       width: 441px;
     }
@@ -256,11 +256,11 @@
           background-repeat: no-repeat;
           &.up
           {
-            background-image: url('callback_arrow_up.png');
+            background-image: image-url('callback_arrow_up.png');
           }
           &.down
           {
-            background-image: url('callback_arrow_down.png');
+            background-image: image-url('callback_arrow_down.png');
           }
         }
       }
@@ -315,11 +315,11 @@
           background-repeat: no-repeat;
           &.up
           {
-            background-image: url('callback_arrow_up.png');
+            background-image: image-url('callback_arrow_up.png');
           }
           &.down
           {
-            background-image: url('callback_arrow_down.png');
+            background-image: image-url('callback_arrow_down.png');
           }
         }
       }
@@ -372,11 +372,11 @@
           background-repeat: no-repeat;
           &.up
           {
-            background-image: url('callback_arrow_up.png');
+            background-image: image-url('callback_arrow_up.png');
           }
           &.down
           {
-            background-image: url('callback_arrow_down.png');
+            background-image: image-url('callback_arrow_down.png');
           }
         }
     }
@@ -416,11 +416,11 @@
           background-repeat: no-repeat;
           &.up
           {
-            background-image: url('callback_arrow_up.png');
+            background-image: image-url('callback_arrow_up.png');
           }
           &.down
           {
-            background-image: url('callback_arrow_down.png');
+            background-image: image-url('callback_arrow_down.png');
           }
         }
       }
