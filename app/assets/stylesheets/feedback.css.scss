@@ -20,7 +20,7 @@
   }
   .feedback_text
   {
-    background-image: url("feedback_message_wrapper.png");
+    background-image: image-url("feedback_message_wrapper.png");
     background-size: 100% 100%;
     height:90px;
     padding:10px;
@@ -28,7 +28,7 @@
 
   .write_your_feedback
   {
-    background-image: url("write_your_feedback.png");
+    background-image: image-url("write_your_feedback.png");
     height:108px;
     margin-top:52px;
     margin-bottom:32px;
@@ -36,7 +36,7 @@
 
   .feedback_divide_line
   {
-    background-image: url("feedback_message_divide_line.png");
+    background-image: image-url("feedback_message_divide_line.png");
     height:2px;
     margin-top:30px;
     margin-bottom:32px;
@@ -47,7 +47,7 @@
   {
     height:30px;
     width:25px;
-    background-image: url("like-dislike-icons.png");
+    background-image: image-url("like-dislike-icons.png");
     display:block;
     float:left;
   }
@@ -82,7 +82,7 @@
     height:31px;
     width:142px;
     color:#ffffff;
-    background-image: url("feedback_button.png");
+    background-image: image-url("feedback_button.png");
     background-repeat: no-repeat;
     border:none;
     border-radius: 2px;

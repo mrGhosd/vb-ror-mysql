@@ -10,7 +10,7 @@
   display:inline-block;
   float:left;
   width:197px;
-  background-image: url("left_navigation_menu_wrapper.png");
+  background-image: image-url("left_navigation_menu_wrapper.png");
   background-size: 100% 100%;
 }
 .navigation_menu .menu_item
@@ -23,7 +23,7 @@
   padding-left:20px;
   text-align: left;
   vertical-align: middle;
-  background-image: url("nav_menu_item.png");
+  background-image: image-url("nav_menu_item.png");
   background-size: 100% 100%;
 }
 .item_title a
@@ -39,7 +39,7 @@
   float:right;
   height:12px;
   width:8px;
-  background-image: url("left_navigation_menu_arrow.png");
+  background-image: image-url("left_navigation_menu_arrow.png");
   margin-right:21px;
   margin-top:4px;
 }
