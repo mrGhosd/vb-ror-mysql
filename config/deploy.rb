@@ -10,7 +10,7 @@ set :rbenv_type, :user
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 set :linked_files, %w{config/database.yml config/unicorn.rb}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads public/images public/assets}
 
 namespace :deploy do
 
