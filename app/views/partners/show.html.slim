@@ -3,6 +3,6 @@
     h2="Наш партнер - #{@partner.partner_title}"
   .partner_profile
     .partner_profile_image
-      = image_tag @partner.image(:normal)
+      = image_tag @partner.image.url(:normal)
     .partner_description
-      = @partner.partner_description
+      = @partner.partner_description.html_safe

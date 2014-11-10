@@ -23,11 +23,11 @@ class User < ActiveRecord::Base
   validates :contact_phone, presence: { message: "Телефон не может быть пустым" }
   validates :contact_phone, numericality: {message: "Номер телефона должен быть числом"}
 
-
-  has_attached_file :avatar,
-                    :use_timestamp => false,
-                    :styles => {normal: "300x200>", small: "200x120>", iphone: "120x120"}
-  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  mount_uploader :avatar, UserUploader
+  # has_attached_file :avatar,
+  #                   :use_timestamp => false,
+  #                   :styles => {normal: "300x200>", small: "200x120>", iphone: "120x120"}
+  # validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   scope :api_request, -> { includes(:loans, :deposits, :passport, :voen_pasport, :contact_information, :role_kursant, :role_contract, :role_officer) }
   after_create :set_login_password
 
@@ -125,7 +125,6 @@ class User < ActiveRecord::Base
   def set_login_password
     self.login = "#{self.id}#{self.role_id}#{self.created_at.strftime("%d%m%Y%H%m")}"
     self.password = User.new_remember_token.last(7)
-    save
   end
 
 end

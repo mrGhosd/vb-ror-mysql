@@ -25,8 +25,11 @@
  *= require users
  *= require contract_document
  *= require roles_percents
+ *= require markitup/skins/markitup/style
+ *= require markitup/sets/html/style
  */
 //@import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 

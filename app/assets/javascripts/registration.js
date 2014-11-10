@@ -135,7 +135,7 @@ $(document).delegate("#new_user", "submit", function(e){
         url: default_url,
         data: $("#new_user").serialize(),
         success: function(object){
-            console.log(object);
+            systemDialogWindow(object.notice, "/")
         },
         error: function(object){
             var errors = JSON.parse(object.responseText);

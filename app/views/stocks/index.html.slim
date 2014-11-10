@@ -10,18 +10,21 @@ table.table.table-bordered.stocks_info
       td.stock_id
         = st.id
       td
-        = st.stock_title
+        = st.stock_title.first(3)+".."
       td
-        = st.stock_text
+        = st.stock_text.first(7)+"..."
       td
         - if st.image.present?
           = image_tag st.image.url(:small)
         - else
           i="Изображения не существует"
       td
-        = link_to "Редактировать", edit_stock_path(st.id), class: "btn btn-primary"
-      td
-        = link_to "Удалить", "", class: "btn btn-danger stock-destroy", remote: true
-      td
-        - status, class_val = st.enabled ? "Не отображать" : "Отображать", st.enabled ? "btn-success" : "btn-warning"
-        =link_to status, "",  class: "btn stock-show #{class_val}", remote: true
+        .btn-group
+          = link_to '#', class: 'btn btn-info dropdown-toggle', data: {toggle: 'dropdown' } do
+            | Действия
+            span.caret
+          ul.dropdown-menu
+            li = link_to "Редактировать", edit_stock_path(st.id)
+            li = link_to "Удалить", "", class: "stock-destroy", remote: true
+            - status, class_val = st.enabled ? "Не отображать" : "Отображать", st.enabled ? "btn-success" : "btn-warning"
+            li = link_to status, "",  class: " stock-show #{class_val}", remote: true

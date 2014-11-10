@@ -3,4 +3,4 @@
   ul
    - news_slider.each do |news|
     li
-      = image_tag(news.image.url(:normal))  if news.image.file?
+      = image_tag(news.image.url)

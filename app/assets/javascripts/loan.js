@@ -188,7 +188,7 @@ function calc_everymonth_pay()
     $( ".pay_value" ).val(everymonth + " р.")
 }
 
-function systemDialogWindow(message, url)
+systemDialogWindow = function (message, url)
 {
     var dialog = $("<div id='system_dialog_window'></div>");
     dialog.insertBefore(".wrapper");

@@ -6,6 +6,20 @@ html, body
 {
   background-image:image-url("vb_pattrn_0061.jpg");
 }
+.markItUp{
+  width:500px !important;
+  &.markItUpEditor{
+    width:439px !important;
+    resize: none;
+  }
+}
+html h1{
+  font-size: 30px;
+  font-weight: bold;
+}
+html strong{
+  font-weight: bolder;
+}
 .wrapper
 {
   margin: 0 auto;

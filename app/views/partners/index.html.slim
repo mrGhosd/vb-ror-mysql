@@ -6,7 +6,7 @@
     .partner_item
       .partner_image
         = link_to partner_path(id: partner.id) do
-          = image_tag partner.image(:normal)
+          = image_tag partner.image.url(:normal)
       .partner_title
         p = link_to partner.partner_title, partner.partner_url
       .hidden_block

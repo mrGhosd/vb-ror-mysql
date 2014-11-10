@@ -11,7 +11,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'sass-rails', '~> 4.0.0'
 
 gem 'slim-rails'
-gem 'paperclip', :git => "http://github.com/thoughtbot/paperclip.git"
+gem 'carrierwave'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -36,7 +36,8 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'prawn'
 gem 'bcrypt-ruby'
 gem 'draper', '~> 1.3'
-
+gem 'mini_magick'
+gem "markitup-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 

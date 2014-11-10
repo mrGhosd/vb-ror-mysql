@@ -4,12 +4,11 @@
     .controls
       = f.text_field :stock_title
   .control-group
-    = f.label "Текст новости", class: "control-label"
-    .controls
-      = f.text_area :stock_text, rows: 5
+    = f.label "Текст новости"
+    = f.text_area :stock_text, class:'markItUp'
   .control-group
     = f.label "Изображение", class: "control-label"
     .controls
       = f.file_field :image
   .control-group
-    = f.submit "Отправить"
+    = f.submit "Отправить", class: 'btn btn-success'

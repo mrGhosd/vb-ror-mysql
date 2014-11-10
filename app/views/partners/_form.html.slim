@@ -5,8 +5,7 @@
       = f.text_field :partner_title
   .control-group
     = f.label "Описание партнера"
-    .controls
-      = f.text_area :partner_description, rows: 5
+    = f.text_area :partner_description, class:'markItUp'
   .control-group
     = f.label "Ссылка на страницу партнера"
     .controls

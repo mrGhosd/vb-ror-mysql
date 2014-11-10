@@ -14,4 +14,8 @@ module ApplicationHelper
     user
   end
 
+  def current_page_id(id = nil)
+    id || request.path.gsub(/\//,"")
+  end
+
 end

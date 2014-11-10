@@ -3,14 +3,8 @@ VoenbankRorPostgres::Application.routes.draw do
   get "static_pages/:page_id", controller: "static_pages", action: "page", as: "static_page"
   post "/login", controller: "application", action: "login"
   get "/private_office/:id", controller: "admin", action: "private_office", as: "private_office"
-
   get "/feedback", controller: "static_pages", action: "feedback", as: "feedback"
-
   get "/logout", controller: "application", action: "logout"
-  get '/user_cabinet', controller: 'application', action: 'user_cabinet'
-
-
-
 
   resources :stocks do
     post :stock_switch, on: :member
