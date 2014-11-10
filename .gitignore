@@ -14,6 +14,7 @@
 .ruby-version
 # Ignore all logfiles and tempfiles.
 /public/system
+/public/uploads
 /log/*.log
 /tmp
 .idea/

@@ -13,7 +13,7 @@
         - if @user.avatar.blank?
           = image_tag 'empty_user.jpg', class: 'empty_image'
         - else
-          = image_tag @user.avatar(:normal)
+          = image_tag @user.avatar.url(:normal)
         p.label= "Изобрежение профиля пользователя"
     .admin_user_body_info
       .admin-user-main
