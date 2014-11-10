@@ -21,8 +21,7 @@ class StocksController < ApplicationController
   end
 
   def update
-    @stock = Stock.find(params[:id])
-    if @stock.update_attributes(news_params)
+    if Stock.find(params[:id]).update(news_params)
       flash.now[:notice] = "Новость успешно обновлена"
       redirect_to stocks_path
     else

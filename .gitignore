@@ -13,6 +13,7 @@
 .ruby-gemset
 .ruby-version
 # Ignore all logfiles and tempfiles.
+/public/system
 /log/*.log
 /tmp
 .idea/
