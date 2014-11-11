@@ -122,7 +122,7 @@ $(document).ready(function()
     });
 });
 
-$(document).delegate("#new_user", "submit", function(e){
+$(document).delegate(".registration_page #new_user", "submit", function(e){
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();

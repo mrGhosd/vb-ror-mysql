@@ -1,14 +1,21 @@
+#shares_admin{
+  .content_part{
+    >a.btn-warning{
+      margin-bottom: 10px;
+    }
+  }
+}
+
 .share_page
 {
   .share_item {
     margin-bottom: 26px;
     .share_question {
       font-size: 16px;
-      color: #456d26;
       cursor: pointer;
 
-      p
-      {
+      >p {
+        color: #456d26;
         text-decoration: underline;
       }
 

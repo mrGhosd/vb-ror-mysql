@@ -1,11 +1,9 @@
 = form_for @share, html: {class: 'form-horizontal'} do |f|
   .control-group
     = f.label "Название акции"
-    .controls
-      = f.text_field :share_title
+    = f.text_field :share_title
   .control-group
     = f.label "Описание акции"
-    .controls
-      = f.text_area :share_text, rows: 5
+    = f.text_area :share_text, class: 'markItUp'
   .control-group
-    = f.submit "Отправить"
+    = f.submit "Отправить", class:'btn btn-success'

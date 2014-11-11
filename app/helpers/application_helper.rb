@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def current_page_id(id = nil)
-    id || request.path.gsub(/\//,"")
+    id || request.path.sub(/\//,"").gsub(/\//,"_")
   end
 
 end

@@ -5,6 +5,6 @@
     .faq_item
       .faq_question
         span.arrow.down
-        p = faq.question
+        p = faq.question.html_safe
         .faq_answer
-          = faq.answer
+          = faq.answer.html_safe

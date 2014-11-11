@@ -11,7 +11,7 @@ table.table.table-bordered.stocks_info
       td
         = share.share_title
       td
-        = share.share_text
+        = share.share_text.first(10)+"..."
       td
         = link_to "Редактировать", edit_share_path(share.id), class: "btn btn-primary"
         = link_to "Удалить", "", class: "btn btn-danger share_destroy", remote: true

@@ -1,9 +1,14 @@
 .document_form{
   .doc_form_item{
-    textarea{
-      height:400px;
-      width:600px;
-      resize: none;
+    .radio_item{
+      display:inline-block;
+      margin-right: 10px;
+      label{
+        float:left;
+        width: 20px;
+        margin-top: 5px;
+        margin-right:30px;
+      }
     }
   }
 }

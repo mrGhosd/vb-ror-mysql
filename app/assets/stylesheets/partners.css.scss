@@ -1,62 +1,58 @@
-.partners_page
-{
-  .partner_item
-  {
-    height: 208px;
-    width:182px;
-    display:inline-block;
-    margin-left:31px;
-
-    .partner_image
-    {
-      width:181px;
-      height:180px;
+#partners_admin {
+    .main{
+      .partner-destroy{
+        margin-top:5px;
+        margin-bottom:5px;
+      }
     }
-
-    p
-    {
-      text-align: center;
-    }
-    .partner_image a
-    {
-      float:left;
-    }
-
-
-
-    .hidden_block
-    {
-      background-color: #808080;
-      top: -206px;
-      opacity: 0.5;
-      height: 181px;
-      width: 182px;
-      position: relative;
-    }
-
-
-    }
-  .partner_item:hover .hidden_block
-  {
-    display:none;
-  }
-  .partner_profile
-  {
-    min-height:300px;
-    .partner_profile_image
-    {
-      float:left;
-    }
-    .partner_description
-    {
-      margin-left:20px;
-      float:left;
-    }
-  }
-  .hidden
-  {
-    display:none;
-  }
-
 }
+  .partners_page {
+    > a.btn-warning{
+      margin-bottom: 10px;
+    }
+    .partner_item {
+      height: 208px;
+      width: 182px;
+      display: inline-block;
+      margin-left: 31px;
 
+      .partner_image {
+        width: 181px;
+        height: 180px;
+      }
+
+      p {
+        text-align: center;
+      }
+      .partner_image a {
+        float: left;
+      }
+
+      .hidden_block {
+        background-color: #808080;
+        top: -206px;
+        opacity: 0.5;
+        height: 181px;
+        width: 182px;
+        position: relative;
+      }
+
+    }
+    .partner_item:hover .hidden_block {
+      display: none;
+    }
+    .partner_profile {
+      min-height: 300px;
+      .partner_profile_image {
+        float: left;
+      }
+      .partner_description {
+        margin-left: 20px;
+        float: left;
+      }
+    }
+    .hidden {
+      display: none;
+    }
+
+  }

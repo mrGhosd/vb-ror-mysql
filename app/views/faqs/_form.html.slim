@@ -1,11 +1,9 @@
 = form_for @faq, html: {class: 'form-horizontal'} do |f|
   .control-group
     = f.label "Вопрос"
-    .controls
-      = f.text_area :question, rows: 5
+    = f.text_area :question, class: 'markItUp'
   .control-group
     = f.label "Ответ"
-    .controls
-      = f.text_area :answer, rows: 5
+    = f.text_area :answer, class: 'markItUp'
   .control-group
-    = f.submit "Отправить"
+    = f.submit "Отправить", class: 'btn btn-success'
