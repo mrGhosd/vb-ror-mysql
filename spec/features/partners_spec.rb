@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Partner for user', :js do
   let!(:disable_partner) { create :partner, partner_title: "DISABLED", enabled: false }

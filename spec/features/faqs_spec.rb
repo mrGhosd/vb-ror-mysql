@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'FAQ for user', :js do
   let!(:faqs_list)  { create_list(:faq, 12) }

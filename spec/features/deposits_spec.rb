@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "Deposit page for user", :js do
   let!(:percent) { create :percent, :deposit, value: 0.42 }
@@ -19,7 +19,7 @@ feature "Deposit page for user", :js do
       click_button "Оставить заявку"
     end
     sleep 2
-    find(".ui-dialog-buttonpane .ui-dialog-buttonset button.ui-button").click
+    find(".ui-dialog-buttonpane .ui-dialog-buttonset button").click
     sleep 1
     expect(page).to have_content("Сумма займа")
   end
@@ -60,7 +60,7 @@ feature "Deposit page for current user", :js do
     find(".main_percent_slider .right_side").click
     click_button "Получить денежное довольствие"
     sleep 2
-    find(".ui-dialog-buttonpane .ui-dialog-buttonset button.ui-button").click
+    find(".ui-dialog-buttonpane .ui-dialog-buttonset button").click
     sleep 1
     expect(page).to have_content("Сумма займа")
   end

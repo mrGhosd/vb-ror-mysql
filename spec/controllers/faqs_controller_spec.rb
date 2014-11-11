@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe FaqsController do
   let!(:faq_list) { FactoryGirl.create_list(:faq, 12) }

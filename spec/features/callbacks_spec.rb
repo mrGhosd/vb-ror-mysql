@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "Callbacks for admin", :js do
   let!(:callback) { create :callback }

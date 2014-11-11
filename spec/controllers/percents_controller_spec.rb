@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe PercentsController do
   let!(:percent_1) { create :percent, :loan }

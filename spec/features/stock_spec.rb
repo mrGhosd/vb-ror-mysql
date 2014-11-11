@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Stock do
   describe "User" do
@@ -21,13 +21,15 @@ describe Stock do
     end
 
     it "edit stock" do
-      click_link "Редактировать", match: :first
+      find(".btn-group > a.btn-info", match: :first).click
+      sleep 1
+      click_link "Редактировать"
       expect(page).to have_content("Редактирование новости")
       fill_in "stock_stock_title", with: "TestStockTitle"
       fill_in "stock_stock_text", with: "TestStockText"
       click_button "Отправить"
-      expect(page).to have_content("TestStockTitle")
-      expect(page).to have_content("TestStockText")
+      expect(page).to have_content("TestStockTitle".first(3))
+      expect(page).to have_content("TestStockText".first(5))
     end
 
     it "create a stock" do
@@ -36,11 +38,13 @@ describe Stock do
       fill_in "stock_stock_title", with: "NewStockTitle"
       fill_in "stock_stock_text", with: "NewStockText"
       click_button "Отправить"
-      expect(page).to have_content("NewStockTitle")
-      expect(page).to have_content("NewStockText")
+      expect(page).to have_content("NewStockTitle".first(3))
+      expect(page).to have_content("NewStockText".first(5))
     end
 
     it "destroy a stock" do
+      find(".btn-group > a.btn-info", match: :first).click
+      sleep 1
       click_link "Удалить", match: :first
       sleep 2
       expect(page).to_not have_content("first")

@@ -11,11 +11,6 @@ FactoryGirl.define do
     trait :admin do
       access_role "admin"
     end
-
-    trait :with_deposit do
-          create :deposit
-
-    end
   end
 
 

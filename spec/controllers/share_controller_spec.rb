@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SharesController do
   let(:share_1)  { create :share }

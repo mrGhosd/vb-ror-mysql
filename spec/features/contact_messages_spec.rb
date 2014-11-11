@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "Admin contact messages", :js do
   let!(:message) { create :contact_message }

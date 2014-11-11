@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe FeedbacksController do
    let!(:feedbacks_list) { FactoryGirl.create_list(:feedback, 5) }

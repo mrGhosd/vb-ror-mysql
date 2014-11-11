@@ -5,7 +5,6 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'support/feature_helpers'
-require "paperclip/matchers"
 require 'draggable_capybara'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -32,7 +31,6 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = false
-  config.include Paperclip::Shoulda::Matchers
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end

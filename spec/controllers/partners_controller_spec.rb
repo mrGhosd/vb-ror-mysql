@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe PartnersController do
   let!(:partner_1) { create :partner, enabled: false }

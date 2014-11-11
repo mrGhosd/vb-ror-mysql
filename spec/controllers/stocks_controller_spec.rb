@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe StocksController do
   # let(:admin) { create(:user) }
@@ -65,11 +65,6 @@ describe StocksController do
 
   describe "PUT #update" do
     context "with valid attributes" do
-
-      it "located the requested stock" do
-        put :update, id: @stock_1, stock: FactoryGirl.attributes_for(:stock)
-        assigns(:stock).should eq(@stock_1)
-      end
 
       it "changes stock attributes" do
         put :update, id: @stock_1, stock: FactoryGirl.attributes_for(:stock, stock_title: "olololo", stock_text: "1")

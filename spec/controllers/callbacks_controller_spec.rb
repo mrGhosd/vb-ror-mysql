@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe CallbacksController do
+describe CallbacksController, type: :controller do
   let!(:callback) { create :callback }
 
   before do

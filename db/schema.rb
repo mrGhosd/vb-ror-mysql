@@ -274,9 +274,9 @@ ActiveRecord::Schema.define(version: 20141110205422) do
     t.integer  "session"
     t.string   "contact_phone"
     t.string   "remember_token"
-    t.string   "access_role",               default: "client"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "access_role",               default: "client"
     t.string   "avatar"
   end
 

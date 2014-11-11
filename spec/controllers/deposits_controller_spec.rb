@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe DepositsController do
   let!(:user) { create :user }
@@ -43,7 +43,7 @@ describe DepositsController do
         ["User", "Deposit"].each do |model|
           expect{post :create, user: attributes_for(:user,
           surname: "", deposits_attributes: [attributes_for(:deposit,
-          percent_id: percent.id)])}.to_not change(model.constantize, :count).by(1)
+          percent_id: percent.id)])}.to change(model.constantize, :count).by(0)
         end
       end
 

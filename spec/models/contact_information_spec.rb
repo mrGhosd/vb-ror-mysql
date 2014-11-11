@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ContactInformation do
   # it "is invalid with ununiqueness email" do

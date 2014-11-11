@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Feedback for User', :js do
   let!(:feedbacks_list) { create_list(:feedback, 5) }

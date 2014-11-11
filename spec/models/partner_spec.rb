@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Partner do
   let!(:enabled_partner) { create :partner }

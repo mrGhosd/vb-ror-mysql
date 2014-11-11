@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ContactMessagesController do
   let!(:message) { create :contact_message }

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature "Admin for percents", :js do
   let!(:loan_percent) { create :percent, :loan, min_summ: 3 }
