@@ -1,7 +1,22 @@
 /**
 * Created by vsokoltsov on 19.07.14.
 */
-var visitedPages = [];
+visitedPages = [];
+registrationView = function()
+{
+    initRegPopups();
+    $(".registration_page .datepicker").datepicker({dateFormat: "dd.mm.yy", changeMonth:true, changeYear:true});
+    specialQuestion($('.step_1 .hidden_role').val());
+    $("#new_user .reg_form_controll a").bind('click', function(){
+        changeFocusPage($(this));
+    });
+    $(".btn-group.registration_navigation a").click(function()
+    {
+        registrationNavigation($(this));
+        console.log(visitedPages);
+    });
+};
+
 function changeMenuButton(number)
 {
     $(".registration_page .btn-group.registration_navigation a").removeClass('active');
@@ -107,41 +122,26 @@ function specialQuestion(val)
     $(save_block).addClass('active_form');
 }
 
-$(document).ready(function()
-{
-    $(".datepicker").datepicker({dateFormat: "dd.mm.yy", changeMonth:true, changeYear:true});
-    specialQuestion($('.step_1 .hidden_role').val());
-    $(".reg_form_controll a").click(function(){
-        changeFocusPage($(this));
-        console.log(visitedPages);
-    });
-   $(".btn-group.registration_navigation a").click(function()
-    {
-        registrationNavigation($(this));
-        console.log(visitedPages);
-    });
-});
-
 $(document).delegate(".registration_page #new_user", "submit", function(e){
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
+
     $("#new_user input").removeClass("error-field");
     $(".err-text").remove();
-    var default_url = $("#new_user").attr("action");
+    var dataObj = JSON.stringify($(".registration_page #new_user").serialize());
+    var default_url = $(".registration_page #new_user").attr("action");
     $.ajax({
         type: "POST",
         dataType: "json",
         url: default_url,
-        data: $("#new_user").serialize(),
+        data: dataObj,
         success: function(object){
             systemDialogWindow(object.notice, "/")
         },
         error: function(object){
             var errors = JSON.parse(object.responseText);
-            console.log(errors.errors);
             $.each(errors.errors, function(key, value){
-                console.log(key);
                $("#user_"+key).addClass("error-field");
                 for(var i = 0; i <value.length; i++){
                     $("#user_"+key).after("<div class='err-text'>"+value[i]+"</div>");

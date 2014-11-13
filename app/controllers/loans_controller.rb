@@ -47,7 +47,7 @@ class LoansController < ApplicationController
       render json: {answer: flash[:notice]}, status: 200
     else
       new
-      render 'loans/loan_request', layout: false
+      render 'loans/loan_request.html.slim', layout: false
     end
   end
 
@@ -80,9 +80,8 @@ class LoansController < ApplicationController
                                                             :unit_address, :duty_phone],
 
                                  role_officer_attributes: [:id, :user_id, :post_id, :unit_number, :unit_address,
-                                                          :duty_phone, :rank_id],
+                                                          :duty_phone, :rank_id]
                                  )
-
   end
 
   def current_user_loan_attributes

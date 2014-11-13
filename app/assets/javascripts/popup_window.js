@@ -1,4 +1,4 @@
-function popupWindow(form)
+popupWindow = function(form)
 {
     form.find("input.popup-available").each(function()
     {
@@ -28,7 +28,7 @@ function popupWindow(form)
     });
 }
 
-function popupFindData(className, popup)
+popupFindData = function(className, popup)
 {
    $(".popup-main>ul").remove();
    var cache = [];
@@ -68,8 +68,8 @@ function popupFindData(className, popup)
 
 }
 
-$(document).ready(function()
+initRegPopups = function()
 {
-   $(".datepicker").datepicker({dateFormat: "dd.mm.yy", changeMonth:true, changeYear:true});
-   popupWindow($("#edit_user_form, #roles_percent_form, #new_user"));
-});
+   $("#registration .datepicker").datepicker({dateFormat: "dd.mm.yy", changeMonth:true, changeYear:true});
+   popupWindow($("#edit_user_form, #roles_percent_form,#registration #new_user"));
+};

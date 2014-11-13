@@ -2,7 +2,7 @@ class Loan < ActiveRecord::Base
   belongs_to :user
   has_many :percent
   has_many :loan_repayments
-  before_create :set_response
+  after_create :set_response
   validates_presence_of :loan_sum, :begin_date, :end_date
 
   scope :unpayed_loans, -> { where(status: false)}

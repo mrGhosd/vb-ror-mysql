@@ -166,6 +166,7 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     request_store (1.1.0)
+    rmagick (2.13.3)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -231,7 +232,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     ttfunk (1.4.0)
-    turbolinks (2.5.1)
+    turbolinks (2.5.2)
       coffee-rails
     tzinfo (0.3.42)
     uglifier (2.5.3)
@@ -277,6 +278,7 @@ DEPENDENCIES
   prawn
   pry-rails
   rails (= 4.0.2)
+  rmagick
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc

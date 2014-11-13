@@ -15,7 +15,11 @@ module ApplicationHelper
   end
 
   def current_page_id(id = nil)
-    id || request.path.sub(/\//,"").gsub(/\//,"_")
+    if id
+      content_for(:current_page_id) { id }
+    else
+      content_for(:current_page_id).presence || request.path.sub(/\//,"").gsub(/\//,"_")
+    end
   end
 
 end

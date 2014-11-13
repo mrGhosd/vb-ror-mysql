@@ -218,18 +218,18 @@ function hideDialog(){
         window.location.href = "/";
     });
 }
-$(document).delegate("#new_user", "submit", function(e){
+$(document).delegate("#users_deposits_new #new_user", "submit", function(e){
     e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
-    $("#new_user input").removeClass("error-field");
+    $("#users_deposits_new #new_user input").removeClass("error-field");
     $(".err-text").remove();
-    var default_url = $("#new_user").attr("action");
+    var default_url = $("#users_deposits_new #new_user").attr("action");
     $.ajax({
         type: "POST",
         dataType: "json",
         url: default_url,
-        data: $("#new_user").serialize(),
+        data: $("#users_deposits_new #new_user").serialize(),
         success: function(object){
             systemDialogWindow(object.notice, "/");
         },

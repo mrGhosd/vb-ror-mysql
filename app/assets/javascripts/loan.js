@@ -1,7 +1,5 @@
 $(document).ready(function()
 {
-
-
     $('.user-role a').click(function()
     {
         $('.user-role a').removeClass('active');
@@ -54,7 +52,7 @@ $(document).ready(function()
                 $( "span.pay_value" ).val(ui.value + " р." );
             }
         });
-    $(".loan_confirm").click(function()
+    $(".loan_confirm").on('click', function()
     {
         var amount = getLoanAmount();
         var time = getLoanTime();
@@ -71,6 +69,7 @@ $(document).ready(function()
                     if(typeof html == "string")
                     {
                         $(".content_part").html(html).hide().slideDown();
+                        registrationView();
                     }
                     else
                     {
@@ -81,9 +80,6 @@ $(document).ready(function()
             });
         }
     });
-
-
-
     setDefaultValues();
 
 });
