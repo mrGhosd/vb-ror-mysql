@@ -3,7 +3,7 @@ class Loan < ActiveRecord::Base
   has_many :percent
   has_many :loan_repayments
   after_create :set_response
-  validates_presence_of :loan_sum, :begin_date, :end_date
+  validates_presence_of :sum, :begin_date, :end_date
 
   scope :unpayed_loans, -> { where(status: false)}
   scope :payed_loans, -> { where(status: true) }
@@ -18,7 +18,7 @@ class Loan < ActiveRecord::Base
 
   def everymonth_pay
     if percent_id
-      (loan_sum.to_i / date_in_months) * Percent.find(percent_id).try(:value)
+      (sum.to_i / date_in_months) * Percent.find(percent_id).try(:value)
     end
   end
 
@@ -59,10 +59,10 @@ class Loan < ActiveRecord::Base
   def payed_sum
     return "Не рассмотрен" if response.blank?
     payment = LoanRepayment.sum(:granted_summ, conditions: {loan_id: id})
-    if payment < loan_sum.to_i
-      "#{payment}/#{loan_sum} р."
+    if payment < sum.to_i
+      "#{payment}/#{sum} р."
     else
-      "#{loan_sum}/#{loan_sum} р."
+      "#{sum}/#{sum} р."
     end
   end
 

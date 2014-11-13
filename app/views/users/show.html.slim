@@ -57,13 +57,13 @@
     - @user.loans.limit(5).each do |loan|
       .loan-item
         .loan-title
-          p = "Сумма: #{loan.loan_sum} Дата начала: #{loan.begin_date.to_date}"
+          p = "Сумма: #{loan.sum} Дата начала: #{loan.begin_date.to_date}"
           span.arrow.down
         .loan-item-body
           .cell-loan-sum
             .admin-loan-cell
               p.title= "Сумма кредита: "
-              p.value= loan.loan_sum
+              p.value= loan.sum
             .admin-loan-cell
               p.title= "Процент по займу: "
               p.value= loan.percent_id
@@ -112,13 +112,13 @@
     - @user.deposits.limit(5).each do |deposit|
       .loan-item
         .loan-title
-          p = "Сумма: #{deposit.deposit_current_summ} Дата начала: #{deposit.created_at.to_date}"
+          p = "Сумма: #{deposit.current_amount} Дата начала: #{deposit.created_at.to_date}"
           span.arrow.down
         .loan-item-body
           .cell-loan-sum
             .admin-loan-cell
               p.title= "Текущая сумма вклада: "
-              p.value= deposit.deposit_current_summ
+              p.value= deposit.current_amount
             .admin-loan-cell
               p.title= "Процент по займу: "
               p.value= deposit.percent_id

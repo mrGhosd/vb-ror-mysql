@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110205422) do
+ActiveRecord::Schema.define(version: 20141113111354) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(version: 20141110205422) do
   end
 
   create_table "deposits", force: true do |t|
-    t.integer  "user_id",                          null: false
-    t.string   "deposit_current_summ", limit: 256, null: false
-    t.integer  "percent_id",                       null: false
+    t.integer  "user_id",                                 null: false
+    t.decimal  "current_amount", precision: 10, scale: 2, null: false
+    t.integer  "percent_id",                              null: false
     t.boolean  "response"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -97,12 +97,12 @@ ActiveRecord::Schema.define(version: 20141110205422) do
   end
 
   create_table "loans", force: true do |t|
-    t.integer  "user_id",                    null: false
-    t.string   "loan_sum",                   null: false
-    t.datetime "begin_date",                 null: false
-    t.datetime "end_date",                   null: false
+    t.integer  "user_id",                                            null: false
+    t.decimal  "loan_sum",   precision: 8, scale: 2,                 null: false
+    t.datetime "begin_date",                                         null: false
+    t.datetime "end_date",                                           null: false
     t.integer  "percent_id"
-    t.boolean  "status",     default: false
+    t.boolean  "status",                             default: false
     t.boolean  "response"
   end
 

@@ -231,6 +231,7 @@ $(document).delegate("#users_deposits_new #new_user", "submit", function(e){
         url: default_url,
         data: $("#users_deposits_new #new_user").serialize(),
         success: function(object){
+            console.log(object.notice)
             systemDialogWindow(object.notice, "/");
         },
         error: function(object){

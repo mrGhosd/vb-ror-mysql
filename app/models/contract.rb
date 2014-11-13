@@ -40,7 +40,7 @@ class Contract < Prawn::Document
     {full_name: @user.full_name,
      new_line: "\n".html_safe,
      loan_id: @loan.id,
-     loan_sum: @loan.loan_sum,
+     sum: @loan.sum,
      loan_time: @loan.date_in_months,
      month_pay: @loan.everymonth_pay,
      pasport_seria: @user.passport.pasport_seria,

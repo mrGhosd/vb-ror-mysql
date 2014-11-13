@@ -1,12 +1,12 @@
 - current_user.deposits.each do |deposit|
   .deposit_list_item
     .deposit_list_item_title.closed
-      p= "#{deposit.created_at.to_date} - #{deposit.deposit_current_summ} р."
+      p= "#{deposit.created_at.to_date} - #{deposit.current_amount} р."
       span.arrow.down
     .deposit_list_item_body.hide
       .list_body_cell
         p.title= "Сумма вклада: "
-        p.value= "#{deposit.deposit_current_summ} р."
+        p.value= "#{deposit.current_amount} р."
       .list_body_cell
         p.title= "Дата начала: "
         p.value= "#{deposit.created_at.to_date}"

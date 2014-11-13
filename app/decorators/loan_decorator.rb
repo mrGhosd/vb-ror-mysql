@@ -6,8 +6,8 @@ class LoanDecorator < Draper::Decorator
     status ? "Оплачен" : "#{object.payed_sum}"
   end
 
-  def loan_sum
-    object.blank? ? "Не указана" : "#{object.loan_sum} р."
+  def sum
+    object.blank? ? "Не указана" : "#{object.sum} р."
   end
 
   def date_of_closing
@@ -28,7 +28,7 @@ class LoanDecorator < Draper::Decorator
 
   def history_title
     if object
-      "#{object.begin_date.to_date} - #{object.try(:actual_close_data).to_date} #{object.loan_sum} р."
+      "#{object.begin_date.to_date} - #{object.try(:actual_close_data).to_date} #{object.sum} р."
     end
   end
 end

@@ -25,14 +25,14 @@ class ContributionAccountsController < ApplicationController
 
   def check_type_of_contrib(contrib)
     deposit = Deposit.find(contrib.deposit_id)
-    deposit_sum = deposit.deposit_current_summ.to_i
+    deposit_sum = deposit.current_amount.to_i
     contrib_sum = contrib.operation_summ.to_i
     result = if contrib.removed_brought
       deposit_sum += contrib_sum
     else
       deposit_sum -= contrib_sum
     end
-    deposit.deposit_current_summ = result
+    deposit.current_amount = result
     deposit.save
   end
 end

@@ -61,7 +61,7 @@ class LoansController < ApplicationController
   private
   def user_reg_params
     params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :role_id, :sex, :date_of_birth, :place_of_birth,
-                                 loans_attributes: [:id, :user_id, :loan_sum, :percent_id, :begin_date, :end_date],
+                                 loans_attributes: [:id, :user_id, :sum, :percent_id, :begin_date, :end_date],
                                  contact_information_attributes: [:id, :user_id, :email, :actual_adress, :phone_adress,
                                                                   :contact_person_surname, :contact_person_name,
                                                                   :contact_person_secondname, :contact_person_phone],
@@ -87,7 +87,7 @@ class LoansController < ApplicationController
   def current_user_loan_attributes
     {
         user_id: current_user.id,
-        loan_sum: params[:amount],
+        sum: params[:amount],
         percent_id: current_user.active_percent,
         begin_date: Time.zone.now,
         end_date: Time.zone.now + params[:time].to_i.months

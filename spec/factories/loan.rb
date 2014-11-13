@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :deposit do
-    current_amount  1000000
+  factory :loan do
+    deposit_current_summ  1000000
     trait :confirmed do
       response true
     end

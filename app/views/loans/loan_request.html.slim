@@ -40,7 +40,7 @@
         .loan_form_item
           = l.label 'Сумма займа'
           = l.text_field :loan_sum_view, value: params[:amount], disabled: true
-          = l.hidden_field :loan_sum, value: params[:amount]
+          = l.hidden_field :sum, value: params[:amount]
           = l.hidden_field :percent_id, value: params[:percent_id]
         .loan_form_item
           = l.label 'Срок займа'

@@ -39,12 +39,12 @@ class DepositsController < ApplicationController
   def user_params
     params.require(:user).permit(:surname, :name, :secondname,
                                  :contact_phone, deposits_attributes:
-            [:id, :user_id, :deposit_current_summ, :percent_id])
+            [:id, :user_id, :current_amount, :percent_id])
   end
 
   def current_user_new_deposit(user)
     Deposit.create(user_id: current_user.id,
-                   deposit_current_summ: params[:amount],
+                   current_amount: params[:amount],
                    percent_id: params[:percent])
   end
 

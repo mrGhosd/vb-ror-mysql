@@ -2,7 +2,7 @@
   belongs_to :user
   has_many :percent
   has_many :contribution_account
-  validates_presence_of :deposit_current_summ, :percent_id
+  validates_presence_of :current_amount, :percent_id
 
    def accounts
        arr = []

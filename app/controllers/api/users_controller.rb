@@ -16,7 +16,7 @@ module Api
       # contact.save
       # if params[:user][:type] == "Loan"
       #   percent = RolesPercent.includes(:percent).where(role_id: params[:user][:role].to_i, percents: {loan_or_deposit: true}).last.try(:percent_id)
-      #   @loan = @user.loans.build(loan_sum: params[:user][:sum], percent_id: percent,
+      #   @loan = @user.loans.build(sum: params[:user][:sum], percent_id: percent,
       #                     begin_date: Time.zone.now,
       #                     end_date: Time.zone.now + params[:user][:time].try(:to_i).months)
       #   @loan.save
