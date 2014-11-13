@@ -19,7 +19,7 @@ class LoansController < ApplicationController
     @user = User.new(user_reg_params)
     if @user.save
       render json: {notice: "Спасибо за использование нашей системы! В ближайшее время с вами свяжется наш менеджер"}
-      UserMailer.register_email(@user).deliver
+      UserMailer.register_email(@user).deliver if Rails.env.development?
     else
       render json: {errors: @user.errors}, status: :forbidden
     end
