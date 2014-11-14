@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20141113111354) do
 
   create_table "loans", force: true do |t|
     t.integer  "user_id",                                            null: false
-    t.decimal  "loan_sum",   precision: 8, scale: 2,                 null: false
+    t.decimal  "sum",        precision: 8, scale: 2,                 null: false
     t.datetime "begin_date",                                         null: false
     t.datetime "end_date",                                           null: false
     t.integer  "percent_id"
@@ -274,9 +274,9 @@ ActiveRecord::Schema.define(version: 20141113111354) do
     t.integer  "session"
     t.string   "contact_phone"
     t.string   "remember_token"
+    t.string   "access_role",               default: "client"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "access_role",               default: "client"
     t.string   "avatar"
   end
 

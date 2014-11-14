@@ -13,7 +13,6 @@ registrationView = function()
     $(".btn-group.registration_navigation a").click(function()
     {
         registrationNavigation($(this));
-        console.log(visitedPages);
     });
 };
 
@@ -30,8 +29,7 @@ function changeFocusPage(object)
         var classes = object.attr('class');
         var arr_class = classes.split(" ");
         var page = arr_class[1];
-
-
+        console.log(page);
         changeMenuButton(page);
         object.parent().parent().hide();
         removeDisableNavigation(page);
@@ -102,9 +100,7 @@ function setStepTitle(step)
 {
     $(".static_page_title .step_title").text("Шаг "+step.substr(-1));
 }
-function specialQuestion(val)
-{
-    console.log(val);
+function specialQuestion(val){
     var save_block;
     switch(parseInt(val, 10))
     {
@@ -118,7 +114,6 @@ function specialQuestion(val)
             save_block = ".form_officer";
             break;
     }
-    console.log($(save_block));
     $(save_block).addClass('active_form');
 }
 
@@ -139,16 +134,17 @@ $(document).delegate(".registration_page #new_user", "submit", function(e){
         success: function(object){
             systemDialogWindow(object.notice, "/")
         },
-        error: function(object){
+        error: function(object) {
             var errors = JSON.parse(object.responseText);
-            $.each(errors.errors, function(key, value){
-               $("#user_"+key).addClass("error-field");
-                for(var i = 0; i <value.length; i++){
-                    $("#user_"+key).after("<div class='err-text'>"+value[i]+"</div>");
+            $.each(errors.errors, function (key, value) {
+                $("#user_" + key).addClass("error-field");
+                for (var i = 0; i < value.length; i++) {
+                    $("#user_" + key).after("<div class='err-text'>" + value[i] + "</div>");
                 }
-
             });
+        $(".registration_navigation>a.step_1").click();
         }
+
     });
     return false;
 });

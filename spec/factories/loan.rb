@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :loan do
-    sum 25000
+    sum         25000
     begin_date Time.zone.now
     end_date   Time.zone.now + 6.months
 

@@ -8,6 +8,14 @@ class Loan < ActiveRecord::Base
   scope :unpayed_loans, -> { where(status: false)}
   scope :payed_loans, -> { where(status: true) }
 
+  # def sum
+  #   self.sum
+  # end
+  #
+  # def sum=(value)
+  #   self.sum = value
+  # end
+
   def date_in_months
     (end_date.year * 12 + end_date.month) - (begin_date.year * 12 + begin_date.month)
   end
