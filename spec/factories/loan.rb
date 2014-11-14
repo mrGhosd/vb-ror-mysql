@@ -1,12 +1,23 @@
 FactoryGirl.define do
   factory :loan do
-    deposit_current_summ  1000000
-    trait :confirmed do
+    sum 25000
+    begin_date Time.zone.now
+    end_date   Time.zone.now + 6.months
+
+    trait :confirned do
       response true
     end
 
     trait :unconfirmed do
       response false
+    end
+
+    trait :payed do
+      status true
+    end
+
+    trait :unpayed do
+      status false
     end
   end
 end

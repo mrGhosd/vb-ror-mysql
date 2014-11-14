@@ -25,10 +25,6 @@ class LoansController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
-
   def loan_status
     loan = Loan.find(params[:id])
     if params[:result] == "loan-accept"
@@ -36,8 +32,7 @@ class LoansController < ApplicationController
     else
       stat = false
     end
-    loan.response = stat
-    loan.save
+    loan.update(response: stat)
     head :ok
   end
 
