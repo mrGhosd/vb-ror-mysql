@@ -4,4 +4,9 @@ FactoryGirl.define do
     active          true
     default_chosen  false
   end
+
+  factory :roles_percent do
+    percent_id      1
+    role_id         1
+  end
 end

@@ -26,13 +26,12 @@ class LoansController < ApplicationController
   end
 
   def loan_status
-    loan = Loan.find(params[:id])
     if params[:result] == "loan-accept"
       stat = true
     else
       stat = false
     end
-    loan.update(response: stat)
+    Loan.find(params[:id]).update(response: stat)
     head :ok
   end
 
@@ -92,8 +91,10 @@ class LoansController < ApplicationController
   def current_user_create_loan
     if current_user.loans.unpayed_loans.blank?
       current_user.loans.create(current_user_loan_attributes)
+      text = "Спасибо за пользование нашей системой"
     else
-      flash[:notice] = "У вас есть неоплаченные кредиты! Закройте сперва их"
+      text = "У вас есть неоплаченные кредиты! Закройте сперва их"
     end
+    flash[:notice] = text
   end
 end
