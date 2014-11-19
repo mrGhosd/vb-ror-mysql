@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119162348) do
+ActiveRecord::Schema.define(version: 20141113111354) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -59,22 +59,6 @@ ActiveRecord::Schema.define(version: 20141119162348) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "delayed_jobs", force: true do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "deposits", force: true do |t|
     t.integer  "user_id",                                 null: false

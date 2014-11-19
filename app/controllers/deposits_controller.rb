@@ -29,12 +29,6 @@ class DepositsController < ApplicationController
 
   end
 
-  def update
-    deposit = Deposit.find(9)
-    deposit.update(current_amount: deposit.current_amount += 1)
-  end
-  handle_asynchronously :update
-
   def deposits_contribution_list
     deposit = Deposit.find(params[:id])
     @payment = ContributionAccount.where(deposit_id: deposit.id)
@@ -53,7 +47,5 @@ class DepositsController < ApplicationController
                    current_amount: params[:amount],
                    percent_id: params[:percent])
   end
-
-
 
 end
