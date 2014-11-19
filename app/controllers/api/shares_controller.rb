@@ -3,7 +3,7 @@ module Api
     # protect_from_forgery except: :index
 
     def index
-      @share = Share.all
+      @share = Share.available
       render json: @share.to_json, status: 200
     end
   end

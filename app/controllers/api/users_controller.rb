@@ -53,18 +53,9 @@ module Api
     end
 
     private
-
     def mobile_user_params
       params.require(:user).permit(:surname, :name, :secondname, :contact_phone, :role_id, :sex, :date_of_birth, :place_of_birth,
                                     contact_information_attributes: [:email])
-    end
-
-    def loan_params
-
-    end
-
-    def deposit_params
-
     end
   end
 end
