@@ -38,8 +38,7 @@ gem 'bcrypt-ruby'
 gem 'draper', '~> 1.3'
 gem 'mini_magick'
 gem "markitup-rails"
-gem 'delayed_job'
-gem 'delayed_job_active_record'
+gem 'sidekiq'
 gem 'daemons'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

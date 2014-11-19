@@ -15,4 +15,9 @@
    def days_diff
      (Time.zone.now.to_date - self.created_at.to_date ).to_i
    end
+
+   def update_balance
+     balance = self.current_amount + 1
+     self.update(current_amount: balance)
+   end
 end

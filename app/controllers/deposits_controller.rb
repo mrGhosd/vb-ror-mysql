@@ -30,10 +30,8 @@ class DepositsController < ApplicationController
   end
 
   def update
-    deposit = Deposit.find(9)
-    deposit.update(current_amount: deposit.current_amount += 1)
+    DepositWorker.delay(1.second)
   end
-  handle_asynchronously :update
 
   def deposits_contribution_list
     deposit = Deposit.find(params[:id])
