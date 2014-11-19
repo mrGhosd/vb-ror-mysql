@@ -29,9 +29,10 @@ class DepositsController < ApplicationController
 
   end
 
+
   def update
-    deposit = Deposit.find(9)
-    deposit.update(current_amount: deposit.current_amount += 1)
+    Deposit.find(9).update_balance
+    head :ok
   end
   handle_asynchronously :update
 

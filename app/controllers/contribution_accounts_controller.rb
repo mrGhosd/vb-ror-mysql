@@ -18,6 +18,7 @@ class ContributionAccountsController < ApplicationController
     redirect_to users_path
   end
 
+
   private
   def contribution_accounts_params
     params.require(:contribution).permit(:deposit_id, :operation_summ, :removed_brought)
