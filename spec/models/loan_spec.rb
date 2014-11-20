@@ -1,23 +1,39 @@
 require 'rails_helper'
 
 describe Loan do
-  # it "returns a last loan" do
-  #   user = User.create(name: "ololol",
-  #               surname: "awdawdaw",
-  #               secondname: "wadawdaw")
-  #   l = user.loans.build(id:1, loan_sum: 10000)
-  #
-  #   expect(user.loans.last).to eq(l)
-  # end
-  #
-  # it "returns a unpayed loans" do
-  #   user = User.create(name: "ololol",
-  #                      surname: "awdawdaw",
-  #                      secondname: "wadawdaw")
-  #   l = user.loans.create(id:1, loan_sum: 10000,
-  #                        begin_date: Time.zone.today,
-  #                        end_date: Time.zone.today + 6.months,
-  #                        status: false)
-  #   expect(user.loans.unpayed_loans).to eq(l)
-  # end
+  describe ".date_in_months" do
+
+  end
+
+  describe ".date_in_days" do
+
+  end
+
+  describe ".everymonth_pay" do
+
+  end
+
+  describe "repayments" do
+
+  end
+
+  describe "closest_payment_date" do
+
+  end
+
+  describe "actual_close_data" do
+
+  end
+
+  describe ".current_day_in_loan_history" do
+
+  end
+
+  describe ".set_response" do
+
+  end
+
+  describe ".payed_sum" do
+
+  end
 end
