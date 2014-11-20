@@ -4,7 +4,7 @@ FactoryGirl.define do
     begin_date Time.zone.now
     end_date   Time.zone.now + 6.months
 
-    trait :confirned do
+    trait :confirmed do
       response true
     end
 

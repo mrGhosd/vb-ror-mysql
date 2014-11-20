@@ -8,13 +8,6 @@ class Loan < ActiveRecord::Base
   scope :unpayed_loans, -> { where(status: false)}
   scope :payed_loans, -> { where(status: true) }
 
-  # def sum
-  #   self.sum
-  # end
-  #
-  # def sum=(value)
-  #   self.sum = value
-  # end
 
   def date_in_months
     (end_date.year * 12 + end_date.month) - (begin_date.year * 12 + begin_date.month)
@@ -41,7 +34,8 @@ class Loan < ActiveRecord::Base
   def closest_payment_date
     month_diff = (Date.today.month - begin_date.month).to_i
     current_date = begin_date + month_diff.month
-    if Date.today > current_date.to_date
+    if (Date.today > current_date.to_date) ||
+        (Date.today == current_date.to_date)
       current_date + 1.month
     else
       current_date
@@ -65,7 +59,7 @@ class Loan < ActiveRecord::Base
   end
 
   def payed_sum
-    return "Не рассмотрен" if response.blank?
+    return "Не рассмотрен" if response.blank? || !response
     payment = LoanRepayment.sum(:granted_summ, conditions: {loan_id: id})
     if payment < sum.to_i
       "#{payment}/#{sum} р."
