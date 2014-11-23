@@ -113,6 +113,24 @@ class User < ActiveRecord::Base
     self
   end
 
+  def full_json_data
+    {
+        main: self.to_json(methods: [:avatar_url, :user_role, :user_sex]),
+        loans: self.loans.to_json(methods: [:date_in_days,
+                                            :date_in_months, :everymonth_pay,
+                                            :closest_payment_date,
+                                            :current_day_in_loan_history,
+                                            :payed_sum, :repayments]),
+        deposits: self.deposits.to_json(methods: [:accounts, :days_diff]),
+        passport: self.passport.to_json,
+        voen_pasport: self.voen_pasport.to_json(methods: [:user_nationality, :user_education,
+                                                          :user_relationship, :user_specialization,
+                                                          :user_sport_mastery]),
+        contact_information: self.contact_information.to_json,
+        role: self.role.to_json
+    }
+  end
+
   private
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
@@ -120,8 +138,9 @@ class User < ActiveRecord::Base
 
   def set_login_password
     unless self.login || self.password
-      self.login = "#{self.id}#{self.role_id}#{self.created_at.strftime("%d%m%Y%H%m")}"
-      self.password = User.new_remember_token.last(7)
+      login = "#{self.id}#{self.role_id}#{self.created_at.strftime("%d%m%Y%H%m")}"
+      password = User.new_remember_token.last(7)
+      self.update(login: login, password: password)
     end
   end
 

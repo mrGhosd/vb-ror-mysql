@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_admin, only: %w[index destroy]
   def index
     @users = User.all.paginate(page: params[:page], per_page: 10)
   end

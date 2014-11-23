@@ -8,6 +8,7 @@ class Loan < ActiveRecord::Base
   scope :unpayed_loans, -> { where(status: false)}
   scope :payed_loans, -> { where(status: true) }
 
+  before_create :add_percent
 
   def date_in_months
     (end_date.year * 12 + end_date.month) - (begin_date.year * 12 + begin_date.month)
@@ -26,7 +27,7 @@ class Loan < ActiveRecord::Base
   def repayments
     arr = []
     self.loan_repayments.each do |loan|
-      arr << loan.to_json
+      arr << loan
     end
     arr
   end
@@ -66,6 +67,10 @@ class Loan < ActiveRecord::Base
     else
       "#{sum}/#{sum} р."
     end
+  end
+
+  def add_percent
+    self.percent_id = self.user.active_percent if self.percent_id.blank?
   end
 
 end
