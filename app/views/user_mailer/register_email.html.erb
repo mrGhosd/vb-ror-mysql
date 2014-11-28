@@ -1,5 +1,4 @@
 <div>
     <p>Спасибо что зарегистрировались в нашей системе!</p>
-    <p>Ваш логин: <%= @user.login %></p>
-    <p>Ваш пароль:<%= @user.password %></p>
+    <p>Для завершения регистрации пройдите по <a href="<%=confirm_url(host: "localhost:3000", login: @user.login, password: @user.password) %>">этой</a> ссылке:</p>
 </div>

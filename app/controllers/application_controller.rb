@@ -13,12 +13,21 @@ class ApplicationController < ActionController::Base
 
   def login
     user = User.login(params[:login], params[:password])
-    if user.nil?
-      render json:"Пользователя с такими данными не существует", status: 302
+    if user.nil? || !user.confirmed
+      render_fail
     else
       log_in user
       render json: {success: true}, status: 200
     end
+  end
+
+  def confirm_user
+    user = User.login(params[:login], params[:password])
+    unless user.confirmed
+      user.update(confirmed: true)
+      log_in user
+    end
+    redirect_to root_path
   end
 
   def delete_current_user
@@ -53,5 +62,9 @@ class ApplicationController < ActionController::Base
                                   User.encrypt(User.new_remember_token))
     cookies.delete(:remember_token)
     self.current_user = nil
+  end
+
+  def render_fail
+    render json:"Пользователя с такими данными не существует", status: 302
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119162348) do
+ActiveRecord::Schema.define(version: 20141125175530) do
 
   create_table "callbacks", force: true do |t|
     t.string   "call_surname"
@@ -290,10 +290,11 @@ ActiveRecord::Schema.define(version: 20141119162348) do
     t.integer  "session"
     t.string   "contact_phone"
     t.string   "remember_token"
+    t.string   "access_role",               default: "client"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "access_role",               default: "client"
     t.string   "avatar"
+    t.boolean  "confirmed",                 default: false
   end
 
   create_table "voen_pasports", force: true do |t|

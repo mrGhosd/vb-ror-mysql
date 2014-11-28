@@ -4,12 +4,12 @@ module Api
 
     def create
       user = User.new(mobile_user_params)
-     if user.save
-       UserMailer.register_email(user).deliver if Rails.env.development?
-       render json: {success: true}
-     else
-       render json: {success: false}
-     end
+       if user.save
+         UserMailer.register_email(user).deliver if Rails.env.development?
+         render json: {success: true}, status: :ok
+       else
+         render json: {success: false}, status: :forbidden
+       end
     end
 
     def index
@@ -36,7 +36,7 @@ module Api
                                         percent_id:params[:user][:loans_attributes][:percent]]}
       elsif params[:user][:operation] == "Deposit"
         operation = {deposits_attributes: [current_amount: params[:user][:deposits_attributes][:current_amount],
-                                           percent_id:params[:user][:loans_attributes][:percent]]}
+                                           percent_id:params[:user][:deposits_attributes][:percent]]}
       end
       params.require(:user).permit(:surname, :name, :secondname,
                                    :contact_phone, :role_id,

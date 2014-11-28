@@ -2,12 +2,13 @@
   belongs_to :user
   has_many :percent
   has_many :contribution_account
-  validates_presence_of :current_amount, :percent_id
+  validates_presence_of :current_amount
+  before_create :add_percent
 
    def accounts
        arr = []
        self.contribution_account.each do |account|
-         arr << account.to_json
+         arr << account
        end
        arr
    end
@@ -21,4 +22,7 @@
     self.update(current_amount: new_amount)
   end
 
+  def add_percent
+    self.percent_id = self.user.active_percent if self.percent_id.blank?
+  end
 end

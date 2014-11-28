@@ -5,6 +5,7 @@ VoenbankRorPostgres::Application.routes.draw do
   get "/private_office/:id", controller: "admin", action: "private_office", as: "private_office"
   get "/feedback", controller: "static_pages", action: "feedback", as: "feedback"
   get "/logout", controller: "application", action: "logout"
+  get "/confirm", controller: "application", action: "confirm_user"
 
   resources :stocks do
     post :stock_switch, on: :member
@@ -71,10 +72,14 @@ VoenbankRorPostgres::Application.routes.draw do
   namespace :api do
     resources :users do
       post 'login', on: :collection
-    end
 
-    resources :loans
-    resources :deposits
+      resources :loans do
+        get :repayments, on: :member
+      end
+      resources :deposits do
+        get :accounts, on: :member
+      end
+    end
 
     resources :stocks
     resources :shares
