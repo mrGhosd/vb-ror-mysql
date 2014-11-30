@@ -1,4 +1,3 @@
-= javascript_include_tag 'popup_window'
 = form_for setup_user_data(@user), url: "/users", method: :patch, html: { id: 'edit_user_form' } do |f|
   = f.hidden_field :id, value: @user.id
   #cabinet_tabs
