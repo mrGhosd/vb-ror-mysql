@@ -29,7 +29,7 @@ $(document).ready(function()
 });
 
 
-function buildSlider()
+buildSlider = function()
 {
     var current_val = parseInt($("#current_day").val(),10);
     var sum_of_days = parseInt($("#date_sum").val(),10);
@@ -78,7 +78,7 @@ buildDialog = function(link)
 
 }
 
-function showLoansInformation(button)
+showLoansInformation = function(button)
 {
     var block = button.next();
     var arrow = button.find('span.arrow');
@@ -94,7 +94,7 @@ function showLoansInformation(button)
     }
 }
 
-function showLoansItem(button)
+showLoansItem = function(button)
 {
     var body = button.closest('.user_history_item').find('.history_item_body');
     var arrow = button.find('span.arrow');
@@ -112,7 +112,7 @@ function showLoansItem(button)
     }
 }
 
-function showDepositsValues(button)
+showDepositsValues = function(button)
 {
     var body = button.closest('.main_temp').find('.body_partial');
     var arrow = button.find('span.arrow');
@@ -131,7 +131,7 @@ function showDepositsValues(button)
     }
 }
 
-function showDepositItem(button)
+showDepositItem = function(button)
 {
     var body = button.closest('.deposit_list_item').find('.deposit_list_item_body');
     var arrow = button.find('span.arrow');
