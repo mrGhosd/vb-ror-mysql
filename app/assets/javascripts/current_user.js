@@ -44,7 +44,7 @@ function buildSlider()
             disable: true
         });
 }
-function buildDialog(link)
+buildDialog = function(link)
 {
     var user_id= link.data('user');
     console.log(user_id);
