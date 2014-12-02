@@ -1,3 +1,4 @@
+= link_to "На страницу пользователей", users_path, class: 'btn btn-warning'
 .deposit_request
   = form_for :user do |f|
     .deposit_form_item
@@ -12,4 +13,4 @@
     .deposit_form_item
       = f.label "Контактный телефон:"
       = f.text_field :contact_phone
-    = f.submit 'Отправить данные'
+    = f.submit 'Отправить данные', class:'btn btn-success'

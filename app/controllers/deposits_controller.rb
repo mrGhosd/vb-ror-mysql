@@ -31,7 +31,7 @@ class DepositsController < ApplicationController
 
 
   def update
-    Deposit.find(9).update_balance
+    Deposit.find(params[:id]).update_balance
     head :ok
   end
   handle_asynchronously :update
