@@ -114,7 +114,7 @@ function specialQuestion(val){
             save_block = ".form_officer";
             break;
     }
-    $(save_block).addClass('active_form');
+    $(save_block).addClass('active_form').addClass("step_5");
 }
 
 $(document).delegate(".registration_page #new_user", "submit", function(e){

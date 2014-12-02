@@ -137,7 +137,7 @@
           = link_to "&larr; Вернуться".html_safe, "#", remote:true, class: 'back step_3'
           = link_to 'Продолжить &rarr;'.html_safe, "#", remote:true, class: 'next step_5'
     .role_information_form.step_5{step="step_5"}
-      .form_kursant.special_form.step_5{step="step_5"}
+      .form_kursant.special_form{step="step_5"}
         = f.fields_for :role_kursant do |kursant|
           .loan_form_item
             = kursant.label 'Название высшего учебного заведения:'
@@ -187,7 +187,7 @@
           .loan_form_item
             = kursant.label 'Телефон учебного отдела:'
             = kursant.text_field :education_phone
-      .form_contract.special_form.step_5{step="step_5"}
+      .form_contract.special_form{step="step_5"}
         = f.fields_for :role_contract do |contract|
           .loan_form_item
             = contract.label 'Звание:'
@@ -204,7 +204,7 @@
           .loan_form_item
             = contract.label 'Телефон дежурного:'
             = contract.text_field :duty_phone
-      .form_officer.special_form.step_5{step="step_5"}
+      .form_officer.special_form{step="step_5"}
         = f.fields_for :role_officer do |officer|
           .loan_form_item
             = officer.label 'Должность:'
@@ -224,4 +224,4 @@
             .reg_form_controll
           .reg_form_controll
             = link_to "&larr; Вернуться".html_safe, remote:true, class: 'back step_4'
-      = f.submit "Отправить данные!"
+      = f.submit "Отправить данные!", class: "full_registration_complete"

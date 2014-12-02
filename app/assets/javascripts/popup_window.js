@@ -7,13 +7,9 @@ popupWindow = function(form)
 
 
         $(this).focusin(function(){
-              classes_list = $(this).attr("class");
-              arr_classes = classes_list.split(" ");
-
-//            var list = popupFindData("Role");
-//            console.log("in popupWindo "+list);
+            classes_list = $(this).attr("class");
+            arr_classes = classes_list.split(" ");
             popupFindData(arr_classes[1], popup);
-
             popup.insertAfter($(this)).hide().fadeIn('fast');
         })
             .focusout(function()

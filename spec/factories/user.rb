@@ -7,6 +7,7 @@ FactoryGirl.define do
     login       "3"
     password    "3"
     contact_phone 12345
+    confirmed   true
 
     trait :admin do
       access_role "admin"
@@ -34,6 +35,31 @@ FactoryGirl.define do
     relashionship_id    1
     specialization_id   1
     sport_mastery_id    1
+  end
+
+  factory :nationality do
+    id    1
+    value "A"
+  end
+
+  factory :education do
+    id    1
+    value "B"
+  end
+
+  factory :relashionship do
+    id    1
+    value "C"
+  end
+
+  factory :specialization do
+    id    1
+    value "D"
+  end
+
+  factory :sport_mastery do
+    id    1
+    value "E"
   end
 
   factory :contact_information do
