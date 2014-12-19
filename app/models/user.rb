@@ -70,14 +70,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.get_percent_id(percent_val)
-    Percent.find_by_value(percent_val).id
-  end
-
-  def self.get_role_id(role)
-    Role.find_by_value(role).id
-  end
-
   def is_admin?
     self.access_role == "admin"
   end
@@ -104,12 +96,6 @@ class User < ActiveRecord::Base
 
   def revert_params_from_id_to_value
     self.role_id = Role.find(self.role_id).value
-    self
-  end
-
-
-  def revert_params_from_value_to_id
-    self.role_id = Role.find_by_value(role_id).id
     self
   end
 

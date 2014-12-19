@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    binding.pry
     user = User.find(params[:user][:id])
     if user.update_attributes(user_params)
        message = "Ваша личная информация успешно обновлена"

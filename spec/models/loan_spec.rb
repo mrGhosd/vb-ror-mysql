@@ -90,7 +90,7 @@ describe Loan do
   end
 
   describe "#set_response" do
-    let!(:loan) { create :loan, user_id: user.id }
+    let!(:loan) { create :loan, user_id: user.id, percent_id: percent.id }
     it "set response after creation of loan" do
       expect(loan.response).to eq(false)
     end

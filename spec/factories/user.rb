@@ -8,6 +8,7 @@ FactoryGirl.define do
     password    "3"
     contact_phone 12345
     confirmed   true
+    sex         1
 
     trait :admin do
       access_role "admin"

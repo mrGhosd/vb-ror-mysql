@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe StocksController do
-  # let(:admin) { create(:user) }
   before :each do
     user = double :user
     controller.current_user = user                      #miracle 1
